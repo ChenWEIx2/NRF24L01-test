@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "NRF24L01.h"
 
 /* USER CODE END Includes */
 
@@ -100,6 +101,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    //从机
+    //先处于RX_Mode，每个从机所处的RX_Mode通道一致
+    //接收成功，表示选中此机，转为TX_Mode
+    //接收到应答帧后转为RX_Mode,循环上述过程
+    
+
+
   }
   /* USER CODE END 3 */
 }
