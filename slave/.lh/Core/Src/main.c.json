@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1624523631493,
@@ -12,6 +12,26 @@
                 {
                     "date": 1624523765608,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,8 +100,16 @@\n   {\r\n     /* USER CODE END WHILE */\r\n \r\n     /* USER CODE BEGIN 3 */\r\n+\r\n+    //从机\r\n+    //先处于RX_Mode，每个从机所处的RX_Mode通道一致\r\n+    //接收成功，表示选中此机，转为TX_Mode\r\n+    //接收到应答帧后转为RX_Mode,循环上述过程\r\n+    \r\n+\r\n+\r\n   }\r\n   /* USER CODE END 3 */\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1624527049596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,10 @@\n \r\n /* Private variables ---------------------------------------------------------*/\r\n \r\n /* USER CODE BEGIN PV */\r\n-\r\n+uint8_t rx_buf[33];\r\n+uint8_t tx_buf[33] = \"slave\";\r\n /* USER CODE END PV */\r\n \r\n /* Private function prototypes -----------------------------------------------*/\r\n void SystemClock_Config(void);\r\n@@ -90,9 +91,14 @@\n   MX_GPIO_Init();\r\n   MX_USART1_UART_Init();\r\n   MX_SPI2_Init();\r\n   /* USER CODE BEGIN 2 */\r\n-\r\n+  while(NRF24L01_Check())\r\n+\t{\r\n+    printf(\"Can not find NRF24L01\\r\\n\"); \r\n+\t\tHAL_Delay(1000);\r\n+\t}\r\n+  printf(\"NRF24L01 connect sucessfullt\\r\\n\");\r\n   /* USER CODE END 2 */\r\n \r\n   /* Infinite loop */\r\n   /* USER CODE BEGIN WHILE */\r\n"
+                },
+                {
+                    "date": 1624527447913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -97,8 +97,11 @@\n     printf(\"Can not find NRF24L01\\r\\n\"); \r\n \t\tHAL_Delay(1000);\r\n \t}\r\n   printf(\"NRF24L01 connect sucessfullt\\r\\n\");\r\n+  \r\n+  //NRF24L01_TX_Mode(0);\r\n+\r\n   /* USER CODE END 2 */\r\n \r\n   /* Infinite loop */\r\n   /* USER CODE BEGIN WHILE */\r\n@@ -111,12 +114,43 @@\n     //从机\r\n     //先处于RX_Mode，每个从机所处的RX_Mode通道一致\r\n     //接收成功，表示选中此机，转为TX_Mode\r\n     //接收到应答帧后转为RX_Mode,循环上述过程\r\n-    \r\n+    NRF24L01_RX_Mode(0);\r\n+    if(NRF24L01_RxPacket(rx_buf)==0)\r\n+    {      \r\n+      printf(\"Select Channel 0!\\r\\n\");\r\n+      HAL_Delay(1000);    \r\n \r\n+      NRF24L01_TX_Mode(0);\r\n+      if(NRF24L01_TxPacket(tx_buf)==TX_OK)\r\n+      {\r\n+        printf(\"Channel 0 send successfully!\\r\\n\");\r\n+      }\r\n+      else\r\n+      {\r\n+        printf(\"Channel 0 send fail!\\r\\n\");\r\n+      }     \r\n+    }\r\n+    else\r\n+    {\r\n+      printf(\"Channel 0 do not be selected!\\r\\n\");\r\n+    }\r\n \r\n-  }\r\n+\r\n+    /*从机，一直发模式*/\r\n+    /*\r\n+    if(NRF24L01_TxPacket(tx_buf)==TX_OK)\r\n+    {\r\n+      printf(\"Channel 0 send successfully!\\r\\n\");\r\n+    }\r\n+    else\r\n+    {\r\n+      printf(\"Channel 0 send fail!\\r\\n\");\r\n+    } \r\n+    */\r\n+\r\n+\r\n   /* USER CODE END 3 */\r\n }\r\n \r\n /**\r\n"
+                },
+                {
+                    "date": 1624527527582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,28 +114,9 @@\n     //从机\r\n     //先处于RX_Mode，每个从机所处的RX_Mode通道一致\r\n     //接收成功，表示选中此机，转为TX_Mode\r\n     //接收到应答帧后转为RX_Mode,循环上述过程\r\n-    NRF24L01_RX_Mode(0);\r\n-    if(NRF24L01_RxPacket(rx_buf)==0)\r\n-    {      \r\n-      printf(\"Select Channel 0!\\r\\n\");\r\n-      HAL_Delay(1000);    \r\n \r\n-      NRF24L01_TX_Mode(0);\r\n-      if(NRF24L01_TxPacket(tx_buf)==TX_OK)\r\n-      {\r\n-        printf(\"Channel 0 send successfully!\\r\\n\");\r\n-      }\r\n-      else\r\n-      {\r\n-        printf(\"Channel 0 send fail!\\r\\n\");\r\n-      }     \r\n-    }\r\n-    else\r\n-    {\r\n-      printf(\"Channel 0 do not be selected!\\r\\n\");\r\n-    }\r\n \r\n \r\n     /*从机，一直发模式*/\r\n     /*\r\n@@ -147,10 +128,8 @@\n     {\r\n       printf(\"Channel 0 send fail!\\r\\n\");\r\n     } \r\n     */\r\n-\r\n-\r\n   /* USER CODE END 3 */\r\n }\r\n \r\n /**\r\n"
+                },
+                {
+                    "date": 1624527592798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,10 @@\n \r\n /* Private variables ---------------------------------------------------------*/\r\n \r\n /* USER CODE BEGIN PV */\r\n-\r\n+uint8_t rx_buf[33];\r\n+uint8_t tx_buf[33] = \"slave\";\r\n /* USER CODE END PV */\r\n \r\n /* Private function prototypes -----------------------------------------------*/\r\n void SystemClock_Config(void);\r\n@@ -91,8 +92,11 @@\n   MX_USART1_UART_Init();\r\n   MX_SPI2_Init();\r\n   /* USER CODE BEGIN 2 */\r\n \r\n+  \r\n+  //NRF24L01_TX_Mode(0);\r\n+\r\n   /* USER CODE END 2 */\r\n \r\n   /* Infinite loop */\r\n   /* USER CODE BEGIN WHILE */\r\n@@ -101,16 +105,9 @@\n     /* USER CODE END WHILE */\r\n \r\n     /* USER CODE BEGIN 3 */\r\n \r\n-    //从机\r\n-    //先处于RX_Mode，每个从机所处的RX_Mode通道一致\r\n-    //接收成功，表示选中此机，转为TX_Mode\r\n-    //接收到应答帧后转为RX_Mode,循环上述过程\r\n-    \r\n \r\n-\r\n-  }\r\n   /* USER CODE END 3 */\r\n }\r\n \r\n /**\r\n"
+                },
+                {
+                    "date": 1624527629780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,10 @@\n \r\n /* Private variables ---------------------------------------------------------*/\r\n \r\n /* USER CODE BEGIN PV */\r\n-\r\n+uint8_t rx_buf[33];\r\n+uint8_t tx_buf[33] = \"slave\";\r\n /* USER CODE END PV */\r\n \r\n /* Private function prototypes -----------------------------------------------*/\r\n void SystemClock_Config(void);\r\n@@ -90,8 +91,16 @@\n   MX_GPIO_Init();\r\n   MX_USART1_UART_Init();\r\n   MX_SPI2_Init();\r\n   /* USER CODE BEGIN 2 */\r\n+  \r\n+  while(NRF24L01_Check())\r\n+\t{\r\n+    printf(\"Can not find NRF24L01\\r\\n\"); \r\n+\t\tHAL_Delay(1000);\r\n+\t}\r\n+  printf(\"NRF24L01 connect sucessfullt\\r\\n\");\r\n+  //NRF24L01_TX_Mode(0);\r\n \r\n   /* USER CODE END 2 */\r\n \r\n   /* Infinite loop */\r\n@@ -101,16 +110,9 @@\n     /* USER CODE END WHILE */\r\n \r\n     /* USER CODE BEGIN 3 */\r\n \r\n-    //从机\r\n-    //先处于RX_Mode，每个从机所处的RX_Mode通道一致\r\n-    //接收成功，表示选中此机，转为TX_Mode\r\n-    //接收到应答帧后转为RX_Mode,循环上述过程\r\n-    \r\n \r\n-\r\n-  }\r\n   /* USER CODE END 3 */\r\n }\r\n \r\n /**\r\n"
                 }
             ],
             "date": 1624523631493,

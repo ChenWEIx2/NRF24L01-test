@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       (+) Configure the clock source to be used to drive the System clock
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           (if the application needs higher frequency/performance)
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       (+) Configure the System clock frequency and Flash settings
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       (+) Configure the AHB and APB busses prescalers
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   * @{
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   */
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 3
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 3
 
 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** /* Private macro -------------------------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****          (#) CSS (Clock security system), once enable using the macro __HAL_RCC_CSS_ENABLE()
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****              and if a HSE clock failure occurs(HSE used directly or through PLL as System
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 4
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 4
 
 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****              clock source), the System clocks automatically switched to HSI and an interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   *            - LSI, LSE and RTC clocks
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   * @retval HAL status
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   */
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 5
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 5
 
 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** __weak HAL_StatusTypeDef HAL_RCC_DeInit(void)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
   60 0002 00F0DF81 		beq	.L52
  222:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   uint32_t tickstart, pll_config;
   61              		.loc 1 222 1 view .LVU7
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 6
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 6
 
 
   62 0006 70B5     		push	{r4, r5, r6, lr}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  245:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       }
  246:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     }
  247:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     else
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 7
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 7
 
 
  248:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           if((HAL_GetTick() - tickstart ) > HSE_TIMEOUT_VALUE)
  138              		.loc 1 261 11 is_stmt 1 view .LVU34
  139              		.loc 1 261 15 is_stmt 0 view .LVU35
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 8
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 8
 
 
  140 0062 FFF7FEFF 		bl	HAL_GetTick
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           {
  277:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             return HAL_TIMEOUT;
  278:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 9
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 9
 
 
  279:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  309:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       if((RCC_OscInitStruct->HSIState)!= RCC_HSI_OFF)
  196              		.loc 1 309 7 is_stmt 1 view .LVU56
  197              		.loc 1 309 28 is_stmt 0 view .LVU57
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 10
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 10
 
 
  198 00aa E368     		ldr	r3, [r4, #12]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  238 00d8 43F48033 		orr	r3, r3, #65536
  239 00dc 1360     		str	r3, [r2]
  240 00de B5E7     		b	.L8
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 11
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 11
 
 
  241              	.L81:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  281              	.LVL13:
  282              	.L83:
  292:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 12
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 12
 
 
  283              		.loc 1 292 68 view .LVU86
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             return HAL_TIMEOUT;
  343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           }
  344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 13
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 13
 
 
  345:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  343              		.loc 1 366 13 is_stmt 0 view .LVU109
  344 0160 FFF7FEFF 		bl	HAL_GetTick
  345              	.LVL16:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 14
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 14
 
 
  346              		.loc 1 366 27 view .LVU110
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  340:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           {
  388              		.loc 1 340 29 view .LVU123
  389 019a 401B     		subs	r0, r0, r5
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 15
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 15
 
 
  340:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  385:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****           return HAL_TIMEOUT;
  426              		.loc 1 385 18 view .LVU137
  427 01c4 0320     		movs	r0, #3
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 16
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 16
 
 
  428 01c6 04E1     		b	.L3
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  465              		.loc 1 402 7 view .LVU151
  403:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       pwrclkchanged = SET;
  466              		.loc 1 403 7 view .LVU152
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 17
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 17
 
 
  467              	.LVL27:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  499 0216 1A6F     		ldr	r2, [r3, #112]
  500 0218 22F00402 		bic	r2, r2, #4
  501 021c 1A67     		str	r2, [r3, #112]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 18
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 18
 
 
  502              	.L36:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  543 024a 43F48073 		orr	r3, r3, #256
  544 024e 1360     		str	r3, [r2]
  412:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 19
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 19
 
 
  545              		.loc 1 412 7 view .LVU179
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  586              		.loc 1 424 5 discriminator 4 view .LVU192
  587 0284 1A6F     		ldr	r2, [r3, #112]
  588 0286 42F00102 		orr	r2, r2, #1
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 20
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 20
 
 
  589 028a 1A67     		str	r2, [r3, #112]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  452:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       }
  453:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     }
  454:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 21
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 21
 
 
  455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     /* Restore clock configuration if changed */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         /* Wait till PLL is ready */
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLRDY) != RESET)
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 22
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 22
 
 
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  670              		.loc 1 523 14 view .LVU222
  671 02ea 13F0007F 		tst	r3, #33554432
  672 02ee 42D0     		beq	.L90
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 23
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 23
 
 
  524:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         {
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         {
  713              		.loc 1 485 9 is_stmt 1 view .LVU238
  714              	.L46:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 24
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 24
 
 
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  757 0358 0446     		mov	r4, r0
  758              	.LVL51:
  506:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         {
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 25
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 25
 
 
  759              		.loc 1 506 9 is_stmt 1 view .LVU251
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  552:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****         if (((RCC_OscInitStruct->PLL.PLLState) == RCC_PLL_OFF) ||
  553:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             (READ_BIT(pll_config, RCC_PLLCFGR_PLLSRC) != RCC_OscInitStruct->PLL.PLLSource) ||
  554:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             (READ_BIT(pll_config, RCC_PLLCFGR_PLLM) != (RCC_OscInitStruct->PLL.PLLM) << RCC_PLLCFGR
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 26
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 26
 
 
  555:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             (READ_BIT(pll_config, RCC_PLLCFGR_PLLN) != (RCC_OscInitStruct->PLL.PLLN) << RCC_PLLCFGR
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  813 0394 23D1     		bne	.L71
  555:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****             (READ_BIT(pll_config, RCC_PLLCFGR_PLLP) != (((RCC_OscInitStruct->PLL.PLLP >> 1U) - 1U))
  814              		.loc 1 555 79 view .LVU273
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 27
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 27
 
 
  815 0396 616A     		ldr	r1, [r4, #36]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  858              	.LCFI3:
  859              		.cfi_def_cfa_offset 24
  860              		.cfi_offset 4, -16
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 28
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 28
 
 
  861              		.cfi_offset 5, -12
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  908              		.loc 1 560 18 view .LVU293
  909 03ea 0120     		movs	r0, #1
  910 03ec F1E7     		b	.L3
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 29
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 29
 
 
  911              	.L96:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  604:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   assert_param(IS_RCC_CLOCKTYPE(RCC_ClkInitStruct->ClockType));
  605:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   assert_param(IS_FLASH_LATENCY(FLatency));
  606:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 30
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 30
 
 
  607:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   /* To correctly read data from FLASH memory, the number of wait states (LATENCY)
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  661:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
  662:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       /* Check the PLL ready flag */
  663:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       if(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLRDY) == RESET)
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 31
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 31
 
 
  664:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       {
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  718:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   }
  719:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  720:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   /* Update the SystemCoreClock global variable */
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 32
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 32
 
 
  721:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   SystemCoreClock = HAL_RCC_GetSysClockFreq() >> AHBPrescTable[(RCC->CFGR & RCC_CFGR_HPRE)>> RCC_CF
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  775:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   * @retval None
  776:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   */
  777:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** void HAL_RCC_MCOConfig(uint32_t RCC_MCOx, uint32_t RCC_MCOSource, uint32_t RCC_MCODiv)
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 33
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 33
 
 
  778:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  972              	.LBE5:
  973              		.loc 1 789 5 view .LVU308
  790:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 34
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 34
 
 
  791:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     /* Configure the MCO1 pin in alternate function mode */
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  809:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   {
  810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     assert_param(IS_RCC_MCO2SOURCE(RCC_MCOSource));
  811:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 35
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 35
 
 
  812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     /* MCO2 Clock Enable */
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1037 0060 0292     		str	r2, [sp, #8]
  813:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  1038              		.loc 1 813 5 view .LVU331
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 36
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 36
 
 
  1039 0062 029A     		ldr	r2, [sp, #8]
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1077              		.loc 1 832 1 view .LVU348
  1078 008c DCE7     		b	.L97
  1079              	.L102:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 37
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 37
 
 
  1080 008e 00BF     		.align	2
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1123              		.fpu fpv4-sp-d16
  1125              	HAL_RCC_DisableCSS:
  1126              	.LFB135:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 38
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 38
 
 
  847:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  873:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   *                have wrong result.
  874:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   *
  875:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   * @note   The result of this function could be not correct when using fractional
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 39
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 39
 
 
  876:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   *         value for HSE crystal.
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  903:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       break;
  904:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     }
  905:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     case RCC_CFGR_SWS_PLL:  /* PLL used as system clock  source */
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 40
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 40
 
 
  906:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1221              		.loc 1 922 7 is_stmt 1 view .LVU379
  1222              		.loc 1 922 20 is_stmt 0 view .LVU380
  1223 0042 B0FBF3F0 		udiv	r0, r0, r3
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 41
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 41
 
 
  1224              	.LVL80:
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1269              	.LVL84:
  924:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     }
  925:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     default:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 42
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 42
 
 
  926:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1313              		.loc 1 604 3 is_stmt 1 view .LVU397
  605:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  1314              		.loc 1 605 3 view .LVU398
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 43
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 43
 
 
  612:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   {
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  635:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
  1354              		.loc 1 635 7 view .LVU414
  1355 0044 13F0080F 		tst	r3, #8
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 44
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 44
 
 
  1356 0048 04D0     		beq	.L123
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1394              		.loc 1 672 10 is_stmt 0 view .LVU430
  1395 0076 364A     		ldr	r2, .L146+4
  1396 0078 1268     		ldr	r2, [r2]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 45
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 45
 
 
  672:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****       {
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1436              		.loc 1 687 16 view .LVU445
  1437 00b0 0320     		movs	r0, #3
  1438 00b2 42E0     		b	.L119
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 46
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 46
 
 
  1439              	.LVL90:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1479 00e0 1A70     		strb	r2, [r3]
  700:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
  1480              		.loc 1 700 5 view .LVU460
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 47
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 47
 
 
  700:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     {
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1521              	.LVL94:
  721:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
  1522              		.loc 1 721 68 view .LVU475
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 48
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 48
 
 
  1523 011e 0C4B     		ldr	r3, .L146+4
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  621:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     }
  1567              		.loc 1 621 14 view .LVU486
  1568 0140 0120     		movs	r0, #1
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 49
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 49
 
 
  1569              	.LVL99:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  945:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   return SystemCoreClock;
  1609              		.loc 1 945 3 view .LVU492
  946:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 50
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 50
 
 
  1610              		.loc 1 946 1 is_stmt 0 view .LVU493
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1654 0014 08BD     		pop	{r3, pc}
  1655              	.L154:
  1656 0016 00BF     		.align	2
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 51
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 51
 
 
  1657              	.L153:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1701 001c 00000000 		.word	APBPrescTable
  1702              		.cfi_endproc
  1703              	.LFE139:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 52
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 52
 
 
  1705              		.section	.text.HAL_RCC_GetOscConfig,"ax",%progbits
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  994:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   {
  995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     RCC_OscInitStruct->HSEState = RCC_HSE_OFF;
  996:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 53
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 53
 
 
  997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
 1020:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   {
 1021:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****     RCC_OscInitStruct->LSEState = RCC_LSE_OFF;
 1022:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 54
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 54
 
 
 1023:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1800              		.loc 1 1044 3 is_stmt 1 view .LVU544
  1801              		.loc 1 1044 47 is_stmt 0 view .LVU545
  1802 005e 5368     		ldr	r3, [r2, #4]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 55
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 55
 
 
  1803              		.loc 1 1044 33 view .LVU546
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   }
  1848              		.loc 1 995 5 is_stmt 1 view .LVU568
  995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 56
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 56
 
 
  1849              		.loc 1 995 33 is_stmt 0 view .LVU569
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1890              	.L173:
  1891 00c6 00BF     		.align	2
  1892              	.L172:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 57
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 57
 
 
  1893 00c8 00380240 		.word	1073887232
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  1930              		.loc 1 1067 36 view .LVU593
  1931 0014 8260     		str	r2, [r0, #8]
 1068:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 58
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 58
 
 
 1069:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   /* Get the APB1 configuration ----------------------------------------------*/
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
 1082:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   * @retval None
 1083:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   */
 1084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** void HAL_RCC_NMI_IRQHandler(void)
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 59
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 59
 
 
 1085:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c **** {
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  2006 0002 064B     		ldr	r3, .L182
  2007 0004 DB68     		ldr	r3, [r3, #12]
 1087:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c ****   {
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 60
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 60
 
 
  2008              		.loc 1 1087 5 view .LVU612
@@ -3581,53 +3581,53 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 1
  2042              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
  2043              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  2044              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s 			page 61
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s 			page 61
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_rcc.c
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:18     .text.HAL_RCC_DeInit:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:26     .text.HAL_RCC_DeInit:00000000 HAL_RCC_DeInit
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:42     .text.HAL_RCC_OscConfig:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:49     .text.HAL_RCC_OscConfig:00000000 HAL_RCC_OscConfig
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:623    .text.HAL_RCC_OscConfig:000002b0 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:630    .text.HAL_RCC_OscConfig:000002c0 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:914    .text.HAL_RCC_OscConfig:000003f0 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:920    .text.HAL_RCC_MCOConfig:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:927    .text.HAL_RCC_MCOConfig:00000000 HAL_RCC_MCOConfig
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1082   .text.HAL_RCC_MCOConfig:00000090 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1089   .text.HAL_RCC_EnableCSS:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1096   .text.HAL_RCC_EnableCSS:00000000 HAL_RCC_EnableCSS
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1113   .text.HAL_RCC_EnableCSS:00000008 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1118   .text.HAL_RCC_DisableCSS:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1125   .text.HAL_RCC_DisableCSS:00000000 HAL_RCC_DisableCSS
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1142   .text.HAL_RCC_DisableCSS:00000008 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1148   .text.HAL_RCC_GetSysClockFreq:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1155   .text.HAL_RCC_GetSysClockFreq:00000000 HAL_RCC_GetSysClockFreq
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1277   .text.HAL_RCC_GetSysClockFreq:00000094 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1284   .text.HAL_RCC_ClockConfig:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1291   .text.HAL_RCC_ClockConfig:00000000 HAL_RCC_ClockConfig
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1586   .text.HAL_RCC_ClockConfig:0000014c $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1595   .text.HAL_RCC_GetHCLKFreq:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1602   .text.HAL_RCC_GetHCLKFreq:00000000 HAL_RCC_GetHCLKFreq
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1617   .text.HAL_RCC_GetHCLKFreq:00000008 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1622   .text.HAL_RCC_GetPCLK1Freq:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1629   .text.HAL_RCC_GetPCLK1Freq:00000000 HAL_RCC_GetPCLK1Freq
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1658   .text.HAL_RCC_GetPCLK1Freq:00000018 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1664   .text.HAL_RCC_GetPCLK2Freq:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1671   .text.HAL_RCC_GetPCLK2Freq:00000000 HAL_RCC_GetPCLK2Freq
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1700   .text.HAL_RCC_GetPCLK2Freq:00000018 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1706   .text.HAL_RCC_GetOscConfig:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1713   .text.HAL_RCC_GetOscConfig:00000000 HAL_RCC_GetOscConfig
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1893   .text.HAL_RCC_GetOscConfig:000000c8 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1898   .text.HAL_RCC_GetClockConfig:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1905   .text.HAL_RCC_GetClockConfig:00000000 HAL_RCC_GetClockConfig
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1960   .text.HAL_RCC_GetClockConfig:00000034 $d
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1966   .text.HAL_RCC_CSSCallback:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1973   .text.HAL_RCC_CSSCallback:00000000 HAL_RCC_CSSCallback
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1986   .text.HAL_RCC_NMI_IRQHandler:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:1993   .text.HAL_RCC_NMI_IRQHandler:00000000 HAL_RCC_NMI_IRQHandler
-C:\Users\Kiana\AppData\Local\Temp\ccgAoZzJ.s:2027   .text.HAL_RCC_NMI_IRQHandler:0000001c $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:18     .text.HAL_RCC_DeInit:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:26     .text.HAL_RCC_DeInit:00000000 HAL_RCC_DeInit
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:42     .text.HAL_RCC_OscConfig:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:49     .text.HAL_RCC_OscConfig:00000000 HAL_RCC_OscConfig
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:623    .text.HAL_RCC_OscConfig:000002b0 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:630    .text.HAL_RCC_OscConfig:000002c0 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:914    .text.HAL_RCC_OscConfig:000003f0 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:920    .text.HAL_RCC_MCOConfig:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:927    .text.HAL_RCC_MCOConfig:00000000 HAL_RCC_MCOConfig
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1082   .text.HAL_RCC_MCOConfig:00000090 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1089   .text.HAL_RCC_EnableCSS:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1096   .text.HAL_RCC_EnableCSS:00000000 HAL_RCC_EnableCSS
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1113   .text.HAL_RCC_EnableCSS:00000008 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1118   .text.HAL_RCC_DisableCSS:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1125   .text.HAL_RCC_DisableCSS:00000000 HAL_RCC_DisableCSS
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1142   .text.HAL_RCC_DisableCSS:00000008 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1148   .text.HAL_RCC_GetSysClockFreq:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1155   .text.HAL_RCC_GetSysClockFreq:00000000 HAL_RCC_GetSysClockFreq
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1277   .text.HAL_RCC_GetSysClockFreq:00000094 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1284   .text.HAL_RCC_ClockConfig:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1291   .text.HAL_RCC_ClockConfig:00000000 HAL_RCC_ClockConfig
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1586   .text.HAL_RCC_ClockConfig:0000014c $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1595   .text.HAL_RCC_GetHCLKFreq:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1602   .text.HAL_RCC_GetHCLKFreq:00000000 HAL_RCC_GetHCLKFreq
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1617   .text.HAL_RCC_GetHCLKFreq:00000008 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1622   .text.HAL_RCC_GetPCLK1Freq:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1629   .text.HAL_RCC_GetPCLK1Freq:00000000 HAL_RCC_GetPCLK1Freq
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1658   .text.HAL_RCC_GetPCLK1Freq:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1664   .text.HAL_RCC_GetPCLK2Freq:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1671   .text.HAL_RCC_GetPCLK2Freq:00000000 HAL_RCC_GetPCLK2Freq
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1700   .text.HAL_RCC_GetPCLK2Freq:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1706   .text.HAL_RCC_GetOscConfig:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1713   .text.HAL_RCC_GetOscConfig:00000000 HAL_RCC_GetOscConfig
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1893   .text.HAL_RCC_GetOscConfig:000000c8 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1898   .text.HAL_RCC_GetClockConfig:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1905   .text.HAL_RCC_GetClockConfig:00000000 HAL_RCC_GetClockConfig
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1960   .text.HAL_RCC_GetClockConfig:00000034 $d
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1966   .text.HAL_RCC_CSSCallback:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1973   .text.HAL_RCC_CSSCallback:00000000 HAL_RCC_CSSCallback
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1986   .text.HAL_RCC_NMI_IRQHandler:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:1993   .text.HAL_RCC_NMI_IRQHandler:00000000 HAL_RCC_NMI_IRQHandler
+C:\Users\Kiana\AppData\Local\Temp\ccZzul7H.s:2027   .text.HAL_RCC_NMI_IRQHandler:0000001c $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick

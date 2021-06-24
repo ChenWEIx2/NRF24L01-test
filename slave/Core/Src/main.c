@@ -46,7 +46,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t tx_buf[33] = "slave";
+uint8_t rx_buf[33];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,6 +93,14 @@ int main(void)
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 
+	while(NRF24L01_Check())
+	{
+    printf("Can not find NRF24L01\r\n"); 
+		HAL_Delay(1000);
+	}
+  printf("NRF24L01 connect sucessfullt\r\n");
+  //NRF24L01_TX_Mode(0);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,8 +115,38 @@ int main(void)
     //先处于RX_Mode，每个从机所处的RX_Mode通道一致
     //接收成功，表示选中此机，转为TX_Mode
     //接收到应答帧后转为RX_Mode,循环上述过程
-    
+    NRF24L01_RX_Mode(0);
+    if(NRF24L01_RxPacket(rx_buf)==0)
+    {      
+      printf("Select Channel 0!\r\n");
+      HAL_Delay(1000);    
 
+      NRF24L01_TX_Mode(0);
+      if(NRF24L01_TxPacket(tx_buf)==TX_OK)
+      {
+        printf("Channel 0 send successfully!\r\n");
+      }
+      else
+      {
+        printf("Channel 0 send fail!\r\n");
+      }     
+    }
+    else
+    {
+      printf("Channel 0 do not be selected!\r\n");
+    }
+
+    /*从机，一直发模式*/
+    /*
+    if(NRF24L01_TxPacket(tx_buf)==TX_OK)
+    {
+      printf("Channel 0 send successfully!\r\n");
+    }
+    else
+    {
+      printf("Channel 0 send fail!\r\n");
+    } 
+    */
 
   }
   /* USER CODE END 3 */

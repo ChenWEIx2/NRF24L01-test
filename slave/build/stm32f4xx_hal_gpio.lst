@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
   27:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   lines are not active and the I/O ports are configured in input floating mode.
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   [..]   
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 2
 
 
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   All GPIO pins have weak internal pull-up and pull-down resistors, which can be 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
   84:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****     (#) The LSE oscillator pins OSC32_IN and OSC32_OUT can be used as general purpose 
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         (PC14 and PC15, respectively) when the LSE oscillator is off. The LSE has 
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         priority over the GPIO function.
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 3
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 3
 
 
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   *  @brief    Initialization and Configuration functions
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   *
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c **** @verbatim    
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 4
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 4
 
 
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****  ===============================================================================
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
   49 0002 0F2B     		cmp	r3, #15
   50 0004 00F2CB80 		bhi	.L21
  165:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   uint32_t position;
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 5
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 5
 
 
   51              		.loc 1 165 1 view .LVU13
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
   86              	.LVL5:
  198:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         GPIOx->OSPEEDR = temp;
   87              		.loc 1 198 9 is_stmt 1 view .LVU25
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 6
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 6
 
 
   88              		.loc 1 198 24 is_stmt 0 view .LVU26
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  118 0036 DC08     		lsrs	r4, r3, #3
  119              		.loc 1 222 14 view .LVU41
  120 0038 0834     		adds	r4, r4, #8
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 7
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 7
 
 
  121 003a 50F82470 		ldr	r7, [r0, r4, lsl #2]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  154              	.L7:
  155              		.loc 1 243 52 discriminator 20 view .LVU55
  156 005e B240     		lsls	r2, r2, r6
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 8
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 8
 
 
  157              		.loc 1 243 14 discriminator 20 view .LVU56
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  198              		.loc 1 256 14 is_stmt 0 view .LVU75
  199 0086 02EA0406 		and	r6, r2, r4
  200              	.LVL21:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 9
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 9
 
 
  257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         if((GPIO_Init->Mode & GPIO_MODE_EVT) == GPIO_MODE_EVT)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  239              		.loc 1 272 9 is_stmt 1 view .LVU94
  240              		.loc 1 272 14 is_stmt 0 view .LVU95
  241 00b0 E468     		ldr	r4, [r4, #12]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 10
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 10
 
 
  242              	.LVL26:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  183:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c **** 
  282              		.loc 1 183 15 view .LVU113
  283 00d0 04EA0205 		and	r5, r4, r2
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 11
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 11
 
 
  284              	.LVL33:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  321              	.LVL36:
  212:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         GPIOx->PUPDR = temp;
  322              		.loc 1 212 9 is_stmt 1 view .LVU131
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 12
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 12
 
 
  212:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         GPIOx->PUPDR = temp;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       GPIOx->MODER = temp;
  360              		.loc 1 231 33 view .LVU149
  361 011c 02F00302 		and	r2, r2, #3
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 13
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 13
 
 
  231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       GPIOx->MODER = temp;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  400 0148 A61C     		adds	r6, r4, #2
  401 014a 154A     		ldr	r2, .L26
  402 014c 52F82670 		ldr	r7, [r2, r6, lsl #2]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 14
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 14
 
 
  403              	.LVL44:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  444              	.LVL47:
  445              	.L15:
  243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2U] = temp;
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 15
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 15
 
 
  446              		.loc 1 243 29 view .LVU179
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   *                      x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427
  288:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the port bit to be written.
  289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   *          This parameter can be one of GPIO_PIN_x where x can be (0..15).
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 16
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 16
 
 
  290:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   * @retval None
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       tmp &= (0x0FU << (4U * (position & 0x03U)));
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       if(tmp == ((uint32_t)(GPIO_GET_INDEX(GPIOx)) << (4U * (position & 0x03U))))
  523              		.loc 1 315 29 view .LVU194
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 17
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 17
 
 
  524 000a 0426     		movs	r6, #4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  558 003a 0F27     		movs	r7, #15
  559 003c 07FA0CF7 		lsl	r7, r7, ip
  560              		.loc 1 335 34 view .LVU208
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 18
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 18
 
 
  561 0040 26EA0706 		bic	r6, r6, r7
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  598 006a 02EA0107 		and	r7, r2, r1
  599              	.LVL59:
  310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****     {
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 19
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 19
 
 
  600              		.loc 1 310 5 is_stmt 1 view .LVU224
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       {
  640              		.loc 1 315 29 discriminator 7 view .LVU239
  641 00b0 06F58066 		add	r6, r6, #1024
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 20
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 20
 
 
  642 00b4 B042     		cmp	r0, r6
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  327:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       }
  684              		.loc 1 327 9 view .LVU252
  327:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****       }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 21
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 21
 
 
  685              		.loc 1 327 40 is_stmt 0 view .LVU253
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  359:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****  ===============================================================================
  360:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c **** 
  361:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c **** @endverbatim
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 22
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 22
 
 
  362:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****   * @{
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  753              		.cfi_endproc
  754              	.LFE132:
  756              		.section	.text.HAL_GPIO_WritePin,"ax",%progbits
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 23
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 23
 
 
  757              		.align	1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  420:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c ****     GPIOx->BSRR = (uint32_t)GPIO_Pin << 16U;
  782              		.loc 1 420 5 is_stmt 1 view .LVU274
  783              		.loc 1 420 38 is_stmt 0 view .LVU275
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 24
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 24
 
 
  784 0006 0904     		lsls	r1, r1, #16
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  818              		.loc 1 442 59 view .LVU285
  819 0006 21EA0301 		bic	r1, r1, r3
  820              	.LVL75:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 25
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 25
 
 
  821              		.loc 1 442 51 view .LVU286
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  855              		.loc 1 464 3 view .LVU294
  856              		.loc 1 464 7 is_stmt 0 view .LVU295
  857 0008 019B     		ldr	r3, [sp, #4]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 26
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 26
 
 
  858 000a 0B43     		orrs	r3, r3, r1
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  893              	.LVL78:
  894              	.L57:
  895              	.LCFI8:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 27
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 27
 
 
  896              		.cfi_restore_state
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  512:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c **** }
  922              		.loc 1 512 1 is_stmt 0 view .LVU314
  923 0000 7047     		bx	lr
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 28
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 28
 
 
  924              		.cfi_endproc
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  971              	.L64:
  972 0018 003C0140 		.word	1073822720
  973              		.cfi_endproc
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 29
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 29
 
 
  974              	.LFE136:
@@ -1693,29 +1693,29 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 1
  984              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  985              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  986              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s 			page 30
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_gpio.c
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:18     .text.HAL_GPIO_Init:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:26     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:476    .text.HAL_GPIO_Init:000001a0 $d
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:484    .text.HAL_GPIO_DeInit:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:491    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:710    .text.HAL_GPIO_DeInit:00000104 $d
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:717    .text.HAL_GPIO_ReadPin:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:724    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:757    .text.HAL_GPIO_WritePin:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:764    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:794    .text.HAL_GPIO_TogglePin:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:801    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:831    .text.HAL_GPIO_LockPin:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:838    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:906    .text.HAL_GPIO_EXTI_Callback:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:913    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:928    .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:935    .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
-C:\Users\Kiana\AppData\Local\Temp\ccUbUSkh.s:972    .text.HAL_GPIO_EXTI_IRQHandler:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:18     .text.HAL_GPIO_Init:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:26     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:476    .text.HAL_GPIO_Init:000001a0 $d
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:484    .text.HAL_GPIO_DeInit:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:491    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:710    .text.HAL_GPIO_DeInit:00000104 $d
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:717    .text.HAL_GPIO_ReadPin:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:724    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:757    .text.HAL_GPIO_WritePin:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:764    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:794    .text.HAL_GPIO_TogglePin:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:801    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:831    .text.HAL_GPIO_LockPin:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:838    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:906    .text.HAL_GPIO_EXTI_Callback:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:913    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:928    .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:935    .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
+C:\Users\Kiana\AppData\Local\Temp\ccarFjPk.s:972    .text.HAL_GPIO_EXTI_IRQHandler:00000018 $d
 
 NO UNDEFINED SYMBOLS
