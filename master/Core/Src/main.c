@@ -100,6 +100,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    //master
+    //先处在TX_Mode,TX_Mode要可以选择通过哪个通道发送
+    //发送成功后处于RX_Mode，RX_Mode要可以打印出接收的通道来源
+    //接收成功后继续变为TX_Mode，重复上述过程
+    
+
   }
   /* USER CODE END 3 */
 }
