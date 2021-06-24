@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1624516055562,
@@ -44,6 +44,10 @@
                 {
                     "date": 1624520422762,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -167,11 +167,11 @@\n   */ \r\n uint8_t NRF24L01_RxPacket(uint8_t *rxbuf)\r\n {\r\n \tuint8_t sta;\t\t    \t\t\t\t\t\t\t   \r\n-\tsta=NRF24L01_Read_Reg(STATUS);  //读取状态寄存器的值    \t \r\n+\tsta=NRF24L01_Read_Reg(STATUS);                //读取状态寄存器的值    \t \r\n \tNRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志\r\n-\tif(sta&RX_OK)//接收到数据\r\n+\tif(sta&RX_OK)                                 //接收到数据\r\n \t{\r\n     switch (sta&0x0e)\r\n     {\r\n     case 0x00:\r\n@@ -195,12 +195,12 @@\n       printf(\"Read successfully but unknow channel!\\r\\n\");\r\n       break;\r\n     }\r\n \t\t\r\n-\t\tNRF24L01_Write_Reg(FLUSH_RX,0xff);//清除RX FIFO寄存器 \r\n+\t\tNRF24L01_Write_Reg(FLUSH_RX,0xff);                      //清除RX FIFO寄存器 \r\n \t\treturn 0; \r\n \t}\t\r\n-\treturn 1;//没收到任何数据\r\n+\treturn 1; //没收到任何数据\r\n }\t\t\t\t\t    \r\n \r\n /**\r\n   * 函数功能: 该函数初始化NRF24L01到RX模式\r\n"
+                },
+                {
+                    "date": 1624521538504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -246,8 +246,42 @@\n   HAL_Delay(1);\r\n }\t\t\t\t\t\t \r\n \r\n /**\r\n+  * 函数功能: 该函数初始化NRF24L01到主机RX模式\r\n+  * 输入参数: 无\r\n+  * 返 回 值: 无\r\n+  * 说    明：无\r\n+  *           \r\n+  */ \r\n+void NRF24L01_RX_Mode_Master(void)\r\n+{\r\n+\tNRF24L01_CE_LOW();\r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 \t    \r\n+  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地址\r\n+\r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1的有效数据宽度 \t    \r\n+  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地址\r\n+\r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2的有效数据宽度 \t    \r\n+  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //写RX节点地址\r\n+\r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 \t    \r\n+  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //写RX节点地址\r\n+\t  \r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_CRC,16BIT_CRC \r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    \r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  \t \r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);\t      //设置RF通信频率\t\t  \r\n+  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪声增益开启   \r\n+  \r\n+\t\r\n+  NRF24L01_CE_HIGH(); //CE为高,进入接收模式 \r\n+  HAL_Delay(1);\r\n+}\r\n+\r\n+\r\n+/**\r\n   * 函数功能: 该函数初始化NRF24L01到TX模式\r\n   * 输入参数: 通道号1~4\r\n   * 返 回 值: 无\r\n   * 说    明：无\r\n"
                 }
             ],
             "date": 1624516055562,
