@@ -290,7 +290,7 @@ void NRF24L01_RX_Mode_Master(void)
 void NRF24L01_TX_Mode(uint8_t channel)
 {														 
 	NRF24L01_CE_LOW();
-  switch (channel))
+  switch (channel)
   {
   case 0:                                                                            //通道0
     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);    //写TX节点地址 
