@@ -98,6 +98,7 @@ int main(void)
 		HAL_Delay(1000);
 	}
   printf("Connect to NRF24L01 Successfully!\r\n");
+  //NRF24L01_RX_Mode_Master();
   
   /* USER CODE END 2 */
 
@@ -138,7 +139,17 @@ int main(void)
     }
 
     /*Master RX Mode*/
-
+    /*
+      if(NRF24L01_RxPacket(rx_buf)==0)
+      {     
+        printf("Rx_buf:%s\r\n",i,rx_buf);
+        HAL_Delay(1000);
+      }
+      else
+      {
+        printf("Rx_buf receive fail!\r\n",i);
+      }
+    */
 
         
 
