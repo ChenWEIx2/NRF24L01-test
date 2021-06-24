@@ -1,0 +1,22 @@
+{
+    "sourceFile": "Core/Src/usart_debug.c",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1624435833703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624436055075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n /*定义_sys_exit()以避免使用半主机模式*/\r\n void _sys_exit(int x)\r\n {\r\n     x = x;\r\n-}\n\\ No newline at end of file\n+}\r\n"
+                }
+            ],
+            "date": 1624435833703,
+            "name": "Commit-0",
+            "content": "#include \"usart_debug.h\"\r\n\r\n/*重新定义__write函数*/\r\nint _write(int fd, char *ptr, int len)\r\n{\r\n    HAL_UART_Transmit(&huart_debug, (uint8_t *)ptr, len, 0xFFFF);\r\n    return len;\r\n}\r\n\r\n/*定义_sys_exit()以避免使用半主机模式*/\r\nvoid _sys_exit(int x)\r\n{\r\n    x = x;\r\n}"
+        }
+    ]
+}

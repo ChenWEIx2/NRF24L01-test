@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Core/Inc/usart.h",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1624436774680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624436943043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n   HAL_UART_Transmit(&huart1,(uint8_t *)&ch,1,0xFFFF);\r\n   return ch;\r\n }\r\n \r\n-\r\n /* USER CODE END Private defines */\r\n \r\n void MX_USART1_UART_Init(void);\r\n \r\n"
+                },
+                {
+                    "date": 1624437287378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,19 +33,8 @@\n \r\n extern UART_HandleTypeDef huart1;\r\n \r\n /* USER CODE BEGIN Private defines */\r\n-#ifdef __GNUC__\r\n-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)\r\n-#else\r\n-#define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *f)\r\n-#endif\r\n-PUTCHAR_PROTOTYPE\r\n-{\r\n-  HAL_UART_Transmit(&huart1,(uint8_t *)&ch,1,0xFFFF);\r\n-  return ch;\r\n-}\r\n-\r\n /* USER CODE END Private defines */\r\n \r\n void MX_USART1_UART_Init(void);\r\n \r\n"
+                }
+            ],
+            "date": 1624436774680,
+            "name": "Commit-0",
+            "content": "/**\r\n  ******************************************************************************\r\n  * @file    usart.h\r\n  * @brief   This file contains all the function prototypes for\r\n  *          the usart.c file\r\n  ******************************************************************************\r\n  * @attention\r\n  *\r\n  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.\r\n  * All rights reserved.</center></h2>\r\n  *\r\n  * This software component is licensed by ST under BSD 3-Clause license,\r\n  * the \"License\"; You may not use this file except in compliance with the\r\n  * License. You may obtain a copy of the License at:\r\n  *                        opensource.org/licenses/BSD-3-Clause\r\n  *\r\n  ******************************************************************************\r\n  */\r\n/* Define to prevent recursive inclusion -------------------------------------*/\r\n#ifndef __USART_H__\r\n#define __USART_H__\r\n\r\n#ifdef __cplusplus\r\nextern \"C\" {\r\n#endif\r\n\r\n/* Includes ------------------------------------------------------------------*/\r\n#include \"main.h\"\r\n\r\n/* USER CODE BEGIN Includes */\r\n\r\n/* USER CODE END Includes */\r\n\r\nextern UART_HandleTypeDef huart1;\r\n\r\n/* USER CODE BEGIN Private defines */\r\n#ifdef __GNUC__\r\n#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)\r\n#else\r\n#define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *f)\r\n#endif\r\nPUTCHAR_PROTOTYPE\r\n{\r\n  HAL_UART_Transmit(&huart1,(uint8_t *)&ch,1,0xFFFF);\r\n  return ch;\r\n}\r\n\r\n\r\n/* USER CODE END Private defines */\r\n\r\nvoid MX_USART1_UART_Init(void);\r\n\r\n/* USER CODE BEGIN Prototypes */\r\n\r\n/* USER CODE END Prototypes */\r\n\r\n#ifdef __cplusplus\r\n}\r\n#endif\r\n\r\n#endif /* __USART_H__ */\r\n\r\n/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".vscode/launch.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1624433914502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624433926527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     \"version\": \"0.2.0\",\r\n     \"configurations\": [\r\n         {\r\n             \"cwd\": \"${workspaceRoot}\",\r\n-            \"executable\": \"build/RC_Software.elf\",\r\n+            \"executable\": \"build/uart.elf\",\r\n             \"name\": \"Debug Microcontroller\",\r\n             \"request\": \"launch\",\r\n             \"type\": \"cortex-debug\",\r\n             \"servertype\": \"openocd\",\r\n"
+                }
+            ],
+            "date": 1624433914502,
+            "name": "Commit-0",
+            "content": "\r\n{\r\n    // 使用 IntelliSense 了解相关属性。 \r\n    // 悬停以查看现有属性的描述。\r\n    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387\r\n    \"version\": \"0.2.0\",\r\n    \"configurations\": [\r\n        {\r\n            \"cwd\": \"${workspaceRoot}\",\r\n            \"executable\": \"build/RC_Software.elf\",\r\n            \"name\": \"Debug Microcontroller\",\r\n            \"request\": \"launch\",\r\n            \"type\": \"cortex-debug\",\r\n            \"servertype\": \"openocd\",\r\n            \"configFiles\": [\r\n                \"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/interface/stlink-v2.cfg\",\r\n                \"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/target/stm32f4x.cfg\"\r\n            ]\r\n        }\r\n    ]\r\n}\r\n\r\n/*\r\n{\r\n    // 使用 IntelliSense 了解相关属性。 \r\n    // 悬停以查看现有属性的描述。\r\n    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387\r\n    \"version\": \"0.2.0\",\r\n    \"configurations\": [\r\n        \r\n        {\r\n            \"name\": \"Cortex Debug\",\r\n            \"cwd\": \"${workspaceRoot}\",\r\n            \"executable\": \"build/RC_Software.elf\",\r\n            \"request\":\"launch\",\r\n            \"type\":\"cortex-debug\",\r\n            \"device\":\"STM32F401CC\",        \r\n            \"svdFile\": \"STM32F401.svd\",  \r\n            \"servertype\": \"jlink\",         //使用的GDB Server\r\n            \"configFiles\": [                  \r\n            ],\r\n            \"preLaunchTask\": \"Build\"\r\n        }\r\n    ]\r\n}\r\n*/"
+        }
+    ]
+}
