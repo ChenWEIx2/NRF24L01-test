@@ -168,15 +168,38 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 uint8_t NRF24L01_RxPacket(uint8_t *rxbuf)
 {
 	uint8_t sta;		    							   
-	sta=NRF24L01_Read_Reg(STATUS);  //读取状态寄存器的值    	 
+	sta=NRF24L01_Read_Reg(STATUS);                //读取状态寄存器的值    	 
 	NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志
-	if(sta&RX_OK)//接收到数据
+	if(sta&RX_OK)                                 //接收到数据
 	{
-		NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);//读取数据
-		NRF24L01_Write_Reg(FLUSH_RX,0xff);//清除RX FIFO寄存器 
+    switch (sta&0x0e)
+    {
+    case 0x00:
+      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道0数据
+      printf("Channel 0 read successfully!\r\n");
+      break;
+    case 0x02:
+      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道1数据
+      printf("channel 1 read successfully!\r\n");
+      break;
+    case 0x04:
+      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道2数据
+      printf("channel 2 read successfully!\r\n");
+      break;
+    case 0x06:
+      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道3数据
+      printf("channel 3 read successfully!\r\n");
+      break;
+    default:
+      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取数据
+      printf("Read successfully but unknow channel!\r\n");
+      break;
+    }
+		
+		NRF24L01_Write_Reg(FLUSH_RX,0xff);                      //清除RX FIFO寄存器 
 		return 0; 
 	}	
-	return 1;//没收到任何数据
+	return 1; //没收到任何数据
 }					    
 
 /**
