@@ -120,22 +120,26 @@ int main(void)
       if(NRF24L01_TxPacket(tx_buf)==TX_OK)
       {
         printf("Channel %d select successfully!/r/n",i);
+        HAL_Delay(1000);
+
+        //Select successfully,bugein to receive
+        NRF24L01_RX_Mode(0);
+        if(NRF24L01_RxPacket(rx_buf)==0)
+        {     
+          printf("Channel %d receive:%s\r\n",i,rx_buf);
+        }
+        else
+        {
+          printf("Channel %d rx fail!\r\n",i);
+        }
+
       }
       else
       {
         printf("Channel %d select fail!\r\n",i);
-        HAL_Delay(1000);
       }
-      NRF24L01_RX_Mode(0);
-      if(NRF24L01_RxPacket(rx_buf)==0)
-      {     
-        printf("Channel %d receive:%s\r\n",i,rx_buf);
-        HAL_Delay(1000);
-      }
-      else
-      {
-        printf("Channel %d rx fail!\r\n",i);
-      }
+      HAL_Delay(1000);  
+
     }
 
     /*Master RX Mode*/

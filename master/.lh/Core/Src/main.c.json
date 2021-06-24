@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1624516517756,
@@ -40,6 +40,18 @@
                 {
                     "date": 1624523467290,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -138,8 +138,9 @@\n       }\r\n     }\r\n \r\n     /*Master RX Mode*/\r\n+    /*\r\n       if(NRF24L01_RxPacket(rx_buf)==0)\r\n       {     \r\n         printf(\"Rx_buf:%s\\r\\n\",i,rx_buf);\r\n         HAL_Delay(1000);\r\n@@ -147,8 +148,9 @@\n       else\r\n       {\r\n         printf(\"Rx_buf receive fail!\\r\\n\",i);\r\n       }\r\n+    */\r\n \r\n         \r\n \r\n   }\r\n"
+                },
+                {
+                    "date": 1624523886780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -123,20 +123,22 @@\n       }\r\n       else\r\n       {\r\n         printf(\"Channel %d select fail!\\r\\n\",i);\r\n-        HAL_Delay(1000);\r\n       }\r\n+      HAL_Delay(1000);\r\n+\r\n       NRF24L01_RX_Mode(0);\r\n       if(NRF24L01_RxPacket(rx_buf)==0)\r\n       {     \r\n         printf(\"Channel %d receive:%s\\r\\n\",i,rx_buf);\r\n-        HAL_Delay(1000);\r\n       }\r\n       else\r\n       {\r\n         printf(\"Channel %d rx fail!\\r\\n\",i);\r\n       }\r\n+      HAL_Delay(1000);\r\n+\r\n     }\r\n \r\n     /*Master RX Mode*/\r\n     /*\r\n"
+                },
+                {
+                    "date": 1624523986373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,26 +119,31 @@\n       NRF24L01_TX_Mode(i);\r\n       if(NRF24L01_TxPacket(tx_buf)==TX_OK)\r\n       {\r\n         printf(\"Channel %d select successfully!/r/n\",i);\r\n+        HAL_Delay(1000);\r\n+\r\n+        //Select successfully,bugein to receive\r\n+        NRF24L01_RX_Mode(0);\r\n+        if(NRF24L01_RxPacket(rx_buf)==0)\r\n+        {     \r\n+          printf(\"Channel %d receive:%s\\r\\n\",i,rx_buf);\r\n+        }\r\n+        else\r\n+        {\r\n+          printf(\"Channel %d rx fail!\\r\\n\",i);\r\n+        }\r\n+\r\n       }\r\n       else\r\n       {\r\n         printf(\"Channel %d select fail!\\r\\n\",i);\r\n       }\r\n       HAL_Delay(1000);\r\n \r\n-      NRF24L01_RX_Mode(0);\r\n-      if(NRF24L01_RxPacket(rx_buf)==0)\r\n-      {     \r\n-        printf(\"Channel %d receive:%s\\r\\n\",i,rx_buf);\r\n-      }\r\n-      else\r\n-      {\r\n-        printf(\"Channel %d rx fail!\\r\\n\",i);\r\n-      }\r\n-      HAL_Delay(1000);\r\n \r\n+      \r\n+\r\n     }\r\n \r\n     /*Master RX Mode*/\r\n     /*\r\n"
+                },
+                {
+                    "date": 1624524068399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -137,13 +137,10 @@\n       else\r\n       {\r\n         printf(\"Channel %d select fail!\\r\\n\",i);\r\n       }\r\n-      HAL_Delay(1000);\r\n+      HAL_Delay(1000);  \r\n \r\n-\r\n-      \r\n-\r\n     }\r\n \r\n     /*Master RX Mode*/\r\n     /*\r\n"
                 }
             ],
             "date": 1624516517756,
