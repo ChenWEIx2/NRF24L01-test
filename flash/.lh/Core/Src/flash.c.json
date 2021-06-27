@@ -1,0 +1,294 @@
+{
+    "sourceFile": "Core/Src/flash.c",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 69,
+            "patches": [
+                {
+                    "date": 1624781820893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624781870644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,9 @@\n #include \"flash.h\"\r\n \r\n+uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n+{\r\n+\r\n+\r\n+    \r\n+}\r\n+uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624781877478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,15 @@\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n {\r\n \r\n \r\n+\r\n+}\r\n+\r\n\\ No newline at end of file\n+\r\n+\r\n+uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+{\r\n+\r\n+\r\n     \r\n-}\r\n-uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624782055169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,21 @@\n #include \"flash.h\"\r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n {\r\n+    uint8_t i;\r\n \r\n+    if(size == 0)  return false;\r\n \r\n+    for()\r\n \r\n+\r\n }\r\n \r\n \r\n \r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n \r\n \r\n-    \r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624782078360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n #include \"flash.h\"\r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n {\r\n-    uint8_t i;\r\n+    uint32_t i;\r\n \r\n     if(size == 0)  return false;\r\n \r\n-    for()\r\n+    for(i=0;i<size;i++)\r\n+    {\r\n+        \r\n+    }\r\n \r\n \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1624782189651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     if(size == 0)  return false;\r\n \r\n     for(i=0;i<size;i++)\r\n     {\r\n-        \r\n+        pBuf[i] = *(uint8_t)(addr + i);\r\n     }\r\n \r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1624782202328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     if(size == 0)  return false;\r\n \r\n     for(i=0;i<size;i++)\r\n     {\r\n-        pBuf[i] = *(uint8_t)(addr + i);\r\n+        pBuf[i] = *(uint8_t *)(addr + i);\r\n     }\r\n \r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1624782249440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     if(size == 0)  return false;\r\n \r\n     for(i=0;i<size;i++)\r\n     {\r\n-        pBuf[i] = *(uint8_t *)(addr + i);\r\n+        pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n     }\r\n \r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1624782267781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n     {\r\n         pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n     }\r\n \r\n+    return true;\r\n \r\n+\r\n }\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624782398711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,16 @@\n         pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n     }\r\n \r\n     return true;\r\n+}\r\n \r\n+static uint32_t Un_Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+{\r\n \r\n+\r\n }\r\n \r\n-\r\n-\r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624782485606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n     return true;\r\n }\r\n \r\n-static uint32_t Un_Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+static uint32_t UnErase_Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n \r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1624782918689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,16 @@\n }\r\n \r\n static uint32_t UnErase_Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n+    uint8_t iWrite = 0;\r\n+    uint8_t writeAddr = addr;\r\n+    uint8_t *pWriteData = (uint32_t *) pBuf;\r\n \r\n+    for(iWrite = 0;iWrite < size/4;iWrite++)\r\n+    {\r\n+        \r\n+    }\r\n \r\n }\r\n \r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n"
+                },
+                {
+                    "date": 1624783140441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,11 @@\n     uint8_t *pWriteData = (uint32_t *) pBuf;\r\n \r\n     for(iWrite = 0;iWrite < size/4;iWrite++)\r\n     {\r\n-        \r\n+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,*pWriteData);\r\n+        writeAddr = writeAddr + 4;\r\n+        pWriteData++;\r\n     }\r\n \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1624783389860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,21 @@\n         writeAddr = writeAddr + 4;\r\n         pWriteData++;\r\n     }\r\n \r\n+    if(size%4 == 1)\r\n+    {\r\n+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFFFFFF00));\r\n+    }\r\n+    else if(size%4 == 2)\r\n+    {\r\n+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFFFF0000));\r\n+    }\r\n+    else if(size%4 ==3)\r\n+    {\r\n+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFF000000));\r\n+    }\r\n+\r\n }\r\n \r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n"
+                },
+                {
+                    "date": 1624783442389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n #include \"flash.h\"\r\n \r\n-uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n+uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t i;\r\n \r\n     if(size == 0)  return false;\r\n"
+                },
+                {
+                    "date": 1624783462636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t i;\r\n \r\n-    if(size == 0)  return false;\r\n+    if(size == 0)  return 0;\r\n \r\n     for(i=0;i<size;i++)\r\n     {\r\n         pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n"
+                },
+                {
+                    "date": 1624783476511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,12 @@\n     {\r\n         pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n     }\r\n \r\n-    return true;\r\n+    return 1;\r\n }\r\n \r\n-static uint32_t UnErase_Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+static uint32_t UnErase_Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint8_t iWrite = 0;\r\n     uint8_t writeAddr = addr;\r\n     uint8_t *pWriteData = (uint32_t *) pBuf;\r\n"
+                },
+                {
+                    "date": 1624783542134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     }\r\n \r\n }\r\n \r\n-uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624783593566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,10 @@\n     {\r\n         HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFF000000));\r\n     }\r\n \r\n+    return 1;\r\n+\r\n }\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n"
+                },
+                {
+                    "date": 1624783662447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n static uint32_t UnErase_Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint8_t iWrite = 0;\r\n     uint8_t writeAddr = addr;\r\n-    uint8_t *pWriteData = (uint32_t *) pBuf;\r\n+    uint8_t *pWriteData = (unsigned char *) pBuf;\r\n \r\n     for(iWrite = 0;iWrite < size/4;iWrite++)\r\n     {\r\n         HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,*pWriteData);\r\n"
+                },
+                {
+                    "date": 1624783776560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n     return 1;\r\n }\r\n \r\n-static uint32_t UnErase_Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n+static void UnErase_Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint8_t iWrite = 0;\r\n     uint8_t writeAddr = addr;\r\n     uint8_t *pWriteData = (unsigned char *) pBuf;\r\n@@ -39,10 +39,8 @@\n     {\r\n         HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFF000000));\r\n     }\r\n \r\n-    return 1;\r\n-\r\n }\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n"
+                },
+                {
+                    "date": 1624783783957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,8 @@\n }\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n+    \r\n \r\n \r\n-\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624783931175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n }\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n+    uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //就算传入的地址处在哪一页\r\n     \r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624783947735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n }\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n-    uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //就算传入的地址处在哪一页\r\n+    uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n     \r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624784069507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,15 @@\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n-    \r\n+    unsigned char *pBuffer = pBuf;\r\n \r\n+    if(size == 0) return 1;\r\n \r\n+    if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n+    {\r\n+        \r\n+    }\r\n+\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624784128093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n     if(size == 0) return 1;\r\n \r\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n-        \r\n+        uint32_t slen = FLASH_PAGE_SIZE_0_3 - addr%FLASH_PAGE_SIZE_0_3;\r\n     }\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624784137326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n     if(size == 0) return 1;\r\n \r\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n-        uint32_t slen = FLASH_PAGE_SIZE_0_3 - addr%FLASH_PAGE_SIZE_0_3;\r\n+        uint32_t slen = FLASH_PAGE_SIZE_0_3 - (addr%FLASH_PAGE_SIZE_0_3);\r\n     }\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624784170081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,10 @@\n \r\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n         uint32_t slen = FLASH_PAGE_SIZE_0_3 - (addr%FLASH_PAGE_SIZE_0_3);\r\n+\r\n+        size = slen;\r\n     }\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624784353520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n \r\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n         uint32_t slen = FLASH_PAGE_SIZE_0_3 - (addr%FLASH_PAGE_SIZE_0_3);\r\n+        Flash_Write(addr+slen,pBuf+slen,size-slen);\r\n \r\n         size = slen;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1624784418597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,10 @@\n     }\r\n \r\n }\r\n \r\n+unsigned char FlashBuff[FLASH_PAGE_SIZE_0_3];\r\n+\r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n     unsigned char *pBuffer = pBuf;\r\n@@ -52,9 +54,8 @@\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n         uint32_t slen = FLASH_PAGE_SIZE_0_3 - (addr%FLASH_PAGE_SIZE_0_3);\r\n         Flash_Write(addr+slen,pBuf+slen,size-slen);\r\n-\r\n         size = slen;\r\n     }\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624784448811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     }\r\n \r\n }\r\n \r\n-unsigned char FlashBuff[FLASH_PAGE_SIZE_0_3];\r\n+unsigned char FlashBuff[FLASH_PAGE_SIZE_0_3];                     //页数据拷贝临时缓冲区\r\n \r\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n"
+                },
+                {
+                    "date": 1624785093167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,6 +57,13 @@\n         Flash_Write(addr+slen,pBuf+slen,size-slen);\r\n         size = slen;\r\n     }\r\n \r\n+    Flash_Read(pageAddr,FlashBuff,FLASH_PAGE_SIZE_0_3);\r\n+    memcpy(FlashBuff+addr%FLASH_PAGE_SIZE_0_3,PBuf,size);\r\n+    pBuffer = FlashBuff;\r\n \r\n+    HAL_FLASH_Unlock();\r\n+    __HAL_FLASH_CLEAR_FLAG\r\n+\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624785332743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,9 @@\n     memcpy(FlashBuff+addr%FLASH_PAGE_SIZE_0_3,PBuf,size);\r\n     pBuffer = FlashBuff;\r\n \r\n     HAL_FLASH_Unlock();\r\n-    __HAL_FLASH_CLEAR_FLAG\r\n+    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_BSY | FLASH_FLAG_EOP | FLASH_FLAG_PGAERR | FLASH_FLAG_WRPERR);\r\n+    HAL_FLASHEx_Erase();\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624785678377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,8 +63,8 @@\n     pBuffer = FlashBuff;\r\n \r\n     HAL_FLASH_Unlock();\r\n     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_BSY | FLASH_FLAG_EOP | FLASH_FLAG_PGAERR | FLASH_FLAG_WRPERR);\r\n-    HAL_FLASHEx_Erase();\r\n+    \r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624786087976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,13 @@\n uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n {\r\n     uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n     unsigned char *pBuffer = pBuf;\r\n+    FLASH_EraseInitTypeDef EraseInit;\r\n+    \r\n+    EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n+\r\n     if(size == 0) return 1;\r\n \r\n     if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n     {\r\n@@ -63,8 +67,8 @@\n     pBuffer = FlashBuff;\r\n \r\n     HAL_FLASH_Unlock();\r\n     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_BSY | FLASH_FLAG_EOP | FLASH_FLAG_PGAERR | FLASH_FLAG_WRPERR);\r\n-    \r\n+    HAL_FLASHEx_Erase();\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624786265825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,10 @@\n     unsigned char *pBuffer = pBuf;\r\n     FLASH_EraseInitTypeDef EraseInit;\r\n     \r\n     EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n+    EraseInit.NbSectors = 1;\r\n+    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n \r\n \r\n     if(size == 0) return 1;\r\n \r\n"
+                },
+                {
+                    "date": 1624786281451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n     \r\n     EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n     EraseInit.NbSectors = 1;\r\n     EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n+    EraseInit.Sector = ;\r\n \r\n \r\n     if(size == 0) return 1;\r\n \r\n"
+                },
+                {
+                    "date": 1624786780487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,77 +1,1 @@\n #include \"flash.h\"\r\n-\r\n-uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n-{\r\n-    uint32_t i;\r\n-\r\n-    if(size == 0)  return 0;\r\n-\r\n-    for(i=0;i<size;i++)\r\n-    {\r\n-        pBuf[i] = *(volatile uint8_t *)(addr + i);\r\n-    }\r\n-\r\n-    return 1;\r\n-}\r\n-\r\n-static void UnErase_Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n-{\r\n-    uint8_t iWrite = 0;\r\n-    uint8_t writeAddr = addr;\r\n-    uint8_t *pWriteData = (unsigned char *) pBuf;\r\n-\r\n-    for(iWrite = 0;iWrite < size/4;iWrite++)\r\n-    {\r\n-        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,*pWriteData);\r\n-        writeAddr = writeAddr + 4;\r\n-        pWriteData++;\r\n-    }\r\n-\r\n-    if(size%4 == 1)\r\n-    {\r\n-        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFFFFFF00));\r\n-    }\r\n-    else if(size%4 == 2)\r\n-    {\r\n-        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFFFF0000));\r\n-    }\r\n-    else if(size%4 ==3)\r\n-    {\r\n-        HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,writeAddr,(*pWriteData + 0xFF000000));\r\n-    }\r\n-\r\n-}\r\n-\r\n-unsigned char FlashBuff[FLASH_PAGE_SIZE_0_3];                     //页数据拷贝临时缓冲区\r\n-\r\n-uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size)\r\n-{\r\n-    uint32_t pageAddr = addr & (~(FLASH_PAGE_SIZE_0_3 - 1));      //计算传入的地址处在哪一页\r\n-    unsigned char *pBuffer = pBuf;\r\n-    FLASH_EraseInitTypeDef EraseInit;\r\n-    \r\n-    EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n-    EraseInit.NbSectors = 1;\r\n-    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n-    EraseInit.Sector = ;\r\n-\r\n-\r\n-    if(size == 0) return 1;\r\n-\r\n-    if((addr%FLASH_PAGE_SIZE_0_3 + size) > FLASH_PAGE_SIZE_0_3)\r\n-    {\r\n-        uint32_t slen = FLASH_PAGE_SIZE_0_3 - (addr%FLASH_PAGE_SIZE_0_3);\r\n-        Flash_Write(addr+slen,pBuf+slen,size-slen);\r\n-        size = slen;\r\n-    }\r\n-\r\n-    Flash_Read(pageAddr,FlashBuff,FLASH_PAGE_SIZE_0_3);\r\n-    memcpy(FlashBuff+addr%FLASH_PAGE_SIZE_0_3,PBuf,size);\r\n-    pBuffer = FlashBuff;\r\n-\r\n-    HAL_FLASH_Unlock();\r\n-    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_BSY | FLASH_FLAG_EOP | FLASH_FLAG_PGAERR | FLASH_FLAG_WRPERR);\r\n-    HAL_FLASHEx_Erase();\r\n-\r\n-\r\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624790393547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n #include \"flash.h\"\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1624790464532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,9 @@\n #include \"flash.h\"\r\n \r\n \r\n+void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size)\r\n+{\r\n+    \r\n+\r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624790656220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n \r\n \r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n-    \r\n-\r\n-\r\n+    uint8_t i;\r\n+    for(i = 0;i < size;i++)\r\n+    {\r\n+        buffer[i] = *(volatile uint8_t*) (address + i);\r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624791099750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,6 @@\n     for(i = 0;i < size;i++)\r\n     {\r\n         buffer[i] = *(volatile uint8_t*) (address + i);\r\n     }\r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1624791133787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,10 @@\n         buffer[i] = *(volatile uint8_t*) (address + i);\r\n     }\r\n }\r\n \r\n+uint8_t FlashEraseSector6()\r\n+{\r\n+    \r\n+\r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624791375884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,13 @@\n }\r\n \r\n uint8_t FlashEraseSector6()\r\n {\r\n-    \r\n+    FLASH_EraseInitTypeDef erase_init;\r\n+    erase_init.Banks = FLASH_BANK_1;\r\n+    erase_init.NbSectors = 1;\r\n \r\n \r\n+    HAL_FLASHEx_Erase();\r\n+\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624791511821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n+    erase_init.Sector = FLASH_SECTOR_6;\r\n \r\n \r\n     HAL_FLASHEx_Erase();\r\n \r\n"
+                },
+                {
+                    "date": 1624791779224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n         buffer[i] = *(volatile uint8_t*) (address + i);\r\n     }\r\n }\r\n \r\n-uint8_t FlashEraseSector6()\r\n+uint8_t FlashEraseSector5()\r\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n-    erase_init.Sector = FLASH_SECTOR_6;\r\n+    erase_init.Sector = FLASH_SECTOR_5;\r\n \r\n \r\n     HAL_FLASHEx_Erase();\r\n \r\n"
+                },
+                {
+                    "date": 1624791840357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n     FLASH_EraseInitTypeDef erase_init;\r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n     erase_init.Sector = FLASH_SECTOR_5;\r\n+    erase_init.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n+    erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n \r\n     HAL_FLASHEx_Erase();\r\n \r\n"
+                },
+                {
+                    "date": 1624791950876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,15 +12,19 @@\n \r\n uint8_t FlashEraseSector5()\r\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n+    HAL_StatusTypeDef      hal_sta;\r\n+\r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n     erase_init.Sector = FLASH_SECTOR_5;\r\n     erase_init.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n+    hal_sta = HAL_FLASHEx_Erase();\r\n \r\n+\r\n     HAL_FLASHEx_Erase();\r\n \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624791963477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     erase_init.Sector = FLASH_SECTOR_5;\r\n     erase_init.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n-    hal_sta = HAL_FLASHEx_Erase();\r\n+    hal_sta = HAL_FLASHEx_Erase(&erase_init,);\r\n \r\n \r\n     HAL_FLASHEx_Erase();\r\n \r\n"
+                },
+                {
+                    "date": 1624792077888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,16 @@\n uint8_t FlashEraseSector5()\r\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n     HAL_StatusTypeDef      hal_sta;\r\n+     uint32_t              sector_error\r\n \r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n     erase_init.Sector = FLASH_SECTOR_5;\r\n     erase_init.VoltageRange = FLASH_VOLTAGE_RANGE_3;\r\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n-    hal_sta = HAL_FLASHEx_Erase(&erase_init,);\r\n+    hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n \r\n-    HAL_FLASHEx_Erase();\r\n-\r\n-\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792186933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n uint8_t FlashEraseSector5()\r\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n     HAL_StatusTypeDef      hal_sta;\r\n-     uint32_t              sector_error\r\n+    uint32_t               sector_error\r\n \r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n     erase_init.Sector = FLASH_SECTOR_5;\r\n@@ -23,6 +23,9 @@\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n+    if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n+    else return 1;\r\n \r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792193570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,5 @@\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n     if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n-\r\n-\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792204205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,6 @@\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n     if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792259715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,6 @@\n \r\n     if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n \r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1624792332361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,5 +27,4 @@\n     if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n \r\n }\r\n-\r\n"
+                },
+                {
+                    "date": 1624792346305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,4 +27,9 @@\n     if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n \r\n }\r\n+\r\n+uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n+{\r\n+    \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792382006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,6 +30,7 @@\n }\r\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n-    \r\n+    HAL_StatusTypeDef hal_sta = HAL_OK;\r\n+\tuint32_t pos = 0;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792392967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,6 +31,7 @@\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n     HAL_StatusTypeDef hal_sta = HAL_OK;\r\n-\tuint32_t pos = 0;\r\n+\tuint32_t          pos = 0;\r\n+    \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792573865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,6 +32,15 @@\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n     HAL_StatusTypeDef hal_sta = HAL_OK;\r\n \tuint32_t          pos = 0;\r\n-    \r\n+\r\n+    while((size > pos) && (hal_sta == HAL_OK))\r\n+    {\r\n+\t\thal_sta = HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address + pos, buffer[pos]);\r\n+\t\tpos++;\r\n+\t}\r\n+\r\n+\tif(hal_sta == HAL_OK) return 1;\r\n+\telse return 0;\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792662518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     else return 1;\r\n \r\n }\r\n \r\n-uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n+uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n     HAL_StatusTypeDef hal_sta = HAL_OK;\r\n \tuint32_t          pos = 0;\r\n \r\n@@ -41,6 +41,5 @@\n \t}\r\n \r\n \tif(hal_sta == HAL_OK) return 1;\r\n \telse return 0;\r\n-\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792668881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,5 +41,6 @@\n \t}\r\n \r\n \tif(hal_sta == HAL_OK) return 1;\r\n \telse return 0;\r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1624792679242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,4 +43,9 @@\n \tif(hal_sta == HAL_OK) return 1;\r\n \telse return 0;\r\n }\r\n \r\n+uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n+{\r\n+    \r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792780758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,7 +45,9 @@\n }\r\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n+    HAL_FLASH_Unlock();\r\n+    FlashEraseSector5();\r\n     \r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792814838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,7 +47,7 @@\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n-    \r\n+    FlashWriteWithoutErase(address,buffer,size);\r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792935239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,6 +48,6 @@\n {\r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     FlashWriteWithoutErase(address,buffer,size);\r\n-\r\n+    HAL_FLASH_Lock();\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792963061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n uint8_t FlashEraseSector5()\r\n {\r\n     FLASH_EraseInitTypeDef erase_init;\r\n     HAL_StatusTypeDef      hal_sta;\r\n-    uint32_t               sector_error\r\n+    uint32_t               sector_error;\r\n \r\n     erase_init.Banks = FLASH_BANK_1;\r\n     erase_init.NbSectors = 1;\r\n     erase_init.Sector = FLASH_SECTOR_5;\r\n"
+                },
+                {
+                    "date": 1624792992356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n-    if(halRet != HAL_OK || flashEraseRet != 0xFFFFFFFFU) return 0;\r\n+    if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) return 0;\r\n     else return 1;\r\n \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1624793079039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,12 @@\n }\r\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n+    uint8_t wirte_flag;\r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n-    FlashWriteWithoutErase(address,buffer,size);\r\n+    write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n+\r\n+    return wirte_flag\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624793093779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,6 +51,6 @@\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n \r\n-    return wirte_flag\r\n+    return write_flag;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624793112341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n-    uint8_t wirte_flag;\r\n+    uint8_t write_flag;\r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n"
+                }
+            ],
+            "date": 1624781820893,
+            "name": "Commit-0",
+            "content": "#include \"flash.h\"\r\n\r\n"
+        }
+    ]
+}

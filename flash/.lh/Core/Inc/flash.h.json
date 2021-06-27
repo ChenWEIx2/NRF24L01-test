@@ -1,0 +1,138 @@
+{
+    "sourceFile": "Core/Inc/flash.h",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 30,
+            "patches": [
+                {
+                    "date": 1624698230849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624698463072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n+#define FLASH_SIZE 64   //Page0 ~ Page3\r\n+#define FLASH_WREN 1\r\n \r\n \r\n-\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624698699638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,13 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE 64   //Page0 ~ Page3\r\n-#define FLASH_WREN 1\r\n+#define FLASH_SIZE             1024   \r\n+#define FLASH_PAGE_SIZE_0_3    16\r\n+#define FLASH_PAGE_SIZE_4      64\r\n+#define FLASH_PAGE_SIZE_5_11   128\r\n \r\n+#define FLASH_WREN             1\r\n \r\n+\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624698851113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,12 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE             1024   \r\n-#define FLASH_PAGE_SIZE_0_3    16\r\n-#define FLASH_PAGE_SIZE_4      64\r\n-#define FLASH_PAGE_SIZE_5_11   128\r\n+#define FLASH_SIZE             64      //KB   \r\n+#define FLASH_PAGE_SIZE_0_3    0x4000\r\n \r\n+\r\n #define FLASH_WREN             1\r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624700446829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,12 @@\n \r\n #define FLASH_SIZE             64      //KB   \r\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n \r\n-\r\n #define FLASH_WREN             1\r\n \r\n \r\n+uint32_t FLASH_Read(uint32_t Address, void *Buffer, uint32_t Size);\r\n+uint32_t FLASH_Write(uint32_t Address, const uint16_t *Buffer, uint32_t NumToWrite);\r\n+\r\n+\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624700499732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n #define FLASH_WREN             1\r\n \r\n \r\n-uint32_t FLASH_Read(uint32_t Address, void *Buffer, uint32_t Size);\r\n+uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n uint32_t FLASH_Write(uint32_t Address, const uint16_t *Buffer, uint32_t NumToWrite);\r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624700537232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n #define FLASH_WREN             1\r\n \r\n \r\n uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n-uint32_t FLASH_Write(uint32_t Address, const uint16_t *Buffer, uint32_t NumToWrite);\r\n+uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624700659423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,14 @@\n \r\n \r\n #define FLASH_SIZE             64      //KB   \r\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n-\r\n #define FLASH_WREN             1\r\n \r\n+#define CODE_SIZE              32      //KB\r\n \r\n+\r\n+\r\n uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624700764672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n #define FLASH_WREN             1\r\n \r\n #define CODE_SIZE              32      //KB\r\n+#define START_ADDR             (0x0800 0000)\r\n \r\n \r\n-\r\n uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624700891273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,15 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE             64      //KB   \r\n+#define FLASH_SIZE             64                             //KB   \r\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n #define FLASH_WREN             1\r\n \r\n-#define CODE_SIZE              32      //KB\r\n-#define START_ADDR             (0x0800 0000)\r\n+#define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n+#define START_ADDR             (0x08000000)\r\n+#define FLASH_USER_ADDR \r\n \r\n \r\n uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n"
+                },
+                {
+                    "date": 1624700976829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,15 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE             64                             //KB   \r\n+#define FLASH_SIZE             64                             //64KB   \r\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n #define FLASH_WREN             1\r\n \r\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)\r\n-#define FLASH_USER_ADDR \r\n+#define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n \r\n uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n"
+                },
+                {
+                    "date": 1624701150746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,12 @@\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n+#define FLASH_READ(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, uint32_t size)\r\n \r\n-uint32_t FLASH_Read(uint32_t address, uint8_t *pBuf, uint32_t size);\r\n-uint32_t FLASH_Write((uint32_t address, uint8_t *pBuf, uint32_t size);\r\n \r\n+uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n+uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n \r\n+\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624701189761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n-#define FLASH_READ(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, uint32_t size)\r\n+#define FLASH_READ(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n \r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n"
+                },
+                {
+                    "date": 1624701238411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n-#define FLASH_READ(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n+#define FLASH_READ_BYTE(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n+#define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+addr, Buff, Size)\r\n \r\n-\r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624701386020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n-#define FLASH_READ_BYTE(Addr,Buff,Size)  Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n+#define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n #define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+addr, Buff, Size)\r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n"
+                },
+                {
+                    "date": 1624701411919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n #define FLASH_WREN             1\r\n \r\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n-#define START_ADDR             (0x08000000)\r\n+#define START_ADDR             (0x08000000)                   //Flash start address\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n #define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n #define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+addr, Buff, Size)\r\n"
+                },
+                {
+                    "date": 1624701435147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE             64                             //64KB   \r\n+#define FLASH_SIZE             64                             //64KB only use page0~page3  \r\n #define FLASH_PAGE_SIZE_0_3    0x4000\r\n #define FLASH_WREN             1\r\n \r\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n"
+                },
+                {
+                    "date": 1624701445454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n #define FLASH_SIZE             64                             //64KB only use page0~page3  \r\n-#define FLASH_PAGE_SIZE_0_3    0x4000\r\n+#define FLASH_PAGE_SIZE_0_3    0x4000                         //16KB\r\n #define FLASH_WREN             1\r\n \r\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)                   //Flash start address\r\n"
+                },
+                {
+                    "date": 1624783105583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n #define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n #define START_ADDR             (0x08000000)                   //Flash start address\r\n #define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n-#define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+addr, Buff, Size)\r\n-#define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+addr, Buff, Size)\r\n+#define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+Addr, Buff, Size)\r\n+#define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+Addr, Buff, Size)\r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n \r\n"
+                },
+                {
+                    "date": 1624783425356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n #define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+Addr, Buff, Size)\r\n #define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+Addr, Buff, Size)\r\n \r\n uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n-uint32_t Flash_Write((uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n+uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624787152208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,20 +4,8 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n \r\n-#define FLASH_SIZE             64                             //64KB only use page0~page3  \r\n-#define FLASH_PAGE_SIZE_0_3    0x4000                         //16KB\r\n-#define FLASH_WREN             1\r\n \r\n-#define CODE_SIZE              ((FLASH_SIZE/2)*0x0400)        //32KB\r\n-#define START_ADDR             (0x08000000)                   //Flash start address\r\n-#define FLASH_USER_ADDR        (START_ADDR + CODE_SIZE)\r\n \r\n-#define FLASH_READ_BYTE(Addr,Buff,Size)   Flash_Read(FLASH_USER_ADDR+Addr, Buff, Size)\r\n-#define FLASH_WRITE_BYTE(Addr,Buff,Size)  Flash_Write(FLASH_USER_ADDR+Addr, Buff, Size)\r\n \r\n-uint32_t Flash_Read(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n-uint32_t Flash_Write(uint32_t addr, uint8_t *pBuf, uint32_t size);\r\n-\r\n-\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624790282971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n \r\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n+uint8_t FlashEraseSector6();\r\n+uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n+uint8_t FlashRead();\r\n \r\n \r\n \r\n-\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624790348636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n #include \"stm32f4xx_hal_flash.h\"\r\n \r\n uint8_t FlashEraseSector6();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n-uint8_t FlashRead();\r\n+uint8_t FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624790453868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,13 @@\n #define __FLASH_H__\r\n \r\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n+#include \"usart.h\"\r\n \r\n uint8_t FlashEraseSector6();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n-uint8_t FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n+void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n \r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624791089783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,11 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n #include \"usart.h\"\r\n \r\n+#define SECTOR6_ADDR   0x08040000\r\n+#define FLASH_READ_SECTOR6(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n+\r\n uint8_t FlashEraseSector6();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n"
+                },
+                {
+                    "date": 1624791755820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n #define SECTOR6_ADDR   0x08040000\r\n #define FLASH_READ_SECTOR6(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n \r\n-uint8_t FlashEraseSector6();\r\n+uint8_t FlashEraseSector5();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624791776011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n #include \"usart.h\"\r\n \r\n-#define SECTOR6_ADDR   0x08040000\r\n-#define FLASH_READ_SECTOR6(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n+#define SECTOR6_ADDR   0x08020000\r\n+#define FLASH_READ_SECTOR5(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n \r\n uint8_t FlashEraseSector5();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n"
+                },
+                {
+                    "date": 1624792624043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n #define FLASH_READ_SECTOR5(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n \r\n uint8_t FlashEraseSector5();\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n+uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size);\r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1624792629838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,12 @@\n #define SECTOR6_ADDR   0x08020000\r\n #define FLASH_READ_SECTOR5(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n \r\n uint8_t FlashEraseSector5();\r\n+void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size);\r\n-void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n \r\n+\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792642186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,5 @@\n uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size);\r\n \r\n \r\n \r\n-\r\n #endif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624792890584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,11 @@\n #include \"stm32f4xx.h\"\r\n #include \"stm32f4xx_hal_flash.h\"\r\n #include \"usart.h\"\r\n \r\n-#define SECTOR6_ADDR   0x08020000\r\n-#define FLASH_READ_SECTOR5(Buffer,Size)  FlashRead(SECTOR6_ADDR,Buffer,Size)\r\n+#define SECTOR5_ADDR                      0x08020000\r\n+#define FLASH_READ_SECTOR5(Buffer,Size)   FlashRead(SECTOR5_ADDR,Buffer,Size)\r\n+#define FLASH_WRITE_SECTOR5(Buffer,Size)  FlashWrite(SECTOR5_ADDR,Buffer,Size)\r\n \r\n uint8_t FlashEraseSector5();\r\n void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size);\r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size);\r\n"
+                }
+            ],
+            "date": 1624698230849,
+            "name": "Commit-0",
+            "content": "#ifndef __FLASH_H__\r\n#define __FLASH_H__\r\n\r\n#include \"stm32f4xx.h\"\r\n#include \"stm32f4xx_hal_flash.h\"\r\n\r\n\r\n\r\n\r\n\r\n#endif"
+        }
+    ]
+}

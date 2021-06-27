@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Core/Inc/usart_debug.h",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1624435853256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624435877296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n \r\n #ifndef __USART_DEBUG_H\r\n #define __USART_DEBUG_H\r\n \r\n-#define USART_DEBUG USART3\t\t\t/*配置使用的串口*/\r\n-#define huart_debug huart3 \t\t\t/*配置使用的串口handle*/ \r\n+#define USART_DEBUG USART1\t\t\t/*配置使用的串口*/\r\n+#define huart_debug huart1 \t\t\t/*配置使用的串口handle*/ \r\n \r\n /*stm32cubemx配置串口后自动生成的头文件，这里包含以下*/\r\n #include \"usart.h\"\r\n /*重定向需要使用到的头文件*/ \r\n"
+                },
+                {
+                    "date": 1624436048617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,42 +11,17 @@\n #define huart_debug huart1 \t\t\t/*配置使用的串口handle*/ \r\n \r\n /*stm32cubemx配置串口后自动生成的头文件，这里包含以下*/\r\n #include \"usart.h\"\r\n+\r\n /*重定向需要使用到的头文件*/ \r\n #include \"stdio.h\"\r\n \r\n-/*告知连接器不从c库链接使用半主机的函数--不使用半主机模式*/\r\n+/*告知连接器不从c库链接使用半主机的函数--不使用半主机模式*/ \r\n #pragma import(__use_no_semihosting)\r\n \r\n /*重新定义__write函数*/ \r\n-int _write(int fd, char *ptr, int len)\r\n-{\r\n-\tHAL_UART_Transmit(&huart_debug, (uint8_t *)ptr, len, 0xFFFF);\r\n-\treturn len;\r\n-}\r\n+int _write(int fd, char *ptr, int len);\r\n \r\n /*定义_sys_exit()以避免使用半主机模式*/ \r\n-void _sys_exit(int x)\r\n-{\r\n-\tx = x;\r\n-}\r\n-\r\n-/*标准库需要的支持类型*/ \r\n-struct __FILE\r\n-{\r\n-\tint handle;\r\n-};\r\n-FILE __stdout;\r\n-\r\n-/*重定向fputc()*/\r\n-int fputc(int ch, FILE *stream)\r\n-{\r\n-\t/*堵塞判断串口是否发送完成*/\r\n-\twhile((USART_DEBUG->SR & 0x40) == 0)\r\n-\t;\r\n-\t/*串口发送完成，将该字节发送*/\r\n-\tUSART_DEBUG->DR = (uint8_t) ch;\r\n-\treturn ch;\r\n\\ No newline at end of file\n-}\r\n- \r\n-#endif /*__USART_DEBUG_H*/ \n+void _sys_exit(int x);\r\n+#endif\r\n"
+                }
+            ],
+            "date": 1624435853256,
+            "name": "Commit-0",
+            "content": "/*使用说明：使用标准库重定向printf()函数 \r\n\t1.配置串口和串口handle\r\n\t2.在需要的地方添加usart_debug.h头文件\r\n\t3.使用printf()函数--不支持浮点数输出 \r\n*/\r\n\r\n#ifndef __USART_DEBUG_H\r\n#define __USART_DEBUG_H\r\n\r\n#define USART_DEBUG USART3\t\t\t/*配置使用的串口*/\r\n#define huart_debug huart3 \t\t\t/*配置使用的串口handle*/ \r\n\r\n/*stm32cubemx配置串口后自动生成的头文件，这里包含以下*/\r\n#include \"usart.h\"\r\n/*重定向需要使用到的头文件*/ \r\n#include \"stdio.h\"\r\n\r\n/*告知连接器不从c库链接使用半主机的函数--不使用半主机模式*/\r\n#pragma import(__use_no_semihosting)\r\n\r\n/*重新定义__write函数*/ \r\nint _write(int fd, char *ptr, int len)\r\n{\r\n\tHAL_UART_Transmit(&huart_debug, (uint8_t *)ptr, len, 0xFFFF);\r\n\treturn len;\r\n}\r\n\r\n/*定义_sys_exit()以避免使用半主机模式*/ \r\nvoid _sys_exit(int x)\r\n{\r\n\tx = x;\r\n}\r\n\r\n/*标准库需要的支持类型*/ \r\nstruct __FILE\r\n{\r\n\tint handle;\r\n};\r\nFILE __stdout;\r\n\r\n/*重定向fputc()*/\r\nint fputc(int ch, FILE *stream)\r\n{\r\n\t/*堵塞判断串口是否发送完成*/\r\n\twhile((USART_DEBUG->SR & 0x40) == 0)\r\n\t;\r\n\t/*串口发送完成，将该字节发送*/\r\n\tUSART_DEBUG->DR = (uint8_t) ch;\r\n\treturn ch;\r\n}\r\n \r\n#endif /*__USART_DEBUG_H*/ "
+        }
+    ]
+}

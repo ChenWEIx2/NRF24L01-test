@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".vscode/tasks.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1624433930903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1624433930903,
+            "name": "Commit-0",
+            "content": "{\r\n    // 请参阅 https://go.microsoft.com/fwlink/?LinkId=733558 \r\n    //查看有关 tasks.json 格式的文档\r\n    \"version\": \"2.0.0\",\r\n    \"tasks\": [\r\n        {\r\n            \"type\": \"shell\",\r\n            \"label\": \"Build\",\r\n            \"command\": \"mingw32-make\",\r\n            \"args\": [\r\n            ],\r\n            \"problemMatcher\": [\r\n                \"$gcc\"\r\n            ],\r\n            \"group\": \"build\"\r\n        },\r\n        {\r\n\t\t\t\"type\": \"shell\",\r\n\t\t\t\"label\": \"Build & Download\",\r\n\t\t\t\"command\": \"openocd\",\r\n\t\t\t\"args\": [\r\n\t\t\t\t\"-f\",\r\n\t\t\t\t\"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/interface/stlink-v2.cfg\",\r\n\t\t\t\t\"-f\",\r\n\t\t\t\t\"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/target/stm32f4x.cfg\",\r\n\t\t\t\t\"-c\",\r\n\t\t\t\t\"program build/uart.elf verify reset exit\"\r\n\t\t\t],\r\n\t\t\t\"problemMatcher\": [\r\n\t\t\t\t\"$gcc\"\r\n\t\t\t],\r\n\t\t\t\"group\": \"build\",\r\n\t\t\t\"dependsOn\": \"Build\"\r\n        }\r\n    ]\r\n}"
+        }
+    ]
+}
