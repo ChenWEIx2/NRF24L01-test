@@ -1,4 +1,4 @@
-
+/*
 {
     // 使用 IntelliSense 了解相关属性。 
     // 悬停以查看现有属性的描述。
@@ -19,8 +19,8 @@
         }
     ]
 }
+*/
 
-/*
 {
     // 使用 IntelliSense 了解相关属性。 
     // 悬停以查看现有属性的描述。
@@ -31,7 +31,7 @@
         {
             "name": "Cortex Debug",
             "cwd": "${workspaceRoot}",
-            "executable": "build/RC_Software.elf",
+            "executable": "build/uart.elf",
             "request":"launch",
             "type":"cortex-debug",
             "device":"STM32F401CC",        
@@ -43,4 +43,3 @@
         }
     ]
 }
-*/

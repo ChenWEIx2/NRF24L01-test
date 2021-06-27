@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 69,
+            "activePatchIndex": 73,
             "patches": [
                 {
                     "date": 1624781820893,
@@ -284,6 +284,22 @@
                 {
                     "date": 1624793112341,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n-    uint8_t wirte_flag;\r\n+    uint8_t write_flag;\r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n"
+                },
+                {
+                    "date": 1624799793869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,18 @@\n     erase_init.TypeErase = FLASH_TYPEERASE_SECTORS;\r\n \r\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n-    if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) return 0;\r\n-    else return 1;\r\n-\r\n+    if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) \r\n+    {\r\n+        printf(\"Erase Fail!/r/n\");\r\n+        return 0;\r\n+    }\r\n+    else \r\n+    {\r\n+        printf(\"Erase Success!/r/n\");\r\n+        return 1;\r\n+    }\r\n }\r\n \r\n uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n@@ -46,8 +53,9 @@\n \r\n uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)\r\n {\r\n     uint8_t write_flag;\r\n+    \r\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n"
+                },
+                {
+                    "date": 1624799849126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,7 +58,8 @@\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n+    printf(\"Write Success!/r/n\")\r\n \r\n     return write_flag;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624799883736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n     for(i = 0;i < size;i++)\r\n     {\r\n         buffer[i] = *(volatile uint8_t*) (address + i);\r\n     }\r\n+    printf(\"Read Successfully!/r/n\");\r\n }\r\n \r\n uint8_t FlashEraseSector5()\r\n {\r\n@@ -58,8 +59,8 @@\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n-    printf(\"Write Success!/r/n\")\r\n+    printf(\"Write Successfully!/r/n\");\r\n \r\n     return write_flag;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624802690913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     for(i = 0;i < size;i++)\r\n     {\r\n         buffer[i] = *(volatile uint8_t*) (address + i);\r\n     }\r\n-    printf(\"Read Successfully!/r/n\");\r\n+    printf(\"Read Successfully!\\r\\n\");\r\n }\r\n \r\n uint8_t FlashEraseSector5()\r\n {\r\n@@ -26,14 +26,14 @@\n     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);\r\n \r\n     if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) \r\n     {\r\n-        printf(\"Erase Fail!/r/n\");\r\n+        printf(\"Erase Fail!\\r\\n\");\r\n         return 0;\r\n     }\r\n     else \r\n     {\r\n-        printf(\"Erase Success!/r/n\");\r\n+        printf(\"Erase Success!\\r\\n\");\r\n         return 1;\r\n     }\r\n }\r\n \r\n@@ -59,8 +59,8 @@\n     HAL_FLASH_Unlock();\r\n     FlashEraseSector5();\r\n     write_flag = FlashWriteWithoutErase(address,buffer,size);\r\n     HAL_FLASH_Lock();\r\n-    printf(\"Write Successfully!/r/n\");\r\n+    printf(\"Write Successfully!\\r\\n\");\r\n \r\n     return write_flag;\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1624781820893,

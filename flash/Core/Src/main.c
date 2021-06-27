@@ -21,6 +21,7 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
+#include "flash.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -43,7 +44,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+uint8_t flash_buff[5] = {0xEF,0x01,0x02,0x03,0x04};
+uint8_t result_buff[5];
 
+uint8_t flag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,6 +92,19 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  FLASH_READ_SECTOR5(result_buff,5);
+  if(result_buff[0] == 0xEF)
+  {
+    printf("Flash data exited!\r\n");
+    flag = 0;
+  }
+  else
+  {
+    printf("Flash data empty!\r\nBeging to write!\r\n");
+    FLASH_WRITE_SECTOR5(flash_buff,5);
+    flag = 1;
+  }
+  FLASH_READ_SECTOR5(result_buff,5);
 
   /* USER CODE END 2 */
 
@@ -95,11 +112,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("Hello\r\n");
-    printf("%f\r\n",1.0);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    printf("%d,%d,%d,%d,%d\r\n",result_buff[0],result_buff[1],result_buff[2],result_buff[3],result_buff[4]);
+    printf("%d\r\n",flag);
   }
   /* USER CODE END 3 */
 }

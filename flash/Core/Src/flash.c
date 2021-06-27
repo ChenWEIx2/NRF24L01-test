@@ -8,6 +8,7 @@ void FlashRead(uint32_t address, uint8_t* buffer, uint32_t size)
     {
         buffer[i] = *(volatile uint8_t*) (address + i);
     }
+    printf("Read Successfully!\r\n");
 }
 
 uint8_t FlashEraseSector5()
@@ -24,9 +25,16 @@ uint8_t FlashEraseSector5()
 
     hal_sta = HAL_FLASHEx_Erase(&erase_init,&sector_error);
 
-    if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) return 0;
-    else return 1;
-
+    if(hal_sta != HAL_OK || sector_error != 0xFFFFFFFFU) 
+    {
+        printf("Erase Fail!\r\n");
+        return 0;
+    }
+    else 
+    {
+        printf("Erase Success!\r\n");
+        return 1;
+    }
 }
 
 uint8_t FlashWriteWithoutErase(uint32_t address, uint8_t* buffer, uint32_t size)
@@ -52,6 +60,7 @@ uint8_t FlashWrite(uint32_t address, uint8_t* buffer, uint32_t size)
     FlashEraseSector5();
     write_flag = FlashWriteWithoutErase(address,buffer,size);
     HAL_FLASH_Lock();
+    printf("Write Successfully!\r\n");
 
     return write_flag;
 }

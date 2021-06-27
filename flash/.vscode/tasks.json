@@ -16,7 +16,7 @@
         },
         {
 			"type": "shell",
-			"label": "Build & Download",
+			"label": "Download",
 			"command": "openocd",
 			"args": [
 				"-f",
@@ -29,8 +29,14 @@
 			"problemMatcher": [
 				"$gcc"
 			],
-			"group": "build",
-			"dependsOn": "Build"
+			"group": "build"
+        },
+        {
+            "label": "RTT",
+            "type": "shell",
+            "command": "D:/SEGGER/JLink/JLinkRTTClient.exe",
+            "args": [],
+            "problemMatcher": []
         }
     ]
 }

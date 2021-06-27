@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1624433914502,
@@ -12,6 +12,14 @@
                 {
                     "date": 1624433926527,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     \"version\": \"0.2.0\",\r\n     \"configurations\": [\r\n         {\r\n             \"cwd\": \"${workspaceRoot}\",\r\n-            \"executable\": \"build/RC_Software.elf\",\r\n+            \"executable\": \"build/uart.elf\",\r\n             \"name\": \"Debug Microcontroller\",\r\n             \"request\": \"launch\",\r\n             \"type\": \"cortex-debug\",\r\n             \"servertype\": \"openocd\",\r\n"
+                },
+                {
+                    "date": 1624802464197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-\r\n+/*\r\n {\r\n     // 使用 IntelliSense 了解相关属性。 \r\n     // 悬停以查看现有属性的描述。\r\n     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387\r\n@@ -18,10 +18,10 @@\n             ]\r\n         }\r\n     ]\r\n }\r\n+*/\r\n \r\n-/*\r\n {\r\n     // 使用 IntelliSense 了解相关属性。 \r\n     // 悬停以查看现有属性的描述。\r\n     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387\r\n@@ -42,5 +42,4 @@\n             \"preLaunchTask\": \"Build\"\r\n         }\r\n     ]\r\n }\r\n-*/\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1624802520422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n         \r\n         {\r\n             \"name\": \"Cortex Debug\",\r\n             \"cwd\": \"${workspaceRoot}\",\r\n-            \"executable\": \"build/RC_Software.elf\",\r\n+            \"executable\": \"build/uart.elf\",\r\n             \"request\":\"launch\",\r\n             \"type\":\"cortex-debug\",\r\n             \"device\":\"STM32F401CC\",        \r\n             \"svdFile\": \"STM32F401.svd\",  \r\n"
                 }
             ],
             "date": 1624433914502,

@@ -4,6 +4,7 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_hal_flash.h"
 #include "usart.h"
+#include "stdio.h"
 
 #define SECTOR5_ADDR                      0x08020000
 #define FLASH_READ_SECTOR5(Buffer,Size)   FlashRead(SECTOR5_ADDR,Buffer,Size)
