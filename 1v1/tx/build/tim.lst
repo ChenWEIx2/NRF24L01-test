@@ -1,0 +1,430 @@
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"tim.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_TIM2_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	MX_TIM2_Init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	MX_TIM2_Init:
+  27              	.LFB130:
+  28              		.file 1 "Core/Src/tim.c"
+   1:Core/Src/tim.c **** /**
+   2:Core/Src/tim.c ****   ******************************************************************************
+   3:Core/Src/tim.c ****   * @file    tim.c
+   4:Core/Src/tim.c ****   * @brief   This file provides code for the configuration
+   5:Core/Src/tim.c ****   *          of the TIM instances.
+   6:Core/Src/tim.c ****   ******************************************************************************
+   7:Core/Src/tim.c ****   * @attention
+   8:Core/Src/tim.c ****   *
+   9:Core/Src/tim.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  10:Core/Src/tim.c ****   * All rights reserved.</center></h2>
+  11:Core/Src/tim.c ****   *
+  12:Core/Src/tim.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Core/Src/tim.c ****   * the "License"; You may not use this file except in compliance with the
+  14:Core/Src/tim.c ****   * License. You may obtain a copy of the License at:
+  15:Core/Src/tim.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Core/Src/tim.c ****   *
+  17:Core/Src/tim.c ****   ******************************************************************************
+  18:Core/Src/tim.c ****   */
+  19:Core/Src/tim.c **** 
+  20:Core/Src/tim.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/tim.c **** #include "tim.h"
+  22:Core/Src/tim.c **** 
+  23:Core/Src/tim.c **** /* USER CODE BEGIN 0 */
+  24:Core/Src/tim.c **** 
+  25:Core/Src/tim.c **** /* USER CODE END 0 */
+  26:Core/Src/tim.c **** 
+  27:Core/Src/tim.c **** TIM_HandleTypeDef htim2;
+  28:Core/Src/tim.c **** 
+  29:Core/Src/tim.c **** /* TIM2 init function */
+  30:Core/Src/tim.c **** void MX_TIM2_Init(void)
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 2
+
+
+  31:Core/Src/tim.c **** {
+  29              		.loc 1 31 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 24
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 87B0     		sub	sp, sp, #28
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 32
+  32:Core/Src/tim.c **** 
+  33:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+  34:Core/Src/tim.c **** 
+  35:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 0 */
+  36:Core/Src/tim.c **** 
+  37:Core/Src/tim.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  40              		.loc 1 37 3 view .LVU1
+  41              		.loc 1 37 26 is_stmt 0 view .LVU2
+  42 0004 0023     		movs	r3, #0
+  43 0006 0293     		str	r3, [sp, #8]
+  44 0008 0393     		str	r3, [sp, #12]
+  45 000a 0493     		str	r3, [sp, #16]
+  46 000c 0593     		str	r3, [sp, #20]
+  38:Core/Src/tim.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+  47              		.loc 1 38 3 is_stmt 1 view .LVU3
+  48              		.loc 1 38 27 is_stmt 0 view .LVU4
+  49 000e 0093     		str	r3, [sp]
+  50 0010 0193     		str	r3, [sp, #4]
+  39:Core/Src/tim.c **** 
+  40:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+  41:Core/Src/tim.c **** 
+  42:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 1 */
+  43:Core/Src/tim.c ****   htim2.Instance = TIM2;
+  51              		.loc 1 43 3 is_stmt 1 view .LVU5
+  52              		.loc 1 43 18 is_stmt 0 view .LVU6
+  53 0012 1548     		ldr	r0, .L9
+  54 0014 4FF08042 		mov	r2, #1073741824
+  55 0018 0260     		str	r2, [r0]
+  44:Core/Src/tim.c ****   htim2.Init.Prescaler = 72-1;
+  56              		.loc 1 44 3 is_stmt 1 view .LVU7
+  57              		.loc 1 44 24 is_stmt 0 view .LVU8
+  58 001a 4722     		movs	r2, #71
+  59 001c 4260     		str	r2, [r0, #4]
+  45:Core/Src/tim.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  60              		.loc 1 45 3 is_stmt 1 view .LVU9
+  61              		.loc 1 45 26 is_stmt 0 view .LVU10
+  62 001e 8360     		str	r3, [r0, #8]
+  46:Core/Src/tim.c ****   htim2.Init.Period = 65535;
+  63              		.loc 1 46 3 is_stmt 1 view .LVU11
+  64              		.loc 1 46 21 is_stmt 0 view .LVU12
+  65 0020 4FF6FF72 		movw	r2, #65535
+  66 0024 C260     		str	r2, [r0, #12]
+  47:Core/Src/tim.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  67              		.loc 1 47 3 is_stmt 1 view .LVU13
+  68              		.loc 1 47 28 is_stmt 0 view .LVU14
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 3
+
+
+  69 0026 0361     		str	r3, [r0, #16]
+  48:Core/Src/tim.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  70              		.loc 1 48 3 is_stmt 1 view .LVU15
+  71              		.loc 1 48 32 is_stmt 0 view .LVU16
+  72 0028 8361     		str	r3, [r0, #24]
+  49:Core/Src/tim.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  73              		.loc 1 49 3 is_stmt 1 view .LVU17
+  74              		.loc 1 49 7 is_stmt 0 view .LVU18
+  75 002a FFF7FEFF 		bl	HAL_TIM_Base_Init
+  76              	.LVL0:
+  77              		.loc 1 49 6 view .LVU19
+  78 002e 90B9     		cbnz	r0, .L6
+  79              	.L2:
+  50:Core/Src/tim.c ****   {
+  51:Core/Src/tim.c ****     Error_Handler();
+  52:Core/Src/tim.c ****   }
+  53:Core/Src/tim.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  80              		.loc 1 53 3 is_stmt 1 view .LVU20
+  81              		.loc 1 53 34 is_stmt 0 view .LVU21
+  82 0030 4FF48053 		mov	r3, #4096
+  83 0034 0293     		str	r3, [sp, #8]
+  54:Core/Src/tim.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  84              		.loc 1 54 3 is_stmt 1 view .LVU22
+  85              		.loc 1 54 7 is_stmt 0 view .LVU23
+  86 0036 02A9     		add	r1, sp, #8
+  87 0038 0B48     		ldr	r0, .L9
+  88 003a FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+  89              	.LVL1:
+  90              		.loc 1 54 6 view .LVU24
+  91 003e 68B9     		cbnz	r0, .L7
+  92              	.L3:
+  55:Core/Src/tim.c ****   {
+  56:Core/Src/tim.c ****     Error_Handler();
+  57:Core/Src/tim.c ****   }
+  58:Core/Src/tim.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  93              		.loc 1 58 3 is_stmt 1 view .LVU25
+  94              		.loc 1 58 37 is_stmt 0 view .LVU26
+  95 0040 0023     		movs	r3, #0
+  96 0042 0093     		str	r3, [sp]
+  59:Core/Src/tim.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  97              		.loc 1 59 3 is_stmt 1 view .LVU27
+  98              		.loc 1 59 33 is_stmt 0 view .LVU28
+  99 0044 0193     		str	r3, [sp, #4]
+  60:Core/Src/tim.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 100              		.loc 1 60 3 is_stmt 1 view .LVU29
+ 101              		.loc 1 60 7 is_stmt 0 view .LVU30
+ 102 0046 6946     		mov	r1, sp
+ 103 0048 0748     		ldr	r0, .L9
+ 104 004a FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 105              	.LVL2:
+ 106              		.loc 1 60 6 view .LVU31
+ 107 004e 40B9     		cbnz	r0, .L8
+ 108              	.L1:
+  61:Core/Src/tim.c ****   {
+  62:Core/Src/tim.c ****     Error_Handler();
+  63:Core/Src/tim.c ****   }
+  64:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 4
+
+
+  65:Core/Src/tim.c **** 
+  66:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 2 */
+  67:Core/Src/tim.c **** 
+  68:Core/Src/tim.c **** }
+ 109              		.loc 1 68 1 view .LVU32
+ 110 0050 07B0     		add	sp, sp, #28
+ 111              	.LCFI2:
+ 112              		.cfi_remember_state
+ 113              		.cfi_def_cfa_offset 4
+ 114              		@ sp needed
+ 115 0052 5DF804FB 		ldr	pc, [sp], #4
+ 116              	.L6:
+ 117              	.LCFI3:
+ 118              		.cfi_restore_state
+  51:Core/Src/tim.c ****   }
+ 119              		.loc 1 51 5 is_stmt 1 view .LVU33
+ 120 0056 FFF7FEFF 		bl	Error_Handler
+ 121              	.LVL3:
+ 122 005a E9E7     		b	.L2
+ 123              	.L7:
+  56:Core/Src/tim.c ****   }
+ 124              		.loc 1 56 5 view .LVU34
+ 125 005c FFF7FEFF 		bl	Error_Handler
+ 126              	.LVL4:
+ 127 0060 EEE7     		b	.L3
+ 128              	.L8:
+  62:Core/Src/tim.c ****   }
+ 129              		.loc 1 62 5 view .LVU35
+ 130 0062 FFF7FEFF 		bl	Error_Handler
+ 131              	.LVL5:
+ 132              		.loc 1 68 1 is_stmt 0 view .LVU36
+ 133 0066 F3E7     		b	.L1
+ 134              	.L10:
+ 135              		.align	2
+ 136              	.L9:
+ 137 0068 00000000 		.word	htim2
+ 138              		.cfi_endproc
+ 139              	.LFE130:
+ 141              		.section	.text.HAL_TIM_Base_MspInit,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	HAL_TIM_Base_MspInit
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.fpu fpv4-sp-d16
+ 149              	HAL_TIM_Base_MspInit:
+ 150              	.LVL6:
+ 151              	.LFB131:
+  69:Core/Src/tim.c **** 
+  70:Core/Src/tim.c **** void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
+  71:Core/Src/tim.c **** {
+ 152              		.loc 1 71 1 is_stmt 1 view -0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 8
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+  72:Core/Src/tim.c **** 
+  73:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 5
+
+
+ 156              		.loc 1 73 3 view .LVU38
+ 157              		.loc 1 73 20 is_stmt 0 view .LVU39
+ 158 0000 0368     		ldr	r3, [r0]
+ 159              		.loc 1 73 5 view .LVU40
+ 160 0002 B3F1804F 		cmp	r3, #1073741824
+ 161 0006 00D0     		beq	.L17
+ 162 0008 7047     		bx	lr
+ 163              	.L17:
+  71:Core/Src/tim.c **** 
+ 164              		.loc 1 71 1 view .LVU41
+ 165 000a 00B5     		push	{lr}
+ 166              	.LCFI4:
+ 167              		.cfi_def_cfa_offset 4
+ 168              		.cfi_offset 14, -4
+ 169 000c 83B0     		sub	sp, sp, #12
+ 170              	.LCFI5:
+ 171              		.cfi_def_cfa_offset 16
+  74:Core/Src/tim.c ****   {
+  75:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 0 */
+  76:Core/Src/tim.c **** 
+  77:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 0 */
+  78:Core/Src/tim.c ****     /* TIM2 clock enable */
+  79:Core/Src/tim.c ****     __HAL_RCC_TIM2_CLK_ENABLE();
+ 172              		.loc 1 79 5 is_stmt 1 view .LVU42
+ 173              	.LBB2:
+ 174              		.loc 1 79 5 view .LVU43
+ 175 000e 0021     		movs	r1, #0
+ 176 0010 0191     		str	r1, [sp, #4]
+ 177              		.loc 1 79 5 view .LVU44
+ 178 0012 03F50E33 		add	r3, r3, #145408
+ 179 0016 1A6C     		ldr	r2, [r3, #64]
+ 180 0018 42F00102 		orr	r2, r2, #1
+ 181 001c 1A64     		str	r2, [r3, #64]
+ 182              		.loc 1 79 5 view .LVU45
+ 183 001e 1B6C     		ldr	r3, [r3, #64]
+ 184 0020 03F00103 		and	r3, r3, #1
+ 185 0024 0193     		str	r3, [sp, #4]
+ 186              		.loc 1 79 5 view .LVU46
+ 187 0026 019B     		ldr	r3, [sp, #4]
+ 188              	.LBE2:
+ 189              		.loc 1 79 5 view .LVU47
+  80:Core/Src/tim.c **** 
+  81:Core/Src/tim.c ****     /* TIM2 interrupt Init */
+  82:Core/Src/tim.c ****     HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
+ 190              		.loc 1 82 5 view .LVU48
+ 191 0028 0A46     		mov	r2, r1
+ 192 002a 1C20     		movs	r0, #28
+ 193              	.LVL7:
+ 194              		.loc 1 82 5 is_stmt 0 view .LVU49
+ 195 002c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 196              	.LVL8:
+  83:Core/Src/tim.c ****     HAL_NVIC_EnableIRQ(TIM2_IRQn);
+ 197              		.loc 1 83 5 is_stmt 1 view .LVU50
+ 198 0030 1C20     		movs	r0, #28
+ 199 0032 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 200              	.LVL9:
+  84:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 6
+
+
+  85:Core/Src/tim.c **** 
+  86:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 1 */
+  87:Core/Src/tim.c ****   }
+  88:Core/Src/tim.c **** }
+ 201              		.loc 1 88 1 is_stmt 0 view .LVU51
+ 202 0036 03B0     		add	sp, sp, #12
+ 203              	.LCFI6:
+ 204              		.cfi_def_cfa_offset 4
+ 205              		@ sp needed
+ 206 0038 5DF804FB 		ldr	pc, [sp], #4
+ 207              		.cfi_endproc
+ 208              	.LFE131:
+ 210              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	HAL_TIM_Base_MspDeInit
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.fpu fpv4-sp-d16
+ 218              	HAL_TIM_Base_MspDeInit:
+ 219              	.LVL10:
+ 220              	.LFB132:
+  89:Core/Src/tim.c **** 
+  90:Core/Src/tim.c **** void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
+  91:Core/Src/tim.c **** {
+ 221              		.loc 1 91 1 is_stmt 1 view -0
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              		.loc 1 91 1 is_stmt 0 view .LVU53
+ 226 0000 08B5     		push	{r3, lr}
+ 227              	.LCFI7:
+ 228              		.cfi_def_cfa_offset 8
+ 229              		.cfi_offset 3, -8
+ 230              		.cfi_offset 14, -4
+  92:Core/Src/tim.c **** 
+  93:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
+ 231              		.loc 1 93 3 is_stmt 1 view .LVU54
+ 232              		.loc 1 93 20 is_stmt 0 view .LVU55
+ 233 0002 0368     		ldr	r3, [r0]
+ 234              		.loc 1 93 5 view .LVU56
+ 235 0004 B3F1804F 		cmp	r3, #1073741824
+ 236 0008 00D0     		beq	.L21
+ 237              	.LVL11:
+ 238              	.L18:
+  94:Core/Src/tim.c ****   {
+  95:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 0 */
+  96:Core/Src/tim.c **** 
+  97:Core/Src/tim.c ****   /* USER CODE END TIM2_MspDeInit 0 */
+  98:Core/Src/tim.c ****     /* Peripheral clock disable */
+  99:Core/Src/tim.c ****     __HAL_RCC_TIM2_CLK_DISABLE();
+ 100:Core/Src/tim.c **** 
+ 101:Core/Src/tim.c ****     /* TIM2 interrupt Deinit */
+ 102:Core/Src/tim.c ****     HAL_NVIC_DisableIRQ(TIM2_IRQn);
+ 103:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
+ 104:Core/Src/tim.c **** 
+ 105:Core/Src/tim.c ****   /* USER CODE END TIM2_MspDeInit 1 */
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 7
+
+
+ 106:Core/Src/tim.c ****   }
+ 107:Core/Src/tim.c **** }
+ 239              		.loc 1 107 1 view .LVU57
+ 240 000a 08BD     		pop	{r3, pc}
+ 241              	.LVL12:
+ 242              	.L21:
+  99:Core/Src/tim.c **** 
+ 243              		.loc 1 99 5 is_stmt 1 view .LVU58
+ 244 000c 044A     		ldr	r2, .L22
+ 245 000e 136C     		ldr	r3, [r2, #64]
+ 246 0010 23F00103 		bic	r3, r3, #1
+ 247 0014 1364     		str	r3, [r2, #64]
+ 102:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
+ 248              		.loc 1 102 5 view .LVU59
+ 249 0016 1C20     		movs	r0, #28
+ 250              	.LVL13:
+ 102:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
+ 251              		.loc 1 102 5 is_stmt 0 view .LVU60
+ 252 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 253              	.LVL14:
+ 254              		.loc 1 107 1 view .LVU61
+ 255 001c F5E7     		b	.L18
+ 256              	.L23:
+ 257 001e 00BF     		.align	2
+ 258              	.L22:
+ 259 0020 00380240 		.word	1073887232
+ 260              		.cfi_endproc
+ 261              	.LFE132:
+ 263              		.comm	htim2,72,4
+ 264              		.text
+ 265              	.Letext0:
+ 266              		.file 2 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 267              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 268              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 269              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 270              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 271              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 272              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 273              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 274              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 275              		.file 11 "Core/Inc/tim.h"
+ 276              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 277              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
+ 278              		.file 14 "Core/Inc/main.h"
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 tim.c
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:18     .text.MX_TIM2_Init:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:26     .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:137    .text.MX_TIM2_Init:00000068 $d
+                            *COM*:00000048 htim2
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:142    .text.HAL_TIM_Base_MspInit:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:149    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:211    .text.HAL_TIM_Base_MspDeInit:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:218    .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+C:\Users\Kiana\AppData\Local\Temp\ccsB0uX2.s:259    .text.HAL_TIM_Base_MspDeInit:00000020 $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_Base_Init
+HAL_TIM_ConfigClockSource
+HAL_TIMEx_MasterConfigSynchronization
+Error_Handler
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_NVIC_DisableIRQ
