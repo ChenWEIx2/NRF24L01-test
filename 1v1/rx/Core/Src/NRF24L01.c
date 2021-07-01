@@ -142,18 +142,12 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 	if(sta&MAX_TX)                                       //达到最大重发次数
 	{
 		NRF24L01_Write_Reg(FLUSH_TX,0xff);                 //清除TX FIFO寄存器 
-    LOGW("NRF24L01_TxPacket Max TX times");
-    printf("NRF24L01_TxPacket Max TX times!/r/n");
 		return MAX_TX; 
 	}
 	if(sta&TX_OK)                                        //发送完成
 	{
-    LOGI("NRF24L01_TxPacket Success");
-    printf("NRF24L01_TxPacket Success./r/n");
 		return TX_OK;
 	}
-  LOGE("NRF24L01_TxPacket Fail");
-  printf("NRF24L01_TxPacket Fail/r/n");
 	return 0xff;                                         //其他原因发送失败
 }
 
@@ -173,10 +167,8 @@ uint8_t NRF24L01_RxPacket(uint8_t *rxbuf)
 	{
 		NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);//读取数据
 		NRF24L01_Write_Reg(FLUSH_RX,0xff);//清除RX FIFO寄存器 
-    LOGI("NRF24L01_RxPacket recive");
 		return 0; 
 	}	
-  LOGW("NRF24L01_RxPacket nothing");
 	return 1;//没收到任何数据
 }					    
 
@@ -225,21 +217,4 @@ void NRF24L01_TX_Mode(void)
   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG,0x0e);    //配置基本工作模式的参数;PWR_UP,EN_CRC,16BIT_CRC,接收模式,开启所有中断
 	NRF24L01_CE_HIGH();//CE为高,10us后启动发送
   HAL_Delay(1);
-}
-
-/**
-  * 函数功能: 该函数通过串口打印NRF24L01将要发送的遥控器数据
-  * 输入参数: tx_buff
-  * 返 回 值: 无
-  * 说    明：无
-  *           
-  */ 
-void NRF24L01_TX_Buff_Printf(uint8_t* tx_buff)
-{
-  printf("CH1_X:%d\r\n",tx_buff[6]);
-  printf("CH1_Y:%d\r\n",tx_buff[7]);
-  printf("CH2_X:%d\r\n",tx_buff[8]);
-  printf("CH2_Y:%d\r\n",tx_buff[9]);
-  printf("Key Data:%d, %d, %d, %d, %d, %d\r\n",tx_buff[0],tx_buff[1],tx_buff[2],tx_buff[3],tx_buff[4],tx_buff[5]);
-
 }

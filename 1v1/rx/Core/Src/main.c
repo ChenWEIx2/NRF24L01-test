@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "NRF24L01.h"
+#include "stdio.h"
 
 /* USER CODE END Includes */
 
@@ -46,8 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buf[33] = "slave";
-uint8_t rx_buf[33];
+uint8_t rx_buf[32];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,7 +99,7 @@ int main(void)
 		HAL_Delay(1000);
 	}
   printf("NRF24L01 connect sucessfullt\r\n");
-  NRF24L01_TX_Mode(0);
+  NRF24L01_RX_Mode();
 
   /* USER CODE END 2 */
 
@@ -110,7 +110,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+    if(NRF24L01_RxPacket(rx_buf)==0)
+    {      
+      printf("接收成功。\r\n");
+    }
+    HAL_Delay(10);   
 
   }
   /* USER CODE END 3 */
