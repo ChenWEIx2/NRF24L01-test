@@ -2109,36 +2109,36 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_line    0x000077ef      0x4d1 build/NRF24L01.o
  .debug_line    0x00007cc0       0x76 build/startup_stm32f401xc.o
 
-.debug_str      0x00000000     0x2bab
- .debug_str     0x00000000      0xe8c build/main.o
-                                0xf87 (size before relaxing)
- .debug_str     0x00000e8c       0xdf build/gpio.o
+.debug_str      0x00000000     0x2b7f
+ .debug_str     0x00000000      0xe97 build/main.o
+                                0xf92 (size before relaxing)
+ .debug_str     0x00000e97       0xdf build/gpio.o
                                 0x463 (size before relaxing)
- .debug_str     0x00000f6b       0x58 build/spi.o
+ .debug_str     0x00000f76       0x58 build/spi.o
                                 0x8da (size before relaxing)
- .debug_str     0x00000fc3       0x63 build/usart.o
+ .debug_str     0x00000fce       0x63 build/usart.o
                                 0xcdc (size before relaxing)
- .debug_str     0x00001026       0xb4 build/stm32f4xx_it.o
+ .debug_str     0x00001031       0xb4 build/stm32f4xx_it.o
                                 0x328 (size before relaxing)
- .debug_str     0x000010da       0x29 build/stm32f4xx_hal_msp.o
+ .debug_str     0x000010e5       0x29 build/stm32f4xx_hal_msp.o
                                 0x3b2 (size before relaxing)
- .debug_str     0x00001103      0x58e build/stm32f4xx_hal_spi.o
+ .debug_str     0x0000110e      0x58e build/stm32f4xx_hal_spi.o
                                 0xcbd (size before relaxing)
- .debug_str     0x00001691      0x1d5 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x0000169c      0x1d5 build/stm32f4xx_hal_rcc.o
                                 0x7a3 (size before relaxing)
- .debug_str     0x00001866      0x125 build/stm32f4xx_hal_gpio.o
+ .debug_str     0x00001871      0x125 build/stm32f4xx_hal_gpio.o
                                 0x5c5 (size before relaxing)
- .debug_str     0x0000198b      0x893 build/stm32f4xx_hal_cortex.o
+ .debug_str     0x00001996      0x893 build/stm32f4xx_hal_cortex.o
                                 0xb8b (size before relaxing)
- .debug_str     0x0000221e      0x21f build/stm32f4xx_hal.o
+ .debug_str     0x00002229      0x21f build/stm32f4xx_hal.o
                                 0xa5e (size before relaxing)
- .debug_str     0x0000243d      0x5ea build/stm32f4xx_hal_uart.o
+ .debug_str     0x00002448      0x5ea build/stm32f4xx_hal_uart.o
                                 0xdf7 (size before relaxing)
- .debug_str     0x00002a27       0x47 build/system_stm32f4xx.o
+ .debug_str     0x00002a32       0x47 build/system_stm32f4xx.o
                                 0x42e (size before relaxing)
- .debug_str     0x00002a6e      0x119 build/NRF24L01.o
+ .debug_str     0x00002a79       0xe2 build/NRF24L01.o
                                 0x8a1 (size before relaxing)
- .debug_str     0x00002b87       0x24 build/startup_stm32f401xc.o
+ .debug_str     0x00002b5b       0x24 build/startup_stm32f401xc.o
                                  0x4f (size before relaxing)
 
 .comment        0x00000000       0x79

@@ -126,13 +126,30 @@ int main(void)
 
     if(NRF24L01_TxPacket(tx_buf)==TX_OK)
     {
-      printf("Successfully!\r\n");
-      tx_count++;
+      time_now = htim2.Instance->CNT + timer_count * 0xffff;  //us
+      time_interval = time_now - time_last;
+      time_last = time_now;
+      
+      tx_speed += (4.0/(time_interval / 1000000.0));      //1 Byte per second
+      
+      tx_count = tx_count + 1;
     }
     else
     {
       printf("Fail!\r\n");
-    } 
+    }
+
+    if(tx_count == 10)
+    {
+      tx_speed = tx_speed / tx_count;
+      printf("TX_Speed:%f\r\n",tx_speed);
+
+      time_now = 0;
+      time_last = 0;
+      timer_count = 0;
+      tx_count = 0;
+      tx_speed = 0;
+    }
 
 
   }
@@ -187,18 +204,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htm)
 {
   HAL_TIM_IRQHandler(&htim2);
 	timer_count++;
-
-  time_now = htim2.Instance->CNT + timer_count * 0xffff;  //us
-  time_interval = time_now - time_last;
-  time_last = time_now;
-
-  tx_speed += tx_count / time_interval;
-
-  if(timer_count > 10)
-  {
-    tx_speed = tx_speed / timer_count;
-    printf("TX_Speed:%f\r\n",tx_speed);
-  }
 }
 /* USER CODE END 4 */
 
