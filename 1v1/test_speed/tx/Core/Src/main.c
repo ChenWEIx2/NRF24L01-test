@@ -142,7 +142,7 @@ int main(void)
     if(tx_count == 10)
     {
       tx_speed = tx_speed / tx_count;
-      printf("TX_Speed:%f\r\n",tx_speed);
+      printf("TX_Speed=%f\r\n",tx_speed);
 
       time_now = 0;
       time_last = 0;
