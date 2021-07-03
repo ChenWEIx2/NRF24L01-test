@@ -48,7 +48,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buf[32] = "hello!";
+uint8_t tx_buf[1] = {11};
 uint8_t tx_count = 0;
 
 volatile uint32_t timer_count;
@@ -56,7 +56,7 @@ uint32_t time_now = 0;
 uint32_t time_last = 0;
 uint32_t time_interval = 0;
 
-float tx_delay;
+uint16_t tx_delay;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -125,7 +125,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     if(tx_count > 10)
     {
-      tx_delay = time_interval / tx_count;    //us
+      tx_delay = (uint16_t)(time_interval / tx_count);    //us
 
       time_interval = 0;
       timer_count = 0;
@@ -133,13 +133,13 @@ int main(void)
       time_last = 0;
       tx_count = 0;
 
-      printf("Delay:%f\r\n",tx_delay);
+      printf("Delay:%d\r\n",tx_delay);
     }
 
 
     if(NRF24L01_TxPacket(tx_buf)==TX_OK)
     {
-      printf("Successfully!\r\n");
+      //printf("Successfully!\r\n");
       time_interval += (time_now - time_last);
       time_last = time_now;
       time_now = htim2.Instance->CNT + timer_count * 0xffff;
