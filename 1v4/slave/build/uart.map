@@ -141,7 +141,6 @@ __lock___sinit_recursive_mutex
 __lock___malloc_recursive_mutex
                     0x1               d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
 huart1              0x44              build/usart.o
-rx_buf              0x21              build/main.o
 __lock___at_quick_exit_mutex
                     0x1               d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
 __lock___dd_hash_mutex
@@ -166,7 +165,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/main.o
  .data          0x00000000        0x0 build/main.o
  .bss           0x00000000        0x0 build/main.o
- COMMON         0x00000000       0x21 build/main.o
  .text          0x00000000        0x0 build/gpio.o
  .data          0x00000000        0x0 build/gpio.o
  .bss           0x00000000        0x0 build/gpio.o
@@ -2106,22 +2104,22 @@ LOAD d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v
                 0x00000d3c       0x1e d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(build/uart.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xe4d5
- .debug_info    0x00000000     0x1a0f build/main.o
- .debug_info    0x00001a0f      0x60c build/gpio.o
- .debug_info    0x0000201b      0xc24 build/spi.o
- .debug_info    0x00002c3f     0x15ec build/usart.o
- .debug_info    0x0000422b      0x271 build/stm32f4xx_it.o
- .debug_info    0x0000449c      0x417 build/stm32f4xx_hal_msp.o
- .debug_info    0x000048b3     0x20e0 build/stm32f4xx_hal_spi.o
- .debug_info    0x00006993      0xc71 build/stm32f4xx_hal_rcc.o
- .debug_info    0x00007604      0x954 build/stm32f4xx_hal_gpio.o
- .debug_info    0x00007f58     0x11a8 build/stm32f4xx_hal_cortex.o
- .debug_info    0x00009100      0xaef build/stm32f4xx_hal.o
- .debug_info    0x00009bef     0x1f46 build/stm32f4xx_hal_uart.o
- .debug_info    0x0000bb35      0x66e build/system_stm32f4xx.o
- .debug_info    0x0000c1a3     0x2310 build/NRF24L01.o
- .debug_info    0x0000e4b3       0x22 build/startup_stm32f401xc.o
+.debug_info     0x00000000     0xe4c2
+ .debug_info    0x00000000     0x19fc build/main.o
+ .debug_info    0x000019fc      0x60c build/gpio.o
+ .debug_info    0x00002008      0xc24 build/spi.o
+ .debug_info    0x00002c2c     0x15ec build/usart.o
+ .debug_info    0x00004218      0x271 build/stm32f4xx_it.o
+ .debug_info    0x00004489      0x417 build/stm32f4xx_hal_msp.o
+ .debug_info    0x000048a0     0x20e0 build/stm32f4xx_hal_spi.o
+ .debug_info    0x00006980      0xc71 build/stm32f4xx_hal_rcc.o
+ .debug_info    0x000075f1      0x954 build/stm32f4xx_hal_gpio.o
+ .debug_info    0x00007f45     0x11a8 build/stm32f4xx_hal_cortex.o
+ .debug_info    0x000090ed      0xaef build/stm32f4xx_hal.o
+ .debug_info    0x00009bdc     0x1f46 build/stm32f4xx_hal_uart.o
+ .debug_info    0x0000bb22      0x66e build/system_stm32f4xx.o
+ .debug_info    0x0000c190     0x2310 build/NRF24L01.o
+ .debug_info    0x0000e4a0       0x22 build/startup_stm32f401xc.o
 
 .debug_abbrev   0x00000000     0x20cc
  .debug_abbrev  0x00000000      0x2de build/main.o
@@ -2205,53 +2203,53 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_ranges  0x00000758       0x60 build/NRF24L01.o
  .debug_ranges  0x000007b8       0x20 build/startup_stm32f401xc.o
 
-.debug_line     0x00000000     0x7efe
- .debug_line    0x00000000      0x443 build/main.o
- .debug_line    0x00000443      0x1f8 build/gpio.o
- .debug_line    0x0000063b      0x310 build/spi.o
- .debug_line    0x0000094b      0x405 build/usart.o
- .debug_line    0x00000d50      0x276 build/stm32f4xx_it.o
- .debug_line    0x00000fc6      0x1a5 build/stm32f4xx_hal_msp.o
- .debug_line    0x0000116b     0x24d7 build/stm32f4xx_hal_spi.o
- .debug_line    0x00003642      0xb0e build/stm32f4xx_hal_rcc.o
- .debug_line    0x00004150      0x6ed build/stm32f4xx_hal_gpio.o
- .debug_line    0x0000483d      0x77e build/stm32f4xx_hal_cortex.o
- .debug_line    0x00004fbb      0x541 build/stm32f4xx_hal.o
- .debug_line    0x000054fc     0x20d4 build/stm32f4xx_hal_uart.o
- .debug_line    0x000075d0      0x262 build/system_stm32f4xx.o
- .debug_line    0x00007832      0x656 build/NRF24L01.o
- .debug_line    0x00007e88       0x76 build/startup_stm32f401xc.o
+.debug_line     0x00000000     0x7efa
+ .debug_line    0x00000000      0x43f build/main.o
+ .debug_line    0x0000043f      0x1f8 build/gpio.o
+ .debug_line    0x00000637      0x310 build/spi.o
+ .debug_line    0x00000947      0x405 build/usart.o
+ .debug_line    0x00000d4c      0x276 build/stm32f4xx_it.o
+ .debug_line    0x00000fc2      0x1a5 build/stm32f4xx_hal_msp.o
+ .debug_line    0x00001167     0x24d7 build/stm32f4xx_hal_spi.o
+ .debug_line    0x0000363e      0xb0e build/stm32f4xx_hal_rcc.o
+ .debug_line    0x0000414c      0x6ed build/stm32f4xx_hal_gpio.o
+ .debug_line    0x00004839      0x77e build/stm32f4xx_hal_cortex.o
+ .debug_line    0x00004fb7      0x541 build/stm32f4xx_hal.o
+ .debug_line    0x000054f8     0x20d4 build/stm32f4xx_hal_uart.o
+ .debug_line    0x000075cc      0x262 build/system_stm32f4xx.o
+ .debug_line    0x0000782e      0x656 build/NRF24L01.o
+ .debug_line    0x00007e84       0x76 build/startup_stm32f401xc.o
 
-.debug_str      0x00000000     0x2bcd
- .debug_str     0x00000000      0xea6 build/main.o
-                                0xfa1 (size before relaxing)
- .debug_str     0x00000ea6       0xb4 build/gpio.o
+.debug_str      0x00000000     0x2bc6
+ .debug_str     0x00000000      0xe9f build/main.o
+                                0xf9a (size before relaxing)
+ .debug_str     0x00000e9f       0xb4 build/gpio.o
                                 0x467 (size before relaxing)
- .debug_str     0x00000f5a       0x58 build/spi.o
+ .debug_str     0x00000f53       0x58 build/spi.o
                                 0x8de (size before relaxing)
- .debug_str     0x00000fb2       0x63 build/usart.o
+ .debug_str     0x00000fab       0x63 build/usart.o
                                 0xce0 (size before relaxing)
- .debug_str     0x00001015       0xb4 build/stm32f4xx_it.o
+ .debug_str     0x0000100e       0xb4 build/stm32f4xx_it.o
                                 0x32c (size before relaxing)
- .debug_str     0x000010c9       0x29 build/stm32f4xx_hal_msp.o
+ .debug_str     0x000010c2       0x29 build/stm32f4xx_hal_msp.o
                                 0x3b6 (size before relaxing)
- .debug_str     0x000010f2      0x58e build/stm32f4xx_hal_spi.o
+ .debug_str     0x000010eb      0x58e build/stm32f4xx_hal_spi.o
                                 0xcc1 (size before relaxing)
- .debug_str     0x00001680      0x1d5 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x00001679      0x1d5 build/stm32f4xx_hal_rcc.o
                                 0x7a7 (size before relaxing)
- .debug_str     0x00001855      0x125 build/stm32f4xx_hal_gpio.o
+ .debug_str     0x0000184e      0x125 build/stm32f4xx_hal_gpio.o
                                 0x5c9 (size before relaxing)
- .debug_str     0x0000197a      0x893 build/stm32f4xx_hal_cortex.o
+ .debug_str     0x00001973      0x893 build/stm32f4xx_hal_cortex.o
                                 0xb8f (size before relaxing)
- .debug_str     0x0000220d      0x21f build/stm32f4xx_hal.o
+ .debug_str     0x00002206      0x21f build/stm32f4xx_hal.o
                                 0xa62 (size before relaxing)
- .debug_str     0x0000242c      0x5ea build/stm32f4xx_hal_uart.o
+ .debug_str     0x00002425      0x5ea build/stm32f4xx_hal_uart.o
                                 0xdfb (size before relaxing)
- .debug_str     0x00002a16       0x47 build/system_stm32f4xx.o
+ .debug_str     0x00002a0f       0x47 build/system_stm32f4xx.o
                                 0x432 (size before relaxing)
- .debug_str     0x00002a5d      0x14c build/NRF24L01.o
+ .debug_str     0x00002a56      0x14c build/NRF24L01.o
                                 0xe89 (size before relaxing)
- .debug_str     0x00002ba9       0x24 build/startup_stm32f401xc.o
+ .debug_str     0x00002ba2       0x24 build/startup_stm32f401xc.o
                                  0x53 (size before relaxing)
 
 .comment        0x00000000       0x79
@@ -3125,7 +3123,6 @@ printf                                            d:/vs_code_stm32/9 2019-q4-maj
 puts                                              d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
                                                   build/NRF24L01.o
                                                   build/main.o
-rx_buf                                            build/main.o
 setlocale                                         d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-locale.o)
 slave_id                                          build/main.o
 software_init_hook                                d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
