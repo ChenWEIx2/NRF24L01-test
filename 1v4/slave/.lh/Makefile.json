@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1624505206007,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1625675033070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,10 +59,11 @@\n Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \\\r\n Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \\\r\n Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \\\r\n Core/Src/system_stm32f4xx.c \\\r\n-Core/Src/NRF24L01.c  \r\n+Core/Src/NRF24L01.c  \\\r\n \r\n+\r\n # ASM sources\r\n ASM_SOURCES =  \\\r\n startup_stm32f401xc.s\r\n \r\n@@ -120,9 +121,9 @@\n -ICore/Inc \\\r\n -IDrivers/STM32F4xx_HAL_Driver/Inc \\\r\n -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \\\r\n -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \\\r\n--IDrivers/CMSIS/Include\r\n+-IDrivers/CMSIS/Include \r\n \r\n \r\n # compile gcc flags\r\n ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections\r\n"
                 }
             ],
             "date": 1624505206007,

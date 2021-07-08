@@ -98,7 +98,7 @@ int main(void)
 		HAL_Delay(1000);
 	}
   printf("Connect to NRF24L01 Successfully!\r\n");
-  //NRF24L01_RX_Mode_Master();
+  NRF24L01_RX_Mode_Master();
   
   /* USER CODE END 2 */
 
@@ -114,6 +114,7 @@ int main(void)
     //先处在TX_Mode,TX_Mode要可以选择通过哪个通道发送
     //发送成功后处于RX_Mode，RX_Mode要可以打印出接收的通道来源
     //接收成功后继续变为TX_Mode，重复上述过程
+    /*
     for(uint8_t i=0;i<4;i++)
     {
       NRF24L01_TX_Mode(i);
@@ -141,19 +142,20 @@ int main(void)
       HAL_Delay(1000);  
 
     }
+    */
 
     /*Master RX Mode*/
-    /*
+    
       if(NRF24L01_RxPacket(rx_buf)==0)
       {     
-        printf("Rx_buf:%s\r\n",i,rx_buf);
+        printf("Rx_buf:%s\r\n",rx_buf);
         HAL_Delay(1000);
       }
       else
       {
-        printf("Rx_buf receive fail!\r\n",i);
+        printf("Rx_buf receive fail!\r\n");
       }
-    */
+    
 
         
 

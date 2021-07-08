@@ -46,8 +46,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buf[33] = "slave";
+uint8_t tx_buf[33] = "slave-3";
 uint8_t rx_buf[33];
+uint8_t slave_id = 3;   //0~3
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,7 +100,7 @@ int main(void)
 		HAL_Delay(1000);
 	}
   printf("NRF24L01 connect sucessfullt\r\n");
-  //NRF24L01_TX_Mode(0);
+  NRF24L01_TX_Mode(slave_id);
 
   /* USER CODE END 2 */
 
@@ -115,6 +116,7 @@ int main(void)
     //先处于RX_Mode，每个从机所处的RX_Mode通道一致
     //接收成功，表示选中此机，转为TX_Mode
     //接收到应答帧后转为RX_Mode,循环上述过程
+    /*
     NRF24L01_RX_Mode(0);
     if(NRF24L01_RxPacket(rx_buf)==0)
     {      
@@ -135,18 +137,18 @@ int main(void)
     {
       printf("Channel 0 do not be selected!\r\n");
     }
-
+    */
     /*从机，一直发模式*/
-    /*
+    
     if(NRF24L01_TxPacket(tx_buf)==TX_OK)
     {
-      printf("Channel 0 send successfully!\r\n");
+      printf("Channel %d send successfully!\r\n",slave_id);
     }
     else
     {
-      printf("Channel 0 send fail!\r\n");
+      printf("Channel %d send fail!\r\n",slave_id);
     } 
-    */
+    
 
   }
   /* USER CODE END 3 */
