@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
   27:Core/Src/NRF24L01.c ****   * 说    明：无
   28:Core/Src/NRF24L01.c ****   */
   29:Core/Src/NRF24L01.c **** uint8_t SPIx_ReadWriteByte(SPI_HandleTypeDef* hspi,uint8_t byte)
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 2
 
 
   30:Core/Src/NRF24L01.c **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
   77              		.syntax unified
   78              		.thumb
   79              		.thumb_func
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 3
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 3
 
 
   80              		.fpu fpv4-sp-d16
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  105 000a 4FF48051 		mov	r1, #4096
  106              	.LVL4:
  107              		.loc 1 67 3 is_stmt 0 view .LVU16
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 4
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 4
 
 
  108 000e 3046     		mov	r0, r6
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
   74:Core/Src/NRF24L01.c **** /**
   75:Core/Src/NRF24L01.c ****   * 函数功能: 读取SPI寄存器值
   76:Core/Src/NRF24L01.c ****   * 输入参数: 无
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 5
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 5
 
 
   77:Core/Src/NRF24L01.c ****   * 返 回 值: 无
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
   88:Core/Src/NRF24L01.c ****   return(reg_val);           //返回状态值
  201              		.loc 1 88 3 view .LVU34
   89:Core/Src/NRF24L01.c **** }	
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 6
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 6
 
 
  202              		.loc 1 89 1 is_stmt 0 view .LVU35
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  245 0008 0022     		movs	r2, #0
  246              	.LVL21:
  247              		.loc 1 102 3 is_stmt 0 view .LVU41
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 7
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 7
 
 
  248 000a 4FF48051 		mov	r1, #4096
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  292 0034 0122     		movs	r2, #1
  293 0036 4FF48051 		mov	r1, #4096
  294 003a 0248     		ldr	r0, .L17
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 8
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 8
 
 
  295 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  121:Core/Src/NRF24L01.c **** 	uint8_t status,uint8_t_ctr;	    
  339              		.loc 1 121 2 is_stmt 1 view .LVU63
  122:Core/Src/NRF24L01.c ****  	NRF24L01_SPI_CS_ENABLE();          //使能SPI传输
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 9
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 9
 
 
  340              		.loc 1 122 3 view .LVU64
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  386 0032 F5E7     		b	.L20
  387              	.L23:
  127:Core/Src/NRF24L01.c ****   }
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 10
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 10
 
 
  128:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_DISABLE();       //关闭SPI传输
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  437 000a 0090     		str	r0, [sp]
  438 000c 8DF80410 		strb	r1, [sp, #4]
   48:Core/Src/NRF24L01.c ****   
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 11
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 11
 
 
  439              		.loc 1 48 2 is_stmt 1 view .LVU88
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  479              		.loc 1 53 2 is_stmt 1 view .LVU102
   53:Core/Src/NRF24L01.c **** 	return 0;		 //检测到24L01
  480              		.loc 1 53 4 is_stmt 0 view .LVU103
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 12
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 12
 
 
  481 003c 052B     		cmp	r3, #5
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  131:Core/Src/NRF24L01.c **** 
  132:Core/Src/NRF24L01.c **** /**
  133:Core/Src/NRF24L01.c ****   * 函数功能: 启动NRF24L01发送一次数据
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 13
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 13
 
 
  134:Core/Src/NRF24L01.c ****   * 输入参数: 无
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  568 002c 1348     		ldr	r0, .L43+4
  569 002e FFF7FEFF 		bl	HAL_GPIO_ReadPin
  570              	.LVL58:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 14
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 14
 
 
  571              		.loc 1 146 7 discriminator 1 view .LVU118
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  608 005c FF21     		movs	r1, #255
  609 005e E120     		movs	r0, #225
  610 0060 FFF7FEFF 		bl	NRF24L01_Write_Reg
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 15
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 15
 
 
  611              	.LVL64:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  649      61642073 
  649      75636365 
  650 005e 0000     		.align	2
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 16
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 16
 
 
  651              	.LC7:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  686 0006 FFF7FEFF 		bl	NRF24L01_Read_Reg
  687              	.LVL69:
  688 000a 0446     		mov	r4, r0
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 17
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 17
 
 
  689              	.LVL70:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  710 0022 062C     		cmp	r4, #6
  711 0024 2ED8     		bhi	.L47
  712 0026 DFE804F0 		tbb	[pc, r4]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 18
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 18
 
 
  713              	.L49:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  189:Core/Src/NRF24L01.c ****       printf("channel 2 read successfully!\r\n");
  758              		.loc 1 189 7 view .LVU160
  759 0060 2022     		movs	r2, #32
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 19
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 19
 
 
  760 0062 2946     		mov	r1, r5
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  807              		.section	.text.NRF24L01_RX_Mode,"ax",%progbits
  808              		.align	1
  809              		.global	NRF24L01_RX_Mode
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 20
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 20
 
 
  810              		.syntax unified
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  850 001e 3120     		movs	r0, #49
  851 0020 FFF7FEFF 		bl	NRF24L01_Write_Reg
  852              	.LVL88:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 21
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 21
 
 
  222:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点�
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  883 0050 2620     		movs	r0, #38
  884 0052 FFF7FEFF 		bl	NRF24L01_Write_Reg
  885              	.LVL94:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 22
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 22
 
 
  246:Core/Src/NRF24L01.c ****   
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  928 0092 2021     		movs	r1, #32
  929 0094 3420     		movs	r0, #52
  930 0096 FFF7FEFF 		bl	NRF24L01_Write_Reg
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 23
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 23
 
 
  931              	.LVL101:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  258:Core/Src/NRF24L01.c ****   */ 
  259:Core/Src/NRF24L01.c **** void NRF24L01_RX_Mode_Master(void)
  260:Core/Src/NRF24L01.c **** {
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 24
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 24
 
 
  975              		.loc 1 260 1 view -0
@@ -1398,114 +1398,112 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  988 000a 2046     		mov	r0, r4
  989 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
  990              	.LVL105:
- 262:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0�
+ 262:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地
  991              		.loc 1 262 3 view .LVU199
- 992 0010 2021     		movs	r1, #32
- 993 0012 3120     		movs	r0, #49
- 994 0014 FFF7FEFF 		bl	NRF24L01_Write_Reg
- 995              	.LVL106:
- 263:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地
- 996              		.loc 1 263 3 view .LVU200
- 997 0018 0522     		movs	r2, #5
- 998 001a 1F49     		ldr	r1, .L72+4
- 999 001c 2A20     		movs	r0, #42
- 1000 001e FFF7FEFF 		bl	NRF24L01_Write_Buf
- 1001              	.LVL107:
- 264:Core/Src/NRF24L01.c **** 
- 265:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1�
- 1002              		.loc 1 265 3 view .LVU201
- 1003 0022 2021     		movs	r1, #32
- 1004 0024 3220     		movs	r0, #50
- 1005 0026 FFF7FEFF 		bl	NRF24L01_Write_Reg
- 1006              	.LVL108:
- 266:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地
- 1007              		.loc 1 266 3 view .LVU202
- 1008 002a 0522     		movs	r2, #5
- 1009 002c 1B49     		ldr	r1, .L72+8
- 1010 002e 2B20     		movs	r0, #43
- 1011 0030 FFF7FEFF 		bl	NRF24L01_Write_Buf
- 1012              	.LVL109:
- 267:Core/Src/NRF24L01.c **** 
- 268:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2�
- 1013              		.loc 1 268 3 view .LVU203
- 1014 0034 2021     		movs	r1, #32
- 1015 0036 3320     		movs	r0, #51
- 1016 0038 FFF7FEFF 		bl	NRF24L01_Write_Reg
- 1017              	.LVL110:
- 269:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //写RX节点地
- 1018              		.loc 1 269 3 view .LVU204
- 1019 003c 0522     		movs	r2, #5
- 1020 003e 1849     		ldr	r1, .L72+12
- 1021 0040 2C20     		movs	r0, #44
- 1022 0042 FFF7FEFF 		bl	NRF24L01_Write_Buf
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 25
+ 992 0010 0522     		movs	r2, #5
+ 993 0012 2149     		ldr	r1, .L72+4
+ 994 0014 2A20     		movs	r0, #42
+ 995 0016 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 996              	.LVL106:
+ 263:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地
+ 997              		.loc 1 263 3 view .LVU200
+ 998 001a 0522     		movs	r2, #5
+ 999 001c 1F49     		ldr	r1, .L72+8
+ 1000 001e 2B20     		movs	r0, #43
+ 1001 0020 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1002              	.LVL107:
+ 264:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,1);            //写RX节点地
+ 1003              		.loc 1 264 3 view .LVU201
+ 1004 0024 0122     		movs	r2, #1
+ 1005 0026 1E49     		ldr	r1, .L72+12
+ 1006 0028 2C20     		movs	r0, #44
+ 1007 002a FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1008              	.LVL108:
+ 265:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,1);            //写RX节点地
+ 1009              		.loc 1 265 3 view .LVU202
+ 1010 002e 0122     		movs	r2, #1
+ 1011 0030 1C49     		ldr	r1, .L72+16
+ 1012 0032 2D20     		movs	r0, #45
+ 1013 0034 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1014              	.LVL109:
+ 266:Core/Src/NRF24L01.c **** 
+ 267:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0�
+ 1015              		.loc 1 267 3 view .LVU203
+ 1016 0038 2021     		movs	r1, #32
+ 1017 003a 3120     		movs	r0, #49
+ 1018 003c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1019              	.LVL110:
+ 268:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1�
+ 1020              		.loc 1 268 3 view .LVU204
+ 1021 0040 2021     		movs	r1, #32
+ 1022 0042 3220     		movs	r0, #50
+ 1023 0044 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 25
 
 
- 1023              	.LVL111:
- 270:Core/Src/NRF24L01.c **** 
- 271:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道0�
- 1024              		.loc 1 271 3 view .LVU205
- 1025 0046 2021     		movs	r1, #32
- 1026 0048 3420     		movs	r0, #52
- 1027 004a FFF7FEFF 		bl	NRF24L01_Write_Reg
- 1028              	.LVL112:
- 272:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //写RX节点地
- 1029              		.loc 1 272 3 view .LVU206
- 1030 004e 0522     		movs	r2, #5
- 1031 0050 1449     		ldr	r1, .L72+16
- 1032 0052 2D20     		movs	r0, #45
- 1033 0054 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1024              	.LVL111:
+ 269:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2�
+ 1025              		.loc 1 269 3 view .LVU205
+ 1026 0048 2021     		movs	r1, #32
+ 1027 004a 3320     		movs	r0, #51
+ 1028 004c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1029              	.LVL112:
+ 270:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道3�
+ 1030              		.loc 1 270 3 view .LVU206
+ 1031 0050 2021     		movs	r1, #32
+ 1032 0052 3420     		movs	r0, #52
+ 1033 0054 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1034              	.LVL113:
- 273:Core/Src/NRF24L01.c **** 	  
- 274:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_C
- 1035              		.loc 1 274 3 view .LVU207
+ 271:Core/Src/NRF24L01.c **** 	  
+ 272:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_C
+ 1035              		.loc 1 272 3 view .LVU207
  1036 0058 0F21     		movs	r1, #15
  1037 005a 2020     		movs	r0, #32
  1038 005c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1039              	.LVL114:
- 275:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    
- 1040              		.loc 1 275 3 view .LVU208
+ 273:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    
+ 1040              		.loc 1 273 3 view .LVU208
  1041 0060 0F21     		movs	r1, #15
  1042 0062 2120     		movs	r0, #33
  1043 0064 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1044              	.LVL115:
- 276:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  	 
- 1045              		.loc 1 276 3 view .LVU209
+ 274:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  	 
+ 1045              		.loc 1 274 3 view .LVU209
  1046 0068 0F21     		movs	r1, #15
  1047 006a 2220     		movs	r0, #34
  1048 006c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1049              	.LVL116:
- 277:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
- 1050              		.loc 1 277 3 view .LVU210
+ 275:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
+ 1050              		.loc 1 275 3 view .LVU210
  1051 0070 2821     		movs	r1, #40
  1052 0072 2520     		movs	r0, #37
  1053 0074 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1054              	.LVL117:
- 278:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
- 1055              		.loc 1 278 3 view .LVU211
+ 276:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
+ 1055              		.loc 1 276 3 view .LVU211
  1056 0078 0F21     		movs	r1, #15
  1057 007a 2620     		movs	r0, #38
  1058 007c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1059              	.LVL118:
- 279:Core/Src/NRF24L01.c ****   
- 280:Core/Src/NRF24L01.c **** 	
- 281:Core/Src/NRF24L01.c ****   NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
- 1060              		.loc 1 281 3 view .LVU212
+ 277:Core/Src/NRF24L01.c ****   
+ 278:Core/Src/NRF24L01.c **** 	
+ 279:Core/Src/NRF24L01.c ****   NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
+ 1060              		.loc 1 279 3 view .LVU212
  1061 0080 0122     		movs	r2, #1
  1062 0082 4FF48061 		mov	r1, #1024
  1063 0086 2046     		mov	r0, r4
  1064 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
  1065              	.LVL119:
- 282:Core/Src/NRF24L01.c ****   HAL_Delay(1);
- 1066              		.loc 1 282 3 view .LVU213
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 26
-
-
+ 280:Core/Src/NRF24L01.c ****   HAL_Delay(1);
+ 1066              		.loc 1 280 3 view .LVU213
  1067 008c 0120     		movs	r0, #1
  1068 008e FFF7FEFF 		bl	HAL_Delay
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 26
+
+
  1069              	.LVL120:
- 283:Core/Src/NRF24L01.c **** }
- 1070              		.loc 1 283 1 is_stmt 0 view .LVU214
+ 281:Core/Src/NRF24L01.c **** }
+ 1070              		.loc 1 281 1 is_stmt 0 view .LVU214
  1071 0092 10BD     		pop	{r4, pc}
  1072              	.L73:
  1073              		.align	2
@@ -1527,42 +1525,42 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  1091              	NRF24L01_TX_Mode:
  1092              	.LVL121:
  1093              	.LFB143:
- 284:Core/Src/NRF24L01.c **** 
- 285:Core/Src/NRF24L01.c **** 
- 286:Core/Src/NRF24L01.c **** /**
- 287:Core/Src/NRF24L01.c ****   * 函数功能: 该函数初始化NRF24L01到TX模式
- 288:Core/Src/NRF24L01.c ****   * 输入参数: 通道号0~3
- 289:Core/Src/NRF24L01.c ****   * 返 回 值: 无
- 290:Core/Src/NRF24L01.c ****   * 说    明：无
- 291:Core/Src/NRF24L01.c ****   *           
- 292:Core/Src/NRF24L01.c ****   */ 
- 293:Core/Src/NRF24L01.c **** void NRF24L01_TX_Mode(uint8_t channel)
- 294:Core/Src/NRF24L01.c **** {														 
- 1094              		.loc 1 294 1 is_stmt 1 view -0
+ 282:Core/Src/NRF24L01.c **** 
+ 283:Core/Src/NRF24L01.c **** 
+ 284:Core/Src/NRF24L01.c **** /**
+ 285:Core/Src/NRF24L01.c ****   * 函数功能: 该函数初始化NRF24L01到TX模式
+ 286:Core/Src/NRF24L01.c ****   * 输入参数: 通道号0~3
+ 287:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 288:Core/Src/NRF24L01.c ****   * 说    明：无
+ 289:Core/Src/NRF24L01.c ****   *           
+ 290:Core/Src/NRF24L01.c ****   */ 
+ 291:Core/Src/NRF24L01.c **** void NRF24L01_TX_Mode(uint8_t channel)
+ 292:Core/Src/NRF24L01.c **** {														 
+ 1094              		.loc 1 292 1 is_stmt 1 view -0
  1095              		.cfi_startproc
  1096              		@ args = 0, pretend = 0, frame = 0
  1097              		@ frame_needed = 0, uses_anonymous_args = 0
- 1098              		.loc 1 294 1 is_stmt 0 view .LVU216
+ 1098              		.loc 1 292 1 is_stmt 0 view .LVU216
  1099 0000 10B5     		push	{r4, lr}
  1100              	.LCFI15:
  1101              		.cfi_def_cfa_offset 8
  1102              		.cfi_offset 4, -8
  1103              		.cfi_offset 14, -4
  1104 0002 0446     		mov	r4, r0
- 295:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
- 1105              		.loc 1 295 2 is_stmt 1 view .LVU217
+ 293:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
+ 1105              		.loc 1 293 2 is_stmt 1 view .LVU217
  1106 0004 0022     		movs	r2, #0
  1107 0006 4FF48061 		mov	r1, #1024
  1108 000a 3048     		ldr	r0, .L83
  1109              	.LVL122:
- 1110              		.loc 1 295 2 is_stmt 0 view .LVU218
+ 1110              		.loc 1 293 2 is_stmt 0 view .LVU218
  1111 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
  1112              	.LVL123:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 27
+ 294:Core/Src/NRF24L01.c ****   switch (channel)
+ 1113              		.loc 1 294 3 is_stmt 1 view .LVU219
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 27
 
 
- 296:Core/Src/NRF24L01.c ****   switch (channel)
- 1113              		.loc 1 296 3 is_stmt 1 view .LVU219
  1114 0010 032C     		cmp	r4, #3
  1115 0012 50D8     		bhi	.L75
  1116 0014 DFE804F0 		tbb	[pc, r4]
@@ -1573,176 +1571,176 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  1121 001b 44       		.byte	(.L76-.L77)/2
  1122              		.p2align 1
  1123              	.L80:
- 297:Core/Src/NRF24L01.c ****   {
- 298:Core/Src/NRF24L01.c ****   case 0:                                                                            //通道0
- 299:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);    //写TX节点�
- 1124              		.loc 1 299 5 view .LVU220
+ 295:Core/Src/NRF24L01.c ****   {
+ 296:Core/Src/NRF24L01.c ****   case 0:                                                                            //通道0
+ 297:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);    //写TX节点�
+ 1124              		.loc 1 297 5 view .LVU220
  1125 001c 0522     		movs	r2, #5
  1126 001e 2C49     		ldr	r1, .L83+4
  1127 0020 3020     		movs	r0, #48
  1128 0022 FFF7FEFF 		bl	NRF24L01_Write_Buf
  1129              	.LVL124:
- 300:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //设置RX节�
- 1130              		.loc 1 300 5 view .LVU221
+ 298:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //设置RX节�
+ 1130              		.loc 1 298 5 view .LVU221
  1131 0026 0522     		movs	r2, #5
  1132 0028 2A49     		ldr	r1, .L83+8
  1133 002a 2A20     		movs	r0, #42
  1134 002c FFF7FEFF 		bl	NRF24L01_Write_Buf
  1135              	.LVL125:
- 301:Core/Src/NRF24L01.c ****     break;
- 1136              		.loc 1 301 5 view .LVU222
+ 299:Core/Src/NRF24L01.c ****     break;
+ 1136              		.loc 1 299 5 view .LVU222
  1137              	.L81:
- 302:Core/Src/NRF24L01.c ****   case 1:                                                                            //通道1
- 303:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS1,TX_ADR_WIDTH);    //写TX节点�
- 304:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
- 305:Core/Src/NRF24L01.c ****     break;
- 306:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
- 307:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);               //�
- 308:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
- 309:Core/Src/NRF24L01.c ****     break;
- 310:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
- 311:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);    //写TX节点�
- 312:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
- 313:Core/Src/NRF24L01.c ****     break;
- 314:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
- 315:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,1);               //写TX节点�
- 316:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
- 317:Core/Src/NRF24L01.c ****     break;
- 318:Core/Src/NRF24L01.c ****   }	    
- 319:Core/Src/NRF24L01.c **** 	  
- 320:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x01);     //使能通道0的自动应答    
- 1138              		.loc 1 320 3 view .LVU223
+ 300:Core/Src/NRF24L01.c ****   case 1:                                                                            //通道1
+ 301:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS1,TX_ADR_WIDTH);    //写TX节点�
+ 302:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
+ 303:Core/Src/NRF24L01.c ****     break;
+ 304:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ 305:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);    //写TX节点�
+ 306:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
+ 307:Core/Src/NRF24L01.c ****     break;
+ 308:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 309:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);    //写TX节点�
+ 310:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
+ 311:Core/Src/NRF24L01.c ****     break;
+ 312:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 313:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,1);               //写TX节点�
+ 314:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
+ 315:Core/Src/NRF24L01.c ****     break;
+ 316:Core/Src/NRF24L01.c ****   }	    
+ 317:Core/Src/NRF24L01.c **** 	  
+ 318:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x01);     //使能通道0的自动应答    
+ 1138              		.loc 1 318 3 view .LVU223
  1139 0030 0121     		movs	r1, #1
  1140 0032 2120     		movs	r0, #33
  1141 0034 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1142              	.LVL126:
- 321:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x01); //使能通道0的接收地址  
- 1143              		.loc 1 321 3 view .LVU224
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 28
-
-
+ 319:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x01); //使能通道0的接收地址  
+ 1143              		.loc 1 319 3 view .LVU224
  1144 0038 0121     		movs	r1, #1
  1145 003a 2220     		movs	r0, #34
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 28
+
+
  1146 003c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1147              	.LVL127:
- 322:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+SETUP_RETR,0xff);//设置自动重发间隔时间:4000us + 86us;
- 1148              		.loc 1 322 3 view .LVU225
+ 320:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+SETUP_RETR,0xff);//设置自动重发间隔时间:4000us + 86us;
+ 1148              		.loc 1 320 3 view .LVU225
  1149 0040 FF21     		movs	r1, #255
  1150 0042 2420     		movs	r0, #36
  1151 0044 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1152              	.LVL128:
- 323:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);       //设置RF通道为40
- 1153              		.loc 1 323 3 view .LVU226
+ 321:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);       //设置RF通道为40
+ 1153              		.loc 1 321 3 view .LVU226
  1154 0048 2821     		movs	r1, #40
  1155 004a 2520     		movs	r0, #37
  1156 004c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1157              	.LVL129:
- 324:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
- 1158              		.loc 1 324 3 view .LVU227
+ 322:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
+ 1158              		.loc 1 322 3 view .LVU227
  1159 0050 0F21     		movs	r1, #15
  1160 0052 2620     		movs	r0, #38
  1161 0054 FFF7FEFF 		bl	NRF24L01_Write_Reg
  1162              	.LVL130:
- 325:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG,0x0e);    //配置基本工作模式的参数;PWR_UP,EN_C
- 1163              		.loc 1 325 3 view .LVU228
+ 323:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG,0x0e);    //配置基本工作模式的参数;PWR_UP,EN_C
+ 1163              		.loc 1 323 3 view .LVU228
  1164 0058 0E21     		movs	r1, #14
  1165 005a 2020     		movs	r0, #32
  1166 005c FFF7FEFF 		bl	NRF24L01_Write_Reg
  1167              	.LVL131:
- 326:Core/Src/NRF24L01.c **** 	NRF24L01_CE_HIGH();//CE为高,10us后启动发送
- 1168              		.loc 1 326 2 view .LVU229
+ 324:Core/Src/NRF24L01.c **** 	NRF24L01_CE_HIGH();//CE为高,10us后启动发送
+ 1168              		.loc 1 324 2 view .LVU229
  1169 0060 0122     		movs	r2, #1
  1170 0062 4FF48061 		mov	r1, #1024
  1171 0066 1948     		ldr	r0, .L83
  1172 0068 FFF7FEFF 		bl	HAL_GPIO_WritePin
  1173              	.LVL132:
- 327:Core/Src/NRF24L01.c ****   HAL_Delay(1);
- 1174              		.loc 1 327 3 view .LVU230
+ 325:Core/Src/NRF24L01.c ****   HAL_Delay(1);
+ 1174              		.loc 1 325 3 view .LVU230
  1175 006c 0120     		movs	r0, #1
  1176 006e FFF7FEFF 		bl	HAL_Delay
  1177              	.LVL133:
- 328:Core/Src/NRF24L01.c **** }
- 1178              		.loc 1 328 1 is_stmt 0 view .LVU231
+ 326:Core/Src/NRF24L01.c **** }
+ 1178              		.loc 1 326 1 is_stmt 0 view .LVU231
  1179 0072 10BD     		pop	{r4, pc}
  1180              	.L79:
- 303:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
- 1181              		.loc 1 303 5 is_stmt 1 view .LVU232
+ 301:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
+ 1181              		.loc 1 301 5 is_stmt 1 view .LVU232
  1182 0074 0522     		movs	r2, #5
  1183 0076 1849     		ldr	r1, .L83+12
  1184 0078 3020     		movs	r0, #48
  1185 007a FFF7FEFF 		bl	NRF24L01_Write_Buf
  1186              	.LVL134:
- 304:Core/Src/NRF24L01.c ****     break;
- 1187              		.loc 1 304 5 view .LVU233
+ 302:Core/Src/NRF24L01.c ****     break;
+ 1187              		.loc 1 302 5 view .LVU233
  1188 007e 0522     		movs	r2, #5
  1189 0080 1649     		ldr	r1, .L83+16
  1190 0082 2A20     		movs	r0, #42
  1191 0084 FFF7FEFF 		bl	NRF24L01_Write_Buf
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 29
-
-
  1192              	.LVL135:
- 305:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
- 1193              		.loc 1 305 5 view .LVU234
+ 303:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 29
+
+
+ 1193              		.loc 1 303 5 view .LVU234
  1194 0088 D2E7     		b	.L81
  1195              	.L78:
- 307:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
- 1196              		.loc 1 307 5 view .LVU235
+ 305:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
+ 1196              		.loc 1 305 5 view .LVU235
  1197 008a 0522     		movs	r2, #5
  1198 008c 1449     		ldr	r1, .L83+20
  1199 008e 3020     		movs	r0, #48
  1200 0090 FFF7FEFF 		bl	NRF24L01_Write_Buf
  1201              	.LVL136:
- 308:Core/Src/NRF24L01.c ****     break;
- 1202              		.loc 1 308 5 view .LVU236
+ 306:Core/Src/NRF24L01.c ****     break;
+ 1202              		.loc 1 306 5 view .LVU236
  1203 0094 0522     		movs	r2, #5
  1204 0096 1349     		ldr	r1, .L83+24
  1205 0098 2A20     		movs	r0, #42
  1206 009a FFF7FEFF 		bl	NRF24L01_Write_Buf
  1207              	.LVL137:
- 309:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
- 1208              		.loc 1 309 5 view .LVU237
+ 307:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 1208              		.loc 1 307 5 view .LVU237
  1209 009e C7E7     		b	.L81
  1210              	.L76:
- 311:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
- 1211              		.loc 1 311 5 view .LVU238
+ 309:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
+ 1211              		.loc 1 309 5 view .LVU238
  1212 00a0 0522     		movs	r2, #5
  1213 00a2 1149     		ldr	r1, .L83+28
  1214 00a4 3020     		movs	r0, #48
  1215 00a6 FFF7FEFF 		bl	NRF24L01_Write_Buf
  1216              	.LVL138:
- 312:Core/Src/NRF24L01.c ****     break;
- 1217              		.loc 1 312 5 view .LVU239
+ 310:Core/Src/NRF24L01.c ****     break;
+ 1217              		.loc 1 310 5 view .LVU239
  1218 00aa 0522     		movs	r2, #5
  1219 00ac 0F49     		ldr	r1, .L83+32
  1220 00ae 2A20     		movs	r0, #42
  1221 00b0 FFF7FEFF 		bl	NRF24L01_Write_Buf
  1222              	.LVL139:
- 313:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
- 1223              		.loc 1 313 5 view .LVU240
+ 311:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 1223              		.loc 1 311 5 view .LVU240
  1224 00b4 BCE7     		b	.L81
  1225              	.L75:
- 315:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
- 1226              		.loc 1 315 5 view .LVU241
+ 313:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
+ 1226              		.loc 1 313 5 view .LVU241
  1227 00b6 0122     		movs	r2, #1
  1228 00b8 0549     		ldr	r1, .L83+4
  1229 00ba 3020     		movs	r0, #48
  1230 00bc FFF7FEFF 		bl	NRF24L01_Write_Buf
  1231              	.LVL140:
- 316:Core/Src/NRF24L01.c ****     break;
- 1232              		.loc 1 316 5 view .LVU242
+ 314:Core/Src/NRF24L01.c ****     break;
+ 1232              		.loc 1 314 5 view .LVU242
  1233 00c0 0522     		movs	r2, #5
  1234 00c2 0449     		ldr	r1, .L83+8
  1235 00c4 2A20     		movs	r0, #42
  1236 00c6 FFF7FEFF 		bl	NRF24L01_Write_Buf
  1237              	.LVL141:
- 317:Core/Src/NRF24L01.c ****   }	    
- 1238              		.loc 1 317 5 view .LVU243
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 30
-
-
+ 315:Core/Src/NRF24L01.c ****   }	    
+ 1238              		.loc 1 315 5 view .LVU243
  1239 00ca B1E7     		b	.L81
  1240              	.L84:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 30
+
+
  1241              		.align	2
  1242              	.L83:
  1243 00cc 00040240 		.word	1073873920
@@ -1798,11 +1796,11 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  1299              		.align	2
  1300              		.set	.LANCHOR5,. + 0
  1303              	TX_ADDRESS1:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 31
-
-
  1304 0000 C1AAA0A0 		.ascii	"\301\252\240\240\002"
  1304      02
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 31
+
+
  1305              		.section	.rodata.TX_ADDRESS2,"a"
  1306              		.align	2
  1307              		.set	.LANCHOR6,. + 0
@@ -1836,72 +1834,72 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 1
  1337              		.file 18 "Core/Inc/NRF24L01.h"
  1338              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
  1339              		.file 20 "<built-in>"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 32
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 NRF24L01.c
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:18     .text.SPIx_ReadWriteByte:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:26     .text.SPIx_ReadWriteByte:00000000 SPIx_ReadWriteByte
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:75     .text.NRF24L01_Write_Reg:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:82     .text.NRF24L01_Write_Reg:00000000 NRF24L01_Write_Reg
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:142    .text.NRF24L01_Write_Reg:00000038 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:148    .text.NRF24L01_Read_Reg:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:155    .text.NRF24L01_Read_Reg:00000000 NRF24L01_Read_Reg
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:210    .text.NRF24L01_Read_Reg:00000038 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:216    .text.NRF24L01_Read_Buf:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:223    .text.NRF24L01_Read_Buf:00000000 NRF24L01_Read_Buf
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:306    .text.NRF24L01_Read_Buf:00000044 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:312    .text.NRF24L01_Write_Buf:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:319    .text.NRF24L01_Write_Buf:00000000 NRF24L01_Write_Buf
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:403    .text.NRF24L01_Write_Buf:00000044 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:409    .rodata.NRF24L01_Check.str1.4:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:413    .text.NRF24L01_Check:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:420    .text.NRF24L01_Check:00000000 NRF24L01_Check
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:502    .text.NRF24L01_Check:0000004c $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:507    .rodata.NRF24L01_TxPacket.str1.4:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:517    .text.NRF24L01_TxPacket:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:524    .text.NRF24L01_TxPacket:00000000 NRF24L01_TxPacket
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:632    .text.NRF24L01_TxPacket:00000078 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:641    .rodata.NRF24L01_RxPacket.str1.4:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:657    .text.NRF24L01_RxPacket:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:664    .text.NRF24L01_RxPacket:00000000 NRF24L01_RxPacket
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:714    .text.NRF24L01_RxPacket:0000002a $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:799    .text.NRF24L01_RxPacket:00000098 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:808    .text.NRF24L01_RX_Mode:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:815    .text.NRF24L01_RX_Mode:00000000 NRF24L01_RX_Mode
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:842    .text.NRF24L01_RX_Mode:00000018 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:846    .text.NRF24L01_RX_Mode:0000001c $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:957    .text.NRF24L01_RX_Mode:000000bc $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:966    .text.NRF24L01_RX_Mode_Master:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:973    .text.NRF24L01_RX_Mode_Master:00000000 NRF24L01_RX_Mode_Master
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1075   .text.NRF24L01_RX_Mode_Master:00000094 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1084   .text.NRF24L01_TX_Mode:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1091   .text.NRF24L01_TX_Mode:00000000 NRF24L01_TX_Mode
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1118   .text.NRF24L01_TX_Mode:00000018 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1122   .text.NRF24L01_TX_Mode:0000001c $t
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1243   .text.NRF24L01_TX_Mode:000000cc $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1289   .rodata.RX_ADDRESS3:00000000 RX_ADDRESS3
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1282   .rodata.RX_ADDRESS2:00000000 RX_ADDRESS2
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1275   .rodata.RX_ADDRESS1:00000000 RX_ADDRESS1
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1268   .rodata.RX_ADDRESS0:00000000 RX_ADDRESS0
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1317   .rodata.TX_ADDRESS3:00000000 TX_ADDRESS3
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1310   .rodata.TX_ADDRESS2:00000000 TX_ADDRESS2
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1303   .rodata.TX_ADDRESS1:00000000 TX_ADDRESS1
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1296   .rodata.TX_ADDRESS0:00000000 TX_ADDRESS0
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1264   .rodata.RX_ADDRESS0:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1271   .rodata.RX_ADDRESS1:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1278   .rodata.RX_ADDRESS2:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1285   .rodata.RX_ADDRESS3:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1292   .rodata.TX_ADDRESS0:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1299   .rodata.TX_ADDRESS1:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1306   .rodata.TX_ADDRESS2:00000000 $d
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s 			page 33
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:18     .text.SPIx_ReadWriteByte:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:26     .text.SPIx_ReadWriteByte:00000000 SPIx_ReadWriteByte
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:75     .text.NRF24L01_Write_Reg:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:82     .text.NRF24L01_Write_Reg:00000000 NRF24L01_Write_Reg
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:142    .text.NRF24L01_Write_Reg:00000038 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:148    .text.NRF24L01_Read_Reg:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:155    .text.NRF24L01_Read_Reg:00000000 NRF24L01_Read_Reg
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:210    .text.NRF24L01_Read_Reg:00000038 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:216    .text.NRF24L01_Read_Buf:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:223    .text.NRF24L01_Read_Buf:00000000 NRF24L01_Read_Buf
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:306    .text.NRF24L01_Read_Buf:00000044 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:312    .text.NRF24L01_Write_Buf:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:319    .text.NRF24L01_Write_Buf:00000000 NRF24L01_Write_Buf
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:403    .text.NRF24L01_Write_Buf:00000044 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:409    .rodata.NRF24L01_Check.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:413    .text.NRF24L01_Check:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:420    .text.NRF24L01_Check:00000000 NRF24L01_Check
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:502    .text.NRF24L01_Check:0000004c $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:507    .rodata.NRF24L01_TxPacket.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:517    .text.NRF24L01_TxPacket:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:524    .text.NRF24L01_TxPacket:00000000 NRF24L01_TxPacket
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:632    .text.NRF24L01_TxPacket:00000078 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:641    .rodata.NRF24L01_RxPacket.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:657    .text.NRF24L01_RxPacket:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:664    .text.NRF24L01_RxPacket:00000000 NRF24L01_RxPacket
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:714    .text.NRF24L01_RxPacket:0000002a $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:799    .text.NRF24L01_RxPacket:00000098 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:808    .text.NRF24L01_RX_Mode:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:815    .text.NRF24L01_RX_Mode:00000000 NRF24L01_RX_Mode
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:842    .text.NRF24L01_RX_Mode:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:846    .text.NRF24L01_RX_Mode:0000001c $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:957    .text.NRF24L01_RX_Mode:000000bc $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:966    .text.NRF24L01_RX_Mode_Master:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:973    .text.NRF24L01_RX_Mode_Master:00000000 NRF24L01_RX_Mode_Master
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1075   .text.NRF24L01_RX_Mode_Master:00000094 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1084   .text.NRF24L01_TX_Mode:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1091   .text.NRF24L01_TX_Mode:00000000 NRF24L01_TX_Mode
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1118   .text.NRF24L01_TX_Mode:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1122   .text.NRF24L01_TX_Mode:0000001c $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1243   .text.NRF24L01_TX_Mode:000000cc $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1289   .rodata.RX_ADDRESS3:00000000 RX_ADDRESS3
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1282   .rodata.RX_ADDRESS2:00000000 RX_ADDRESS2
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1275   .rodata.RX_ADDRESS1:00000000 RX_ADDRESS1
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1268   .rodata.RX_ADDRESS0:00000000 RX_ADDRESS0
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1317   .rodata.TX_ADDRESS3:00000000 TX_ADDRESS3
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1310   .rodata.TX_ADDRESS2:00000000 TX_ADDRESS2
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1303   .rodata.TX_ADDRESS1:00000000 TX_ADDRESS1
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1296   .rodata.TX_ADDRESS0:00000000 TX_ADDRESS0
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1264   .rodata.RX_ADDRESS0:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1271   .rodata.RX_ADDRESS1:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1278   .rodata.RX_ADDRESS2:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1285   .rodata.RX_ADDRESS3:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1292   .rodata.TX_ADDRESS0:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1299   .rodata.TX_ADDRESS1:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1306   .rodata.TX_ADDRESS2:00000000 $d
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s 			page 33
 
 
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:1313   .rodata.TX_ADDRESS3:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:721    .text.NRF24L01_RxPacket:00000031 $d
-C:\Users\Kiana\AppData\Local\Temp\ccH1gYIj.s:721    .text.NRF24L01_RxPacket:00000032 $t
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:1313   .rodata.TX_ADDRESS3:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:721    .text.NRF24L01_RxPacket:00000031 $d
+C:\Users\Kiana\AppData\Local\Temp\ccTKUpjd.s:721    .text.NRF24L01_RxPacket:00000032 $t
 
 UNDEFINED SYMBOLS
 HAL_SPI_TransmitReceive

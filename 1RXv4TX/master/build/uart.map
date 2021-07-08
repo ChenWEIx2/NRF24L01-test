@@ -2207,7 +2207,7 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_line    0x0000782d      0x600 build/NRF24L01.o
  .debug_line    0x00007e2d       0x76 build/startup_stm32f401xc.o
 
-.debug_str      0x00000000     0x2bbe
+.debug_str      0x00000000     0x2bf2
  .debug_str     0x00000000      0xe9e build/main.o
                                 0xf99 (size before relaxing)
  .debug_str     0x00000e9e       0xb4 build/gpio.o
@@ -2234,9 +2234,9 @@ OUTPUT(build/uart.elf elf32-littlearm)
                                 0xdfc (size before relaxing)
  .debug_str     0x00002a0e       0x47 build/system_stm32f4xx.o
                                 0x433 (size before relaxing)
- .debug_str     0x00002a55      0x145 build/NRF24L01.o
-                                0xe83 (size before relaxing)
- .debug_str     0x00002b9a       0x24 build/startup_stm32f401xc.o
+ .debug_str     0x00002a55      0x179 build/NRF24L01.o
+                                0xe87 (size before relaxing)
+ .debug_str     0x00002bce       0x24 build/startup_stm32f401xc.o
                                  0x54 (size before relaxing)
 
 .comment        0x00000000       0x79
