@@ -166,7 +166,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/main.o
  .data          0x00000000        0x0 build/main.o
  .bss           0x00000000        0x0 build/main.o
- .data.tx_buf   0x00000000       0x21 build/main.o
  .text          0x00000000        0x0 build/gpio.o
  .data          0x00000000        0x0 build/gpio.o
  .bss           0x00000000        0x0 build/gpio.o
@@ -2092,22 +2091,22 @@ LOAD d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v
                 0x00000d3c       0x1e d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(build/uart.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xe4bb
- .debug_info    0x00000000     0x1a1a build/main.o
- .debug_info    0x00001a1a      0x60c build/gpio.o
- .debug_info    0x00002026      0xc24 build/spi.o
- .debug_info    0x00002c4a     0x15ec build/usart.o
- .debug_info    0x00004236      0x271 build/stm32f4xx_it.o
- .debug_info    0x000044a7      0x417 build/stm32f4xx_hal_msp.o
- .debug_info    0x000048be     0x20e0 build/stm32f4xx_hal_spi.o
- .debug_info    0x0000699e      0xc71 build/stm32f4xx_hal_rcc.o
- .debug_info    0x0000760f      0x954 build/stm32f4xx_hal_gpio.o
- .debug_info    0x00007f63     0x11a8 build/stm32f4xx_hal_cortex.o
- .debug_info    0x0000910b      0xaef build/stm32f4xx_hal.o
- .debug_info    0x00009bfa     0x1f46 build/stm32f4xx_hal_uart.o
- .debug_info    0x0000bb40      0x66e build/system_stm32f4xx.o
- .debug_info    0x0000c1ae     0x22eb build/NRF24L01.o
- .debug_info    0x0000e499       0x22 build/startup_stm32f401xc.o
+.debug_info     0x00000000     0xe4a8
+ .debug_info    0x00000000     0x1a07 build/main.o
+ .debug_info    0x00001a07      0x60c build/gpio.o
+ .debug_info    0x00002013      0xc24 build/spi.o
+ .debug_info    0x00002c37     0x15ec build/usart.o
+ .debug_info    0x00004223      0x271 build/stm32f4xx_it.o
+ .debug_info    0x00004494      0x417 build/stm32f4xx_hal_msp.o
+ .debug_info    0x000048ab     0x20e0 build/stm32f4xx_hal_spi.o
+ .debug_info    0x0000698b      0xc71 build/stm32f4xx_hal_rcc.o
+ .debug_info    0x000075fc      0x954 build/stm32f4xx_hal_gpio.o
+ .debug_info    0x00007f50     0x11a8 build/stm32f4xx_hal_cortex.o
+ .debug_info    0x000090f8      0xaef build/stm32f4xx_hal.o
+ .debug_info    0x00009be7     0x1f46 build/stm32f4xx_hal_uart.o
+ .debug_info    0x0000bb2d      0x66e build/system_stm32f4xx.o
+ .debug_info    0x0000c19b     0x22eb build/NRF24L01.o
+ .debug_info    0x0000e486       0x22 build/startup_stm32f401xc.o
 
 .debug_abbrev   0x00000000     0x20cc
  .debug_abbrev  0x00000000      0x2de build/main.o
@@ -2191,53 +2190,53 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_ranges  0x00000758       0x60 build/NRF24L01.o
  .debug_ranges  0x000007b8       0x20 build/startup_stm32f401xc.o
 
-.debug_line     0x00000000     0x7ea7
- .debug_line    0x00000000      0x442 build/main.o
- .debug_line    0x00000442      0x1f8 build/gpio.o
- .debug_line    0x0000063a      0x310 build/spi.o
- .debug_line    0x0000094a      0x405 build/usart.o
- .debug_line    0x00000d4f      0x276 build/stm32f4xx_it.o
- .debug_line    0x00000fc5      0x1a5 build/stm32f4xx_hal_msp.o
- .debug_line    0x0000116a     0x24d7 build/stm32f4xx_hal_spi.o
- .debug_line    0x00003641      0xb0e build/stm32f4xx_hal_rcc.o
- .debug_line    0x0000414f      0x6ed build/stm32f4xx_hal_gpio.o
- .debug_line    0x0000483c      0x77e build/stm32f4xx_hal_cortex.o
- .debug_line    0x00004fba      0x541 build/stm32f4xx_hal.o
- .debug_line    0x000054fb     0x20d4 build/stm32f4xx_hal_uart.o
- .debug_line    0x000075cf      0x262 build/system_stm32f4xx.o
- .debug_line    0x00007831      0x600 build/NRF24L01.o
- .debug_line    0x00007e31       0x76 build/startup_stm32f401xc.o
+.debug_line     0x00000000     0x7ea3
+ .debug_line    0x00000000      0x43e build/main.o
+ .debug_line    0x0000043e      0x1f8 build/gpio.o
+ .debug_line    0x00000636      0x310 build/spi.o
+ .debug_line    0x00000946      0x405 build/usart.o
+ .debug_line    0x00000d4b      0x276 build/stm32f4xx_it.o
+ .debug_line    0x00000fc1      0x1a5 build/stm32f4xx_hal_msp.o
+ .debug_line    0x00001166     0x24d7 build/stm32f4xx_hal_spi.o
+ .debug_line    0x0000363d      0xb0e build/stm32f4xx_hal_rcc.o
+ .debug_line    0x0000414b      0x6ed build/stm32f4xx_hal_gpio.o
+ .debug_line    0x00004838      0x77e build/stm32f4xx_hal_cortex.o
+ .debug_line    0x00004fb6      0x541 build/stm32f4xx_hal.o
+ .debug_line    0x000054f7     0x20d4 build/stm32f4xx_hal_uart.o
+ .debug_line    0x000075cb      0x262 build/system_stm32f4xx.o
+ .debug_line    0x0000782d      0x600 build/NRF24L01.o
+ .debug_line    0x00007e2d       0x76 build/startup_stm32f401xc.o
 
-.debug_str      0x00000000     0x2bc5
- .debug_str     0x00000000      0xea5 build/main.o
-                                0xfa0 (size before relaxing)
- .debug_str     0x00000ea5       0xb4 build/gpio.o
+.debug_str      0x00000000     0x2bbe
+ .debug_str     0x00000000      0xe9e build/main.o
+                                0xf99 (size before relaxing)
+ .debug_str     0x00000e9e       0xb4 build/gpio.o
                                 0x468 (size before relaxing)
- .debug_str     0x00000f59       0x58 build/spi.o
+ .debug_str     0x00000f52       0x58 build/spi.o
                                 0x8df (size before relaxing)
- .debug_str     0x00000fb1       0x63 build/usart.o
+ .debug_str     0x00000faa       0x63 build/usart.o
                                 0xce1 (size before relaxing)
- .debug_str     0x00001014       0xb4 build/stm32f4xx_it.o
+ .debug_str     0x0000100d       0xb4 build/stm32f4xx_it.o
                                 0x32d (size before relaxing)
- .debug_str     0x000010c8       0x29 build/stm32f4xx_hal_msp.o
+ .debug_str     0x000010c1       0x29 build/stm32f4xx_hal_msp.o
                                 0x3b7 (size before relaxing)
- .debug_str     0x000010f1      0x58e build/stm32f4xx_hal_spi.o
+ .debug_str     0x000010ea      0x58e build/stm32f4xx_hal_spi.o
                                 0xcc2 (size before relaxing)
- .debug_str     0x0000167f      0x1d5 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x00001678      0x1d5 build/stm32f4xx_hal_rcc.o
                                 0x7a8 (size before relaxing)
- .debug_str     0x00001854      0x125 build/stm32f4xx_hal_gpio.o
+ .debug_str     0x0000184d      0x125 build/stm32f4xx_hal_gpio.o
                                 0x5ca (size before relaxing)
- .debug_str     0x00001979      0x893 build/stm32f4xx_hal_cortex.o
+ .debug_str     0x00001972      0x893 build/stm32f4xx_hal_cortex.o
                                 0xb90 (size before relaxing)
- .debug_str     0x0000220c      0x21f build/stm32f4xx_hal.o
+ .debug_str     0x00002205      0x21f build/stm32f4xx_hal.o
                                 0xa63 (size before relaxing)
- .debug_str     0x0000242b      0x5ea build/stm32f4xx_hal_uart.o
+ .debug_str     0x00002424      0x5ea build/stm32f4xx_hal_uart.o
                                 0xdfc (size before relaxing)
- .debug_str     0x00002a15       0x47 build/system_stm32f4xx.o
+ .debug_str     0x00002a0e       0x47 build/system_stm32f4xx.o
                                 0x433 (size before relaxing)
- .debug_str     0x00002a5c      0x145 build/NRF24L01.o
+ .debug_str     0x00002a55      0x145 build/NRF24L01.o
                                 0xe83 (size before relaxing)
- .debug_str     0x00002ba1       0x24 build/startup_stm32f401xc.o
+ .debug_str     0x00002b9a       0x24 build/startup_stm32f401xc.o
                                  0x54 (size before relaxing)
 
 .comment        0x00000000       0x79
@@ -3117,7 +3116,6 @@ strcmp                                            d:/vs_code_stm32/9 2019-q4-maj
                                                   d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-locale.o)
 strlen                                            d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
                                                   d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_float.o)
-tx_buf                                            build/main.o
 uwTick                                            build/stm32f4xx_hal.o
 uwTickFreq                                        build/stm32f4xx_hal.o
 uwTickPrio                                        build/stm32f4xx_hal.o

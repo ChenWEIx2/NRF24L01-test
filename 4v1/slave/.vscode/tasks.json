@@ -1,0 +1,43 @@
+{
+    // 请参阅 https://go.microsoft.com/fwlink/?LinkId=733558 
+    //查看有关 tasks.json 格式的文档
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build",
+            "command": "mingw32-make",
+            "args": [
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+			"type": "shell",
+			"label": "Build & Download",
+			"command": "openocd",
+			"args": [
+				"-f",
+				"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/interface/stlink-v2.cfg",
+				"-f",
+				"D:/VS_Code_STM32/openocd-0.10.0/openocd-0.10.0/scripts/target/stm32f4x.cfg",
+				"-c",
+				"program build/uart.elf verify reset exit"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOn": "Build"
+        },
+        {
+            "label": "RTT",
+            "type": "shell",
+            "command": "D:/SEGGER/JLink/JLinkRTTClient.exe",
+            "args": [],
+            "problemMatcher": []
+        }
+    ]
+}

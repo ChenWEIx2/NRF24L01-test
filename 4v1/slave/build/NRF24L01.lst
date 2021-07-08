@@ -1,0 +1,1913 @@
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"NRF24L01.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SPIx_ReadWriteByte,"ax",%progbits
+  18              		.align	1
+  19              		.global	SPIx_ReadWriteByte
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	SPIx_ReadWriteByte:
+  27              	.LVL0:
+  28              	.LFB133:
+  29              		.file 1 "Core/Src/NRF24L01.c"
+   1:Core/Src/NRF24L01.c **** /* 包含头文件 ----------------------------------------------------------------*/
+   2:Core/Src/NRF24L01.c **** #include "NRF24L01.h"
+   3:Core/Src/NRF24L01.c **** 
+   4:Core/Src/NRF24L01.c **** /* 私有类型定义 --------------------------------------------------------------*/
+   5:Core/Src/NRF24L01.c **** /* 私有宏定义 ----------------------------------------------------------------*/              
+   6:Core/Src/NRF24L01.c **** /* 私有变量 ------------------------------------------------------------------*/
+   7:Core/Src/NRF24L01.c **** 
+   8:Core/Src/NRF24L01.c **** const uint8_t TX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0发送地址
+   9:Core/Src/NRF24L01.c **** const uint8_t TX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1发送地址
+  10:Core/Src/NRF24L01.c **** const uint8_t TX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2发送地址
+  11:Core/Src/NRF24L01.c **** const uint8_t TX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3发送地址
+  12:Core/Src/NRF24L01.c **** 
+  13:Core/Src/NRF24L01.c **** const uint8_t RX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0接收地址
+  14:Core/Src/NRF24L01.c **** const uint8_t RX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1接收地址
+  15:Core/Src/NRF24L01.c **** const uint8_t RX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2接收地址
+  16:Core/Src/NRF24L01.c **** const uint8_t RX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3接收地址
+  17:Core/Src/NRF24L01.c **** 
+  18:Core/Src/NRF24L01.c **** /* 扩展变量 ------------------------------------------------------------------*/
+  19:Core/Src/NRF24L01.c **** /* 私有函数原形 --------------------------------------------------------------*/
+  20:Core/Src/NRF24L01.c **** /* 函数体 --------------------------------------------------------------------*/
+  21:Core/Src/NRF24L01.c **** 
+  22:Core/Src/NRF24L01.c **** 
+  23:Core/Src/NRF24L01.c **** /**
+  24:Core/Src/NRF24L01.c ****   * 函数功能: 往串行Flash读取写入一个字节数据并接收一个字节数据
+  25:Core/Src/NRF24L01.c ****   * 输入参数: byte：待发送数据
+  26:Core/Src/NRF24L01.c ****   * 返 回 值: uint8_t：接收到的数据
+  27:Core/Src/NRF24L01.c ****   * 说    明：无
+  28:Core/Src/NRF24L01.c ****   */
+  29:Core/Src/NRF24L01.c **** uint8_t SPIx_ReadWriteByte(SPI_HandleTypeDef* hspi,uint8_t byte)
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 2
+
+
+  30:Core/Src/NRF24L01.c **** {
+  30              		.loc 1 30 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 8
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 30 1 is_stmt 0 view .LVU1
+  35 0000 00B5     		push	{lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 4
+  38              		.cfi_offset 14, -4
+  39 0002 85B0     		sub	sp, sp, #20
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 24
+  31:Core/Src/NRF24L01.c ****   uint8_t d_read,d_send=byte;
+  42              		.loc 1 31 3 is_stmt 1 view .LVU2
+  43              		.loc 1 31 18 is_stmt 0 view .LVU3
+  44 0004 8DF80E10 		strb	r1, [sp, #14]
+  32:Core/Src/NRF24L01.c ****   if(HAL_SPI_TransmitReceive(hspi,&d_send,&d_read,1,0xFF)!=HAL_OK)
+  45              		.loc 1 32 3 is_stmt 1 view .LVU4
+  46              		.loc 1 32 6 is_stmt 0 view .LVU5
+  47 0008 FF23     		movs	r3, #255
+  48 000a 0093     		str	r3, [sp]
+  49 000c 0123     		movs	r3, #1
+  50 000e 0DF10F02 		add	r2, sp, #15
+  51 0012 0DF10E01 		add	r1, sp, #14
+  52              	.LVL1:
+  53              		.loc 1 32 6 view .LVU6
+  54 0016 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+  55              	.LVL2:
+  56              		.loc 1 32 5 view .LVU7
+  57 001a 10B1     		cbz	r0, .L2
+  33:Core/Src/NRF24L01.c ****   {
+  34:Core/Src/NRF24L01.c ****     d_read=0xFF;
+  58              		.loc 1 34 5 is_stmt 1 view .LVU8
+  59              		.loc 1 34 11 is_stmt 0 view .LVU9
+  60 001c FF23     		movs	r3, #255
+  61 001e 8DF80F30 		strb	r3, [sp, #15]
+  62              	.L2:
+  35:Core/Src/NRF24L01.c ****   }
+  36:Core/Src/NRF24L01.c ****   return d_read; 
+  63              		.loc 1 36 3 is_stmt 1 view .LVU10
+  37:Core/Src/NRF24L01.c **** }
+  64              		.loc 1 37 1 is_stmt 0 view .LVU11
+  65 0022 9DF80F00 		ldrb	r0, [sp, #15]	@ zero_extendqisi2
+  66 0026 05B0     		add	sp, sp, #20
+  67              	.LCFI2:
+  68              		.cfi_def_cfa_offset 4
+  69              		@ sp needed
+  70 0028 5DF804FB 		ldr	pc, [sp], #4
+  71              		.cfi_endproc
+  72              	.LFE133:
+  74              		.section	.text.NRF24L01_Write_Reg,"ax",%progbits
+  75              		.align	1
+  76              		.global	NRF24L01_Write_Reg
+  77              		.syntax unified
+  78              		.thumb
+  79              		.thumb_func
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 3
+
+
+  80              		.fpu fpv4-sp-d16
+  82              	NRF24L01_Write_Reg:
+  83              	.LVL3:
+  84              	.LFB135:
+  38:Core/Src/NRF24L01.c **** 
+  39:Core/Src/NRF24L01.c **** /**
+  40:Core/Src/NRF24L01.c ****   * 函数功能: 检测24L01是否存在
+  41:Core/Src/NRF24L01.c ****   * 输入参数: 无
+  42:Core/Src/NRF24L01.c ****   * 返 回 值: 0，成功;1，失败
+  43:Core/Src/NRF24L01.c ****   * 说    明：无          
+  44:Core/Src/NRF24L01.c ****   */ 
+  45:Core/Src/NRF24L01.c **** uint8_t NRF24L01_Check(void)
+  46:Core/Src/NRF24L01.c **** {
+  47:Core/Src/NRF24L01.c **** 	uint8_t buf[5]={0XA5,0XA5,0XA5,0XA5,0XA5};
+  48:Core/Src/NRF24L01.c **** 	uint8_t i;
+  49:Core/Src/NRF24L01.c ****   
+  50:Core/Src/NRF24L01.c **** 	NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,buf,5);//写入5个字节的地址.	
+  51:Core/Src/NRF24L01.c **** 	NRF24L01_Read_Buf(TX_ADDR,buf,5); //读出写入的地址  
+  52:Core/Src/NRF24L01.c **** 	for(i=0;i<5;i++)if(buf[i]!=0XA5)break;	 							   
+  53:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+  54:Core/Src/NRF24L01.c **** 	return 0;		 //检测到24L01
+  55:Core/Src/NRF24L01.c **** }	 	 
+  56:Core/Src/NRF24L01.c **** 
+  57:Core/Src/NRF24L01.c **** /**
+  58:Core/Src/NRF24L01.c ****   * 函数功能: SPI写寄存器
+  59:Core/Src/NRF24L01.c ****   * 输入参数: 无
+  60:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+  61:Core/Src/NRF24L01.c ****   * 说    明：reg:指定寄存器地址
+  62:Core/Src/NRF24L01.c ****   *           
+  63:Core/Src/NRF24L01.c ****   */ 
+  64:Core/Src/NRF24L01.c **** uint8_t NRF24L01_Write_Reg(uint8_t reg,uint8_t value)
+  65:Core/Src/NRF24L01.c **** {
+  85              		.loc 1 65 1 is_stmt 1 view -0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		.loc 1 65 1 is_stmt 0 view .LVU13
+  90 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  91              	.LCFI3:
+  92              		.cfi_def_cfa_offset 24
+  93              		.cfi_offset 3, -24
+  94              		.cfi_offset 4, -20
+  95              		.cfi_offset 5, -16
+  96              		.cfi_offset 6, -12
+  97              		.cfi_offset 7, -8
+  98              		.cfi_offset 14, -4
+  99 0002 0446     		mov	r4, r0
+ 100 0004 0D46     		mov	r5, r1
+  66:Core/Src/NRF24L01.c **** 	uint8_t status;	
+ 101              		.loc 1 66 2 is_stmt 1 view .LVU14
+  67:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_ENABLE();                 //使能SPI传输
+ 102              		.loc 1 67 3 view .LVU15
+ 103 0006 0C4E     		ldr	r6, .L6
+ 104 0008 0022     		movs	r2, #0
+ 105 000a 4FF48051 		mov	r1, #4096
+ 106              	.LVL4:
+ 107              		.loc 1 67 3 is_stmt 0 view .LVU16
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 4
+
+
+ 108 000e 3046     		mov	r0, r6
+ 109              	.LVL5:
+ 110              		.loc 1 67 3 view .LVU17
+ 111 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 112              	.LVL6:
+  68:Core/Src/NRF24L01.c ****   status =SPIx_ReadWriteByte(&hspi_NRF24L01,reg);//发送寄存器号 
+ 113              		.loc 1 68 3 is_stmt 1 view .LVU18
+ 114              		.loc 1 68 11 is_stmt 0 view .LVU19
+ 115 0014 094F     		ldr	r7, .L6+4
+ 116 0016 2146     		mov	r1, r4
+ 117 0018 3846     		mov	r0, r7
+ 118 001a FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 119              	.LVL7:
+ 120 001e 0446     		mov	r4, r0
+ 121              	.LVL8:
+  69:Core/Src/NRF24L01.c ****   SPIx_ReadWriteByte(&hspi_NRF24L01,value);      //写入寄存器的值
+ 122              		.loc 1 69 3 is_stmt 1 view .LVU20
+ 123 0020 2946     		mov	r1, r5
+ 124 0022 3846     		mov	r0, r7
+ 125 0024 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 126              	.LVL9:
+  70:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_DISABLE();                 //禁止SPI传输	   
+ 127              		.loc 1 70 3 view .LVU21
+ 128 0028 0122     		movs	r2, #1
+ 129 002a 4FF48051 		mov	r1, #4096
+ 130 002e 3046     		mov	r0, r6
+ 131 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 132              	.LVL10:
+  71:Core/Src/NRF24L01.c ****   return(status);       			//返回状态值
+ 133              		.loc 1 71 3 view .LVU22
+  72:Core/Src/NRF24L01.c **** }
+ 134              		.loc 1 72 1 is_stmt 0 view .LVU23
+ 135 0034 2046     		mov	r0, r4
+ 136 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 137              	.LVL11:
+ 138              	.L7:
+ 139              		.loc 1 72 1 view .LVU24
+ 140              		.align	2
+ 141              	.L6:
+ 142 0038 00040240 		.word	1073873920
+ 143 003c 00000000 		.word	hspi2
+ 144              		.cfi_endproc
+ 145              	.LFE135:
+ 147              		.section	.text.NRF24L01_Read_Reg,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	NRF24L01_Read_Reg
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu fpv4-sp-d16
+ 155              	NRF24L01_Read_Reg:
+ 156              	.LVL12:
+ 157              	.LFB136:
+  73:Core/Src/NRF24L01.c **** 
+  74:Core/Src/NRF24L01.c **** /**
+  75:Core/Src/NRF24L01.c ****   * 函数功能: 读取SPI寄存器值
+  76:Core/Src/NRF24L01.c ****   * 输入参数: 无
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 5
+
+
+  77:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+  78:Core/Src/NRF24L01.c ****   * 说    明：reg:要读的寄存器
+  79:Core/Src/NRF24L01.c ****   *           
+  80:Core/Src/NRF24L01.c ****   */ 
+  81:Core/Src/NRF24L01.c **** uint8_t NRF24L01_Read_Reg(uint8_t reg)
+  82:Core/Src/NRF24L01.c **** {
+ 158              		.loc 1 82 1 is_stmt 1 view -0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		.loc 1 82 1 is_stmt 0 view .LVU26
+ 163 0000 70B5     		push	{r4, r5, r6, lr}
+ 164              	.LCFI4:
+ 165              		.cfi_def_cfa_offset 16
+ 166              		.cfi_offset 4, -16
+ 167              		.cfi_offset 5, -12
+ 168              		.cfi_offset 6, -8
+ 169              		.cfi_offset 14, -4
+ 170 0002 0446     		mov	r4, r0
+  83:Core/Src/NRF24L01.c **** 	uint8_t reg_val;	    
+ 171              		.loc 1 83 2 is_stmt 1 view .LVU27
+  84:Core/Src/NRF24L01.c ****  	NRF24L01_SPI_CS_ENABLE();          //使能SPI传输		
+ 172              		.loc 1 84 3 view .LVU28
+ 173 0004 0C4D     		ldr	r5, .L10
+ 174 0006 0022     		movs	r2, #0
+ 175 0008 4FF48051 		mov	r1, #4096
+ 176 000c 2846     		mov	r0, r5
+ 177              	.LVL13:
+ 178              		.loc 1 84 3 is_stmt 0 view .LVU29
+ 179 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 180              	.LVL14:
+  85:Core/Src/NRF24L01.c ****   SPIx_ReadWriteByte(&hspi_NRF24L01,reg);   //发送寄存器号
+ 181              		.loc 1 85 3 is_stmt 1 view .LVU30
+ 182 0012 0A4E     		ldr	r6, .L10+4
+ 183 0014 2146     		mov	r1, r4
+ 184 0016 3046     		mov	r0, r6
+ 185 0018 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 186              	.LVL15:
+  86:Core/Src/NRF24L01.c ****   reg_val=SPIx_ReadWriteByte(&hspi_NRF24L01,0XFF);//读取寄存器内容
+ 187              		.loc 1 86 3 view .LVU31
+ 188              		.loc 1 86 11 is_stmt 0 view .LVU32
+ 189 001c FF21     		movs	r1, #255
+ 190 001e 3046     		mov	r0, r6
+ 191 0020 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 192              	.LVL16:
+ 193 0024 0446     		mov	r4, r0
+ 194              	.LVL17:
+  87:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_DISABLE();          //禁止SPI传输		    
+ 195              		.loc 1 87 3 is_stmt 1 view .LVU33
+ 196 0026 0122     		movs	r2, #1
+ 197 0028 4FF48051 		mov	r1, #4096
+ 198 002c 2846     		mov	r0, r5
+ 199 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 200              	.LVL18:
+  88:Core/Src/NRF24L01.c ****   return(reg_val);           //返回状态值
+ 201              		.loc 1 88 3 view .LVU34
+  89:Core/Src/NRF24L01.c **** }	
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 6
+
+
+ 202              		.loc 1 89 1 is_stmt 0 view .LVU35
+ 203 0032 2046     		mov	r0, r4
+ 204 0034 70BD     		pop	{r4, r5, r6, pc}
+ 205              	.LVL19:
+ 206              	.L11:
+ 207              		.loc 1 89 1 view .LVU36
+ 208 0036 00BF     		.align	2
+ 209              	.L10:
+ 210 0038 00040240 		.word	1073873920
+ 211 003c 00000000 		.word	hspi2
+ 212              		.cfi_endproc
+ 213              	.LFE136:
+ 215              		.section	.text.NRF24L01_Read_Buf,"ax",%progbits
+ 216              		.align	1
+ 217              		.global	NRF24L01_Read_Buf
+ 218              		.syntax unified
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.fpu fpv4-sp-d16
+ 223              	NRF24L01_Read_Buf:
+ 224              	.LVL20:
+ 225              	.LFB137:
+  90:Core/Src/NRF24L01.c **** 
+  91:Core/Src/NRF24L01.c **** /**
+  92:Core/Src/NRF24L01.c ****   * 函数功能: 在指定位置读出指定长度的数据
+  93:Core/Src/NRF24L01.c ****   * 输入参数: 无
+  94:Core/Src/NRF24L01.c ****   * 返 回 值: 此次读到的状态寄存器值 
+  95:Core/Src/NRF24L01.c ****   * 说    明：无
+  96:Core/Src/NRF24L01.c ****   *           
+  97:Core/Src/NRF24L01.c ****   */ 
+  98:Core/Src/NRF24L01.c **** uint8_t NRF24L01_Read_Buf(uint8_t reg,uint8_t *pBuf,uint8_t len)
+  99:Core/Src/NRF24L01.c **** {
+ 226              		.loc 1 99 1 is_stmt 1 view -0
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		.loc 1 99 1 is_stmt 0 view .LVU38
+ 231 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 232              	.LCFI5:
+ 233              		.cfi_def_cfa_offset 24
+ 234              		.cfi_offset 3, -24
+ 235              		.cfi_offset 4, -20
+ 236              		.cfi_offset 5, -16
+ 237              		.cfi_offset 6, -12
+ 238              		.cfi_offset 7, -8
+ 239              		.cfi_offset 14, -4
+ 240 0002 0446     		mov	r4, r0
+ 241 0004 0E46     		mov	r6, r1
+ 242 0006 1546     		mov	r5, r2
+ 100:Core/Src/NRF24L01.c **** 	uint8_t status,uint8_t_ctr;	   
+ 243              		.loc 1 100 2 is_stmt 1 view .LVU39
+ 101:Core/Src/NRF24L01.c ****   
+ 102:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_ENABLE();           //使能SPI传输
+ 244              		.loc 1 102 3 view .LVU40
+ 245 0008 0022     		movs	r2, #0
+ 246              	.LVL21:
+ 247              		.loc 1 102 3 is_stmt 0 view .LVU41
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 7
+
+
+ 248 000a 4FF48051 		mov	r1, #4096
+ 249              	.LVL22:
+ 250              		.loc 1 102 3 view .LVU42
+ 251 000e 0D48     		ldr	r0, .L17
+ 252              	.LVL23:
+ 253              		.loc 1 102 3 view .LVU43
+ 254 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 255              	.LVL24:
+ 103:Core/Src/NRF24L01.c ****   status=SPIx_ReadWriteByte(&hspi_NRF24L01,reg);//发送寄存器值(位置),并读取状态值   	
+ 256              		.loc 1 103 3 is_stmt 1 view .LVU44
+ 257              		.loc 1 103 10 is_stmt 0 view .LVU45
+ 258 0014 2146     		mov	r1, r4
+ 259 0016 0C48     		ldr	r0, .L17+4
+ 260 0018 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 261              	.LVL25:
+ 262 001c 0746     		mov	r7, r0
+ 263              	.LVL26:
+ 104:Core/Src/NRF24L01.c ****  	for(uint8_t_ctr=0;uint8_t_ctr<len;uint8_t_ctr++)
+ 264              		.loc 1 104 3 is_stmt 1 view .LVU46
+ 265              		.loc 1 104 18 is_stmt 0 view .LVU47
+ 266 001e 0024     		movs	r4, #0
+ 267              	.LVL27:
+ 268              	.L13:
+ 269              		.loc 1 104 21 is_stmt 1 discriminator 1 view .LVU48
+ 270              		.loc 1 104 3 is_stmt 0 discriminator 1 view .LVU49
+ 271 0020 AC42     		cmp	r4, r5
+ 272 0022 07D2     		bcs	.L16
+ 105:Core/Src/NRF24L01.c ****   {
+ 106:Core/Src/NRF24L01.c ****     pBuf[uint8_t_ctr]=SPIx_ReadWriteByte(&hspi_NRF24L01,0XFF);//读出数据
+ 273              		.loc 1 106 5 is_stmt 1 discriminator 3 view .LVU50
+ 274              		.loc 1 106 23 is_stmt 0 discriminator 3 view .LVU51
+ 275 0024 FF21     		movs	r1, #255
+ 276 0026 0848     		ldr	r0, .L17+4
+ 277 0028 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 278              	.LVL28:
+ 279              		.loc 1 106 22 discriminator 3 view .LVU52
+ 280 002c 3055     		strb	r0, [r6, r4]
+ 104:Core/Src/NRF24L01.c ****  	for(uint8_t_ctr=0;uint8_t_ctr<len;uint8_t_ctr++)
+ 281              		.loc 1 104 37 is_stmt 1 discriminator 3 view .LVU53
+ 104:Core/Src/NRF24L01.c ****  	for(uint8_t_ctr=0;uint8_t_ctr<len;uint8_t_ctr++)
+ 282              		.loc 1 104 48 is_stmt 0 discriminator 3 view .LVU54
+ 283 002e 0134     		adds	r4, r4, #1
+ 284              	.LVL29:
+ 104:Core/Src/NRF24L01.c ****  	for(uint8_t_ctr=0;uint8_t_ctr<len;uint8_t_ctr++)
+ 285              		.loc 1 104 48 discriminator 3 view .LVU55
+ 286 0030 E4B2     		uxtb	r4, r4
+ 287              	.LVL30:
+ 104:Core/Src/NRF24L01.c ****  	for(uint8_t_ctr=0;uint8_t_ctr<len;uint8_t_ctr++)
+ 288              		.loc 1 104 48 discriminator 3 view .LVU56
+ 289 0032 F5E7     		b	.L13
+ 290              	.L16:
+ 107:Core/Src/NRF24L01.c ****   }
+ 108:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_DISABLE();       //关闭SPI传输
+ 291              		.loc 1 108 3 is_stmt 1 view .LVU57
+ 292 0034 0122     		movs	r2, #1
+ 293 0036 4FF48051 		mov	r1, #4096
+ 294 003a 0248     		ldr	r0, .L17
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 8
+
+
+ 295 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 296              	.LVL31:
+ 109:Core/Src/NRF24L01.c ****   return status;        //返回读到的状态值
+ 297              		.loc 1 109 3 view .LVU58
+ 110:Core/Src/NRF24L01.c **** }
+ 298              		.loc 1 110 1 is_stmt 0 view .LVU59
+ 299 0040 3846     		mov	r0, r7
+ 300 0042 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 301              	.LVL32:
+ 302              	.L18:
+ 303              		.loc 1 110 1 view .LVU60
+ 304              		.align	2
+ 305              	.L17:
+ 306 0044 00040240 		.word	1073873920
+ 307 0048 00000000 		.word	hspi2
+ 308              		.cfi_endproc
+ 309              	.LFE137:
+ 311              		.section	.text.NRF24L01_Write_Buf,"ax",%progbits
+ 312              		.align	1
+ 313              		.global	NRF24L01_Write_Buf
+ 314              		.syntax unified
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.fpu fpv4-sp-d16
+ 319              	NRF24L01_Write_Buf:
+ 320              	.LVL33:
+ 321              	.LFB138:
+ 111:Core/Src/NRF24L01.c **** 
+ 112:Core/Src/NRF24L01.c **** /**
+ 113:Core/Src/NRF24L01.c ****   * 函数功能: 在指定位置写指定长度的数据
+ 114:Core/Src/NRF24L01.c ****   * 输入参数: 无
+ 115:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 116:Core/Src/NRF24L01.c ****   * 说    明：reg:寄存器(位置)  *pBuf:数据指针  len:数据长度
+ 117:Core/Src/NRF24L01.c ****   *           
+ 118:Core/Src/NRF24L01.c ****   */ 
+ 119:Core/Src/NRF24L01.c **** uint8_t NRF24L01_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t len)
+ 120:Core/Src/NRF24L01.c **** {
+ 322              		.loc 1 120 1 is_stmt 1 view -0
+ 323              		.cfi_startproc
+ 324              		@ args = 0, pretend = 0, frame = 0
+ 325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 326              		.loc 1 120 1 is_stmt 0 view .LVU62
+ 327 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 328              	.LCFI6:
+ 329              		.cfi_def_cfa_offset 24
+ 330              		.cfi_offset 3, -24
+ 331              		.cfi_offset 4, -20
+ 332              		.cfi_offset 5, -16
+ 333              		.cfi_offset 6, -12
+ 334              		.cfi_offset 7, -8
+ 335              		.cfi_offset 14, -4
+ 336 0002 0546     		mov	r5, r0
+ 337 0004 0C46     		mov	r4, r1
+ 338 0006 1646     		mov	r6, r2
+ 121:Core/Src/NRF24L01.c **** 	uint8_t status,uint8_t_ctr;	    
+ 339              		.loc 1 121 2 is_stmt 1 view .LVU63
+ 122:Core/Src/NRF24L01.c ****  	NRF24L01_SPI_CS_ENABLE();          //使能SPI传输
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 9
+
+
+ 340              		.loc 1 122 3 view .LVU64
+ 341 0008 0022     		movs	r2, #0
+ 342              	.LVL34:
+ 343              		.loc 1 122 3 is_stmt 0 view .LVU65
+ 344 000a 4FF48051 		mov	r1, #4096
+ 345              	.LVL35:
+ 346              		.loc 1 122 3 view .LVU66
+ 347 000e 0D48     		ldr	r0, .L24
+ 348              	.LVL36:
+ 349              		.loc 1 122 3 view .LVU67
+ 350 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 351              	.LVL37:
+ 123:Core/Src/NRF24L01.c ****   status = SPIx_ReadWriteByte(&hspi_NRF24L01,reg);//发送寄存器值(位置),并读取状态值
+ 352              		.loc 1 123 3 is_stmt 1 view .LVU68
+ 353              		.loc 1 123 12 is_stmt 0 view .LVU69
+ 354 0014 2946     		mov	r1, r5
+ 355 0016 0C48     		ldr	r0, .L24+4
+ 356 0018 FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 357              	.LVL38:
+ 358 001c 0746     		mov	r7, r0
+ 359              	.LVL39:
+ 124:Core/Src/NRF24L01.c ****   for(uint8_t_ctr=0; uint8_t_ctr<len; uint8_t_ctr++)
+ 360              		.loc 1 124 3 is_stmt 1 view .LVU70
+ 361              		.loc 1 124 18 is_stmt 0 view .LVU71
+ 362 001e 0025     		movs	r5, #0
+ 363              	.LVL40:
+ 364              	.L20:
+ 365              		.loc 1 124 22 is_stmt 1 discriminator 1 view .LVU72
+ 366              		.loc 1 124 3 is_stmt 0 discriminator 1 view .LVU73
+ 367 0020 B542     		cmp	r5, r6
+ 368 0022 07D2     		bcs	.L23
+ 125:Core/Src/NRF24L01.c ****   {
+ 126:Core/Src/NRF24L01.c ****     SPIx_ReadWriteByte(&hspi_NRF24L01,*pBuf++); //写入数据	 
+ 369              		.loc 1 126 5 is_stmt 1 discriminator 3 view .LVU74
+ 370              	.LVL41:
+ 371              		.loc 1 126 5 is_stmt 0 discriminator 3 view .LVU75
+ 372 0024 14F8011B 		ldrb	r1, [r4], #1	@ zero_extendqisi2
+ 373              	.LVL42:
+ 374              		.loc 1 126 5 discriminator 3 view .LVU76
+ 375 0028 0748     		ldr	r0, .L24+4
+ 376 002a FFF7FEFF 		bl	SPIx_ReadWriteByte
+ 377              	.LVL43:
+ 124:Core/Src/NRF24L01.c ****   for(uint8_t_ctr=0; uint8_t_ctr<len; uint8_t_ctr++)
+ 378              		.loc 1 124 39 is_stmt 1 discriminator 3 view .LVU77
+ 124:Core/Src/NRF24L01.c ****   for(uint8_t_ctr=0; uint8_t_ctr<len; uint8_t_ctr++)
+ 379              		.loc 1 124 50 is_stmt 0 discriminator 3 view .LVU78
+ 380 002e 0135     		adds	r5, r5, #1
+ 381              	.LVL44:
+ 124:Core/Src/NRF24L01.c ****   for(uint8_t_ctr=0; uint8_t_ctr<len; uint8_t_ctr++)
+ 382              		.loc 1 124 50 discriminator 3 view .LVU79
+ 383 0030 EDB2     		uxtb	r5, r5
+ 384              	.LVL45:
+ 124:Core/Src/NRF24L01.c ****   for(uint8_t_ctr=0; uint8_t_ctr<len; uint8_t_ctr++)
+ 385              		.loc 1 124 50 discriminator 3 view .LVU80
+ 386 0032 F5E7     		b	.L20
+ 387              	.L23:
+ 127:Core/Src/NRF24L01.c ****   }
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 10
+
+
+ 128:Core/Src/NRF24L01.c ****   NRF24L01_SPI_CS_DISABLE();       //关闭SPI传输
+ 388              		.loc 1 128 3 is_stmt 1 view .LVU81
+ 389 0034 0122     		movs	r2, #1
+ 390 0036 4FF48051 		mov	r1, #4096
+ 391 003a 0248     		ldr	r0, .L24
+ 392 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 393              	.LVL46:
+ 129:Core/Src/NRF24L01.c ****   return status;          //返回读到的状态值
+ 394              		.loc 1 129 3 view .LVU82
+ 130:Core/Src/NRF24L01.c **** }				   
+ 395              		.loc 1 130 1 is_stmt 0 view .LVU83
+ 396 0040 3846     		mov	r0, r7
+ 397 0042 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 398              	.LVL47:
+ 399              	.L25:
+ 400              		.loc 1 130 1 view .LVU84
+ 401              		.align	2
+ 402              	.L24:
+ 403 0044 00040240 		.word	1073873920
+ 404 0048 00000000 		.word	hspi2
+ 405              		.cfi_endproc
+ 406              	.LFE138:
+ 408              		.section	.rodata.NRF24L01_Check.str1.4,"aMS",%progbits,1
+ 409              		.align	2
+ 410              	.LC0:
+ 411 0000 A5A5A5A5 		.ascii	"\245\245\245\245\245\000"
+ 411      A500
+ 412              		.section	.text.NRF24L01_Check,"ax",%progbits
+ 413              		.align	1
+ 414              		.global	NRF24L01_Check
+ 415              		.syntax unified
+ 416              		.thumb
+ 417              		.thumb_func
+ 418              		.fpu fpv4-sp-d16
+ 420              	NRF24L01_Check:
+ 421              	.LFB134:
+  46:Core/Src/NRF24L01.c **** 	uint8_t buf[5]={0XA5,0XA5,0XA5,0XA5,0XA5};
+ 422              		.loc 1 46 1 is_stmt 1 view -0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 8
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426 0000 00B5     		push	{lr}
+ 427              	.LCFI7:
+ 428              		.cfi_def_cfa_offset 4
+ 429              		.cfi_offset 14, -4
+ 430 0002 83B0     		sub	sp, sp, #12
+ 431              	.LCFI8:
+ 432              		.cfi_def_cfa_offset 16
+  47:Core/Src/NRF24L01.c **** 	uint8_t i;
+ 433              		.loc 1 47 2 view .LVU86
+  47:Core/Src/NRF24L01.c **** 	uint8_t i;
+ 434              		.loc 1 47 10 is_stmt 0 view .LVU87
+ 435 0004 114B     		ldr	r3, .L33
+ 436 0006 93E80300 		ldm	r3, {r0, r1}
+ 437 000a 0090     		str	r0, [sp]
+ 438 000c 8DF80410 		strb	r1, [sp, #4]
+  48:Core/Src/NRF24L01.c ****   
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 11
+
+
+ 439              		.loc 1 48 2 is_stmt 1 view .LVU88
+  50:Core/Src/NRF24L01.c **** 	NRF24L01_Read_Buf(TX_ADDR,buf,5); //读出写入的地址  
+ 440              		.loc 1 50 2 view .LVU89
+ 441 0010 0522     		movs	r2, #5
+ 442 0012 6946     		mov	r1, sp
+ 443 0014 3020     		movs	r0, #48
+ 444 0016 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 445              	.LVL48:
+  51:Core/Src/NRF24L01.c **** 	for(i=0;i<5;i++)if(buf[i]!=0XA5)break;	 							   
+ 446              		.loc 1 51 2 view .LVU90
+ 447 001a 0522     		movs	r2, #5
+ 448 001c 6946     		mov	r1, sp
+ 449 001e 1020     		movs	r0, #16
+ 450 0020 FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 451              	.LVL49:
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 452              		.loc 1 52 2 view .LVU91
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 453              		.loc 1 52 7 is_stmt 0 view .LVU92
+ 454 0024 0023     		movs	r3, #0
+ 455              	.LVL50:
+ 456              	.L27:
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 457              		.loc 1 52 10 is_stmt 1 discriminator 3 view .LVU93
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 458              		.loc 1 52 2 is_stmt 0 discriminator 3 view .LVU94
+ 459 0026 042B     		cmp	r3, #4
+ 460 0028 08D8     		bhi	.L28
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 461              		.loc 1 52 18 is_stmt 1 discriminator 4 view .LVU95
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 462              		.loc 1 52 24 is_stmt 0 discriminator 4 view .LVU96
+ 463 002a 02AA     		add	r2, sp, #8
+ 464 002c 1A44     		add	r2, r2, r3
+ 465 002e 12F8082C 		ldrb	r2, [r2, #-8]	@ zero_extendqisi2
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 466              		.loc 1 52 20 discriminator 4 view .LVU97
+ 467 0032 A52A     		cmp	r2, #165
+ 468 0034 02D1     		bne	.L28
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 469              		.loc 1 52 14 is_stmt 1 discriminator 2 view .LVU98
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 470              		.loc 1 52 15 is_stmt 0 discriminator 2 view .LVU99
+ 471 0036 0133     		adds	r3, r3, #1
+ 472              	.LVL51:
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 473              		.loc 1 52 15 discriminator 2 view .LVU100
+ 474 0038 DBB2     		uxtb	r3, r3
+ 475              	.LVL52:
+  52:Core/Src/NRF24L01.c **** 	if(i!=5)return 1;//检测24L01错误	
+ 476              		.loc 1 52 15 discriminator 2 view .LVU101
+ 477 003a F4E7     		b	.L27
+ 478              	.L28:
+  53:Core/Src/NRF24L01.c **** 	return 0;		 //检测到24L01
+ 479              		.loc 1 53 2 is_stmt 1 view .LVU102
+  53:Core/Src/NRF24L01.c **** 	return 0;		 //检测到24L01
+ 480              		.loc 1 53 4 is_stmt 0 view .LVU103
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 12
+
+
+ 481 003c 052B     		cmp	r3, #5
+ 482 003e 03D1     		bne	.L31
+  54:Core/Src/NRF24L01.c **** }	 	 
+ 483              		.loc 1 54 9 view .LVU104
+ 484 0040 0020     		movs	r0, #0
+ 485              	.L30:
+  55:Core/Src/NRF24L01.c **** 
+ 486              		.loc 1 55 1 view .LVU105
+ 487 0042 03B0     		add	sp, sp, #12
+ 488              	.LCFI9:
+ 489              		.cfi_remember_state
+ 490              		.cfi_def_cfa_offset 4
+ 491              		@ sp needed
+ 492 0044 5DF804FB 		ldr	pc, [sp], #4
+ 493              	.L31:
+ 494              	.LCFI10:
+ 495              		.cfi_restore_state
+  53:Core/Src/NRF24L01.c **** 	return 0;		 //检测到24L01
+ 496              		.loc 1 53 17 view .LVU106
+ 497 0048 0120     		movs	r0, #1
+ 498 004a FAE7     		b	.L30
+ 499              	.L34:
+ 500              		.align	2
+ 501              	.L33:
+ 502 004c 00000000 		.word	.LC0
+ 503              		.cfi_endproc
+ 504              	.LFE134:
+ 506              		.section	.rodata.NRF24L01_TxPacket.str1.4,"aMS",%progbits,1
+ 507              		.align	2
+ 508              	.LC1:
+ 509 0000 54585F4D 		.ascii	"TX_MAX Time.\015\000"
+ 509      41582054 
+ 509      696D652E 
+ 509      0D00
+ 510 000e 0000     		.align	2
+ 511              	.LC2:
+ 512 0010 54585F4F 		.ascii	"TX_OK\015\012.\000"
+ 512      4B0D0A2E 
+ 512      00
+ 513 0019 000000   		.align	2
+ 514              	.LC3:
+ 515 001c 54585F45 		.ascii	"TX_Error\015\000"
+ 515      72726F72 
+ 515      0D00
+ 516              		.section	.text.NRF24L01_TxPacket,"ax",%progbits
+ 517              		.align	1
+ 518              		.global	NRF24L01_TxPacket
+ 519              		.syntax unified
+ 520              		.thumb
+ 521              		.thumb_func
+ 522              		.fpu fpv4-sp-d16
+ 524              	NRF24L01_TxPacket:
+ 525              	.LVL53:
+ 526              	.LFB139:
+ 131:Core/Src/NRF24L01.c **** 
+ 132:Core/Src/NRF24L01.c **** /**
+ 133:Core/Src/NRF24L01.c ****   * 函数功能: 启动NRF24L01发送一次数据
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 13
+
+
+ 134:Core/Src/NRF24L01.c ****   * 输入参数: 无
+ 135:Core/Src/NRF24L01.c ****   * 返 回 值: 发送完成状况
+ 136:Core/Src/NRF24L01.c ****   * 说    明：txbuf:待发送数据首地址
+ 137:Core/Src/NRF24L01.c ****   *           
+ 138:Core/Src/NRF24L01.c ****   */ 
+ 139:Core/Src/NRF24L01.c **** uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
+ 140:Core/Src/NRF24L01.c **** {
+ 527              		.loc 1 140 1 is_stmt 1 view -0
+ 528              		.cfi_startproc
+ 529              		@ args = 0, pretend = 0, frame = 0
+ 530              		@ frame_needed = 0, uses_anonymous_args = 0
+ 531              		.loc 1 140 1 is_stmt 0 view .LVU108
+ 532 0000 38B5     		push	{r3, r4, r5, lr}
+ 533              	.LCFI11:
+ 534              		.cfi_def_cfa_offset 16
+ 535              		.cfi_offset 3, -16
+ 536              		.cfi_offset 4, -12
+ 537              		.cfi_offset 5, -8
+ 538              		.cfi_offset 14, -4
+ 539 0002 0446     		mov	r4, r0
+ 141:Core/Src/NRF24L01.c **** 	uint8_t sta;
+ 540              		.loc 1 141 2 is_stmt 1 view .LVU109
+ 142:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
+ 541              		.loc 1 142 2 view .LVU110
+ 542 0004 1C4D     		ldr	r5, .L43
+ 543 0006 0022     		movs	r2, #0
+ 544 0008 4FF48061 		mov	r1, #1024
+ 545 000c 2846     		mov	r0, r5
+ 546              	.LVL54:
+ 547              		.loc 1 142 2 is_stmt 0 view .LVU111
+ 548 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 549              	.LVL55:
+ 143:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(WR_TX_PLOAD,txbuf,TX_PLOAD_WIDTH);//写数据到TX BUF  32个字节
+ 550              		.loc 1 143 3 is_stmt 1 view .LVU112
+ 551 0012 2022     		movs	r2, #32
+ 552 0014 2146     		mov	r1, r4
+ 553 0016 A020     		movs	r0, #160
+ 554 0018 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 555              	.LVL56:
+ 144:Core/Src/NRF24L01.c ****  	NRF24L01_CE_HIGH();                                  //启动发送	 
+ 556              		.loc 1 144 3 view .LVU113
+ 557 001c 0122     		movs	r2, #1
+ 558 001e 4FF48061 		mov	r1, #1024
+ 559 0022 2846     		mov	r0, r5
+ 560 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 561              	.LVL57:
+ 145:Core/Src/NRF24L01.c ****   
+ 146:Core/Src/NRF24L01.c **** 	while(NRF24L01_IRQ_PIN_READ()!=0);                   //等待发送完成
+ 562              		.loc 1 146 2 view .LVU114
+ 563              	.L36:
+ 564              		.loc 1 146 35 discriminator 1 view .LVU115
+ 565              		.loc 1 146 7 discriminator 1 view .LVU116
+ 566              		.loc 1 146 8 is_stmt 0 discriminator 1 view .LVU117
+ 567 0028 4FF48071 		mov	r1, #256
+ 568 002c 1348     		ldr	r0, .L43+4
+ 569 002e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 570              	.LVL58:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 14
+
+
+ 571              		.loc 1 146 7 discriminator 1 view .LVU118
+ 572 0032 0028     		cmp	r0, #0
+ 573 0034 F8D1     		bne	.L36
+ 147:Core/Src/NRF24L01.c **** 	sta=NRF24L01_Read_Reg(STATUS);                       //读取状态寄存器的值	   
+ 574              		.loc 1 147 2 is_stmt 1 view .LVU119
+ 575              		.loc 1 147 6 is_stmt 0 view .LVU120
+ 576 0036 0720     		movs	r0, #7
+ 577 0038 FFF7FEFF 		bl	NRF24L01_Read_Reg
+ 578              	.LVL59:
+ 579 003c 0446     		mov	r4, r0
+ 580              	.LVL60:
+ 148:Core/Src/NRF24L01.c **** 	NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,sta);        //清除TX_DS或MAX_RT中断标志
+ 581              		.loc 1 148 2 is_stmt 1 view .LVU121
+ 582 003e 0146     		mov	r1, r0
+ 583 0040 2720     		movs	r0, #39
+ 584              	.LVL61:
+ 585              		.loc 1 148 2 is_stmt 0 view .LVU122
+ 586 0042 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 587              	.LVL62:
+ 149:Core/Src/NRF24L01.c **** 	if(sta&MAX_TX)                                       //达到最大重发次数
+ 588              		.loc 1 149 2 is_stmt 1 view .LVU123
+ 589              		.loc 1 149 4 is_stmt 0 view .LVU124
+ 590 0046 14F0100F 		tst	r4, #16
+ 591 004a 07D1     		bne	.L41
+ 150:Core/Src/NRF24L01.c **** 	{
+ 151:Core/Src/NRF24L01.c **** 		NRF24L01_Write_Reg(FLUSH_TX,0xff);                 //清除TX FIFO寄存器 
+ 152:Core/Src/NRF24L01.c ****     printf("TX_MAX Time.\r\n");
+ 153:Core/Src/NRF24L01.c **** 		return MAX_TX; 
+ 154:Core/Src/NRF24L01.c **** 	}
+ 155:Core/Src/NRF24L01.c **** 	if(sta&TX_OK)                                        //发送完成
+ 592              		.loc 1 155 2 is_stmt 1 view .LVU125
+ 593              		.loc 1 155 4 is_stmt 0 view .LVU126
+ 594 004c 14F0200F 		tst	r4, #32
+ 595 0050 0DD1     		bne	.L42
+ 156:Core/Src/NRF24L01.c **** 	{
+ 157:Core/Src/NRF24L01.c ****     printf("TX_OK\r\n.");
+ 158:Core/Src/NRF24L01.c **** 		return TX_OK;
+ 159:Core/Src/NRF24L01.c **** 	}
+ 160:Core/Src/NRF24L01.c ****   printf("TX_Error\r\n");
+ 596              		.loc 1 160 3 is_stmt 1 view .LVU127
+ 597 0052 0B48     		ldr	r0, .L43+8
+ 598 0054 FFF7FEFF 		bl	puts
+ 599              	.LVL63:
+ 161:Core/Src/NRF24L01.c **** 	return 0xff;                                         //其他原因发送失败
+ 600              		.loc 1 161 2 view .LVU128
+ 601              		.loc 1 161 9 is_stmt 0 view .LVU129
+ 602 0058 FF20     		movs	r0, #255
+ 603              	.L38:
+ 162:Core/Src/NRF24L01.c **** }
+ 604              		.loc 1 162 1 view .LVU130
+ 605 005a 38BD     		pop	{r3, r4, r5, pc}
+ 606              	.L41:
+ 151:Core/Src/NRF24L01.c ****     printf("TX_MAX Time.\r\n");
+ 607              		.loc 1 151 3 is_stmt 1 view .LVU131
+ 608 005c FF21     		movs	r1, #255
+ 609 005e E120     		movs	r0, #225
+ 610 0060 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 15
+
+
+ 611              	.LVL64:
+ 152:Core/Src/NRF24L01.c **** 		return MAX_TX; 
+ 612              		.loc 1 152 5 view .LVU132
+ 613 0064 0748     		ldr	r0, .L43+12
+ 614 0066 FFF7FEFF 		bl	puts
+ 615              	.LVL65:
+ 153:Core/Src/NRF24L01.c **** 	}
+ 616              		.loc 1 153 3 view .LVU133
+ 153:Core/Src/NRF24L01.c **** 	}
+ 617              		.loc 1 153 10 is_stmt 0 view .LVU134
+ 618 006a 1020     		movs	r0, #16
+ 619 006c F5E7     		b	.L38
+ 620              	.L42:
+ 157:Core/Src/NRF24L01.c **** 		return TX_OK;
+ 621              		.loc 1 157 5 is_stmt 1 view .LVU135
+ 622 006e 0648     		ldr	r0, .L43+16
+ 623 0070 FFF7FEFF 		bl	printf
+ 624              	.LVL66:
+ 158:Core/Src/NRF24L01.c **** 	}
+ 625              		.loc 1 158 3 view .LVU136
+ 158:Core/Src/NRF24L01.c **** 	}
+ 626              		.loc 1 158 10 is_stmt 0 view .LVU137
+ 627 0074 2020     		movs	r0, #32
+ 628 0076 F0E7     		b	.L38
+ 629              	.L44:
+ 630              		.align	2
+ 631              	.L43:
+ 632 0078 00040240 		.word	1073873920
+ 633 007c 00000240 		.word	1073872896
+ 634 0080 1C000000 		.word	.LC3
+ 635 0084 00000000 		.word	.LC1
+ 636 0088 10000000 		.word	.LC2
+ 637              		.cfi_endproc
+ 638              	.LFE139:
+ 640              		.section	.rodata.NRF24L01_RxPacket.str1.4,"aMS",%progbits,1
+ 641              		.align	2
+ 642              	.LC4:
+ 643 0000 4368616E 		.ascii	"Channel 0 read successfully!\015\000"
+ 643      6E656C20 
+ 643      30207265 
+ 643      61642073 
+ 643      75636365 
+ 644 001e 0000     		.align	2
+ 645              	.LC5:
+ 646 0020 6368616E 		.ascii	"channel 1 read successfully!\015\000"
+ 646      6E656C20 
+ 646      31207265 
+ 646      61642073 
+ 646      75636365 
+ 647 003e 0000     		.align	2
+ 648              	.LC6:
+ 649 0040 6368616E 		.ascii	"channel 2 read successfully!\015\000"
+ 649      6E656C20 
+ 649      32207265 
+ 649      61642073 
+ 649      75636365 
+ 650 005e 0000     		.align	2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 16
+
+
+ 651              	.LC7:
+ 652 0060 6368616E 		.ascii	"channel 3 read successfully!\015\000"
+ 652      6E656C20 
+ 652      33207265 
+ 652      61642073 
+ 652      75636365 
+ 653 007e 0000     		.align	2
+ 654              	.LC8:
+ 655 0080 52656164 		.ascii	"Read successfully but unknow channel!\015\000"
+ 655      20737563 
+ 655      63657373 
+ 655      66756C6C 
+ 655      79206275 
+ 656              		.section	.text.NRF24L01_RxPacket,"ax",%progbits
+ 657              		.align	1
+ 658              		.global	NRF24L01_RxPacket
+ 659              		.syntax unified
+ 660              		.thumb
+ 661              		.thumb_func
+ 662              		.fpu fpv4-sp-d16
+ 664              	NRF24L01_RxPacket:
+ 665              	.LVL67:
+ 666              	.LFB140:
+ 163:Core/Src/NRF24L01.c **** 
+ 164:Core/Src/NRF24L01.c **** /**
+ 165:Core/Src/NRF24L01.c ****   * 函数功能:启动NRF24L01接收一次数据
+ 166:Core/Src/NRF24L01.c ****   * 输入参数: 无
+ 167:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 168:Core/Src/NRF24L01.c ****   * 说    明：无
+ 169:Core/Src/NRF24L01.c ****   *           
+ 170:Core/Src/NRF24L01.c ****   */ 
+ 171:Core/Src/NRF24L01.c **** uint8_t NRF24L01_RxPacket(uint8_t *rxbuf)
+ 172:Core/Src/NRF24L01.c **** {
+ 667              		.loc 1 172 1 is_stmt 1 view -0
+ 668              		.cfi_startproc
+ 669              		@ args = 0, pretend = 0, frame = 0
+ 670              		@ frame_needed = 0, uses_anonymous_args = 0
+ 671              		.loc 1 172 1 is_stmt 0 view .LVU139
+ 672 0000 38B5     		push	{r3, r4, r5, lr}
+ 673              	.LCFI12:
+ 674              		.cfi_def_cfa_offset 16
+ 675              		.cfi_offset 3, -16
+ 676              		.cfi_offset 4, -12
+ 677              		.cfi_offset 5, -8
+ 678              		.cfi_offset 14, -4
+ 679 0002 0546     		mov	r5, r0
+ 173:Core/Src/NRF24L01.c **** 	uint8_t sta;		    							   
+ 680              		.loc 1 173 2 is_stmt 1 view .LVU140
+ 174:Core/Src/NRF24L01.c **** 	sta=NRF24L01_Read_Reg(STATUS);                //读取状态寄存器的值    	 
+ 681              		.loc 1 174 2 view .LVU141
+ 682              		.loc 1 174 6 is_stmt 0 view .LVU142
+ 683 0004 0720     		movs	r0, #7
+ 684              	.LVL68:
+ 685              		.loc 1 174 6 view .LVU143
+ 686 0006 FFF7FEFF 		bl	NRF24L01_Read_Reg
+ 687              	.LVL69:
+ 688 000a 0446     		mov	r4, r0
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 17
+
+
+ 689              	.LVL70:
+ 175:Core/Src/NRF24L01.c **** 	NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志
+ 690              		.loc 1 175 2 is_stmt 1 view .LVU144
+ 691 000c 0146     		mov	r1, r0
+ 692 000e 2720     		movs	r0, #39
+ 693              	.LVL71:
+ 694              		.loc 1 175 2 is_stmt 0 view .LVU145
+ 695 0010 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 696              	.LVL72:
+ 176:Core/Src/NRF24L01.c **** 	if(sta&RX_OK)                                 //接收到数据
+ 697              		.loc 1 176 2 is_stmt 1 view .LVU146
+ 698              		.loc 1 176 4 is_stmt 0 view .LVU147
+ 699 0014 14F0400F 		tst	r4, #64
+ 700 0018 01D1     		bne	.L56
+ 177:Core/Src/NRF24L01.c **** 	{
+ 178:Core/Src/NRF24L01.c ****     switch (sta&0x0e)
+ 179:Core/Src/NRF24L01.c ****     {
+ 180:Core/Src/NRF24L01.c ****     case 0x00:
+ 181:Core/Src/NRF24L01.c ****       NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道0数据
+ 182:Core/Src/NRF24L01.c ****       printf("Channel 0 read successfully!\r\n");
+ 183:Core/Src/NRF24L01.c ****       break;
+ 184:Core/Src/NRF24L01.c ****     case 0x02:
+ 185:Core/Src/NRF24L01.c ****       NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道1数据
+ 186:Core/Src/NRF24L01.c ****       printf("channel 1 read successfully!\r\n");
+ 187:Core/Src/NRF24L01.c ****       break;
+ 188:Core/Src/NRF24L01.c ****     case 0x04:
+ 189:Core/Src/NRF24L01.c ****       NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道2数据
+ 190:Core/Src/NRF24L01.c ****       printf("channel 2 read successfully!\r\n");
+ 191:Core/Src/NRF24L01.c ****       break;
+ 192:Core/Src/NRF24L01.c ****     case 0x06:
+ 193:Core/Src/NRF24L01.c ****       NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道3数据
+ 194:Core/Src/NRF24L01.c ****       printf("channel 3 read successfully!\r\n");
+ 195:Core/Src/NRF24L01.c ****       break;
+ 196:Core/Src/NRF24L01.c ****     default:
+ 197:Core/Src/NRF24L01.c ****       NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取数据
+ 198:Core/Src/NRF24L01.c ****       printf("Read successfully but unknow channel!\r\n");
+ 199:Core/Src/NRF24L01.c ****       break;
+ 200:Core/Src/NRF24L01.c ****     }
+ 201:Core/Src/NRF24L01.c **** 		
+ 202:Core/Src/NRF24L01.c **** 		NRF24L01_Write_Reg(FLUSH_RX,0xff);                      //清除RX FIFO寄存器 
+ 203:Core/Src/NRF24L01.c **** 		return 0; 
+ 204:Core/Src/NRF24L01.c **** 	}	
+ 205:Core/Src/NRF24L01.c **** 	return 1; //没收到任何数据
+ 701              		.loc 1 205 9 view .LVU148
+ 702 001a 0120     		movs	r0, #1
+ 703              	.L46:
+ 206:Core/Src/NRF24L01.c **** }					    
+ 704              		.loc 1 206 1 view .LVU149
+ 705 001c 38BD     		pop	{r3, r4, r5, pc}
+ 706              	.LVL73:
+ 707              	.L56:
+ 178:Core/Src/NRF24L01.c ****     {
+ 708              		.loc 1 178 5 is_stmt 1 view .LVU150
+ 709 001e 04F00E04 		and	r4, r4, #14
+ 710 0022 062C     		cmp	r4, #6
+ 711 0024 2ED8     		bhi	.L47
+ 712 0026 DFE804F0 		tbb	[pc, r4]
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 18
+
+
+ 713              	.L49:
+ 714 002a 04       		.byte	(.L52-.L49)/2
+ 715 002b 2D       		.byte	(.L47-.L49)/2
+ 716 002c 12       		.byte	(.L51-.L49)/2
+ 717 002d 2D       		.byte	(.L47-.L49)/2
+ 718 002e 1B       		.byte	(.L50-.L49)/2
+ 719 002f 2D       		.byte	(.L47-.L49)/2
+ 720 0030 24       		.byte	(.L48-.L49)/2
+ 721 0031 00       		.p2align 1
+ 722              	.L52:
+ 181:Core/Src/NRF24L01.c ****       printf("Channel 0 read successfully!\r\n");
+ 723              		.loc 1 181 7 view .LVU151
+ 724 0032 2022     		movs	r2, #32
+ 725 0034 2946     		mov	r1, r5
+ 726 0036 6120     		movs	r0, #97
+ 727 0038 FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 728              	.LVL74:
+ 182:Core/Src/NRF24L01.c ****       break;
+ 729              		.loc 1 182 7 view .LVU152
+ 730 003c 1648     		ldr	r0, .L57
+ 731 003e FFF7FEFF 		bl	puts
+ 732              	.LVL75:
+ 183:Core/Src/NRF24L01.c ****     case 0x02:
+ 733              		.loc 1 183 7 view .LVU153
+ 734              	.L53:
+ 202:Core/Src/NRF24L01.c **** 		return 0; 
+ 735              		.loc 1 202 3 view .LVU154
+ 736 0042 FF21     		movs	r1, #255
+ 737 0044 E220     		movs	r0, #226
+ 738 0046 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 739              	.LVL76:
+ 203:Core/Src/NRF24L01.c **** 	}	
+ 740              		.loc 1 203 3 view .LVU155
+ 203:Core/Src/NRF24L01.c **** 	}	
+ 741              		.loc 1 203 10 is_stmt 0 view .LVU156
+ 742 004a 0020     		movs	r0, #0
+ 743 004c E6E7     		b	.L46
+ 744              	.L51:
+ 185:Core/Src/NRF24L01.c ****       printf("channel 1 read successfully!\r\n");
+ 745              		.loc 1 185 7 is_stmt 1 view .LVU157
+ 746 004e 2022     		movs	r2, #32
+ 747 0050 2946     		mov	r1, r5
+ 748 0052 6120     		movs	r0, #97
+ 749 0054 FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 750              	.LVL77:
+ 186:Core/Src/NRF24L01.c ****       break;
+ 751              		.loc 1 186 7 view .LVU158
+ 752 0058 1048     		ldr	r0, .L57+4
+ 753 005a FFF7FEFF 		bl	puts
+ 754              	.LVL78:
+ 187:Core/Src/NRF24L01.c ****     case 0x04:
+ 755              		.loc 1 187 7 view .LVU159
+ 756 005e F0E7     		b	.L53
+ 757              	.L50:
+ 189:Core/Src/NRF24L01.c ****       printf("channel 2 read successfully!\r\n");
+ 758              		.loc 1 189 7 view .LVU160
+ 759 0060 2022     		movs	r2, #32
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 19
+
+
+ 760 0062 2946     		mov	r1, r5
+ 761 0064 6120     		movs	r0, #97
+ 762 0066 FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 763              	.LVL79:
+ 190:Core/Src/NRF24L01.c ****       break;
+ 764              		.loc 1 190 7 view .LVU161
+ 765 006a 0D48     		ldr	r0, .L57+8
+ 766 006c FFF7FEFF 		bl	puts
+ 767              	.LVL80:
+ 191:Core/Src/NRF24L01.c ****     case 0x06:
+ 768              		.loc 1 191 7 view .LVU162
+ 769 0070 E7E7     		b	.L53
+ 770              	.L48:
+ 193:Core/Src/NRF24L01.c ****       printf("channel 3 read successfully!\r\n");
+ 771              		.loc 1 193 7 view .LVU163
+ 772 0072 2022     		movs	r2, #32
+ 773 0074 2946     		mov	r1, r5
+ 774 0076 6120     		movs	r0, #97
+ 775 0078 FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 776              	.LVL81:
+ 194:Core/Src/NRF24L01.c ****       break;
+ 777              		.loc 1 194 7 view .LVU164
+ 778 007c 0948     		ldr	r0, .L57+12
+ 779 007e FFF7FEFF 		bl	puts
+ 780              	.LVL82:
+ 195:Core/Src/NRF24L01.c ****     default:
+ 781              		.loc 1 195 7 view .LVU165
+ 782 0082 DEE7     		b	.L53
+ 783              	.L47:
+ 197:Core/Src/NRF24L01.c ****       printf("Read successfully but unknow channel!\r\n");
+ 784              		.loc 1 197 7 view .LVU166
+ 785 0084 2022     		movs	r2, #32
+ 786 0086 2946     		mov	r1, r5
+ 787 0088 6120     		movs	r0, #97
+ 788 008a FFF7FEFF 		bl	NRF24L01_Read_Buf
+ 789              	.LVL83:
+ 198:Core/Src/NRF24L01.c ****       break;
+ 790              		.loc 1 198 7 view .LVU167
+ 791 008e 0648     		ldr	r0, .L57+16
+ 792 0090 FFF7FEFF 		bl	puts
+ 793              	.LVL84:
+ 199:Core/Src/NRF24L01.c ****     }
+ 794              		.loc 1 199 7 view .LVU168
+ 795 0094 D5E7     		b	.L53
+ 796              	.L58:
+ 797 0096 00BF     		.align	2
+ 798              	.L57:
+ 799 0098 00000000 		.word	.LC4
+ 800 009c 20000000 		.word	.LC5
+ 801 00a0 40000000 		.word	.LC6
+ 802 00a4 60000000 		.word	.LC7
+ 803 00a8 80000000 		.word	.LC8
+ 804              		.cfi_endproc
+ 805              	.LFE140:
+ 807              		.section	.text.NRF24L01_RX_Mode,"ax",%progbits
+ 808              		.align	1
+ 809              		.global	NRF24L01_RX_Mode
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 20
+
+
+ 810              		.syntax unified
+ 811              		.thumb
+ 812              		.thumb_func
+ 813              		.fpu fpv4-sp-d16
+ 815              	NRF24L01_RX_Mode:
+ 816              	.LVL85:
+ 817              	.LFB141:
+ 207:Core/Src/NRF24L01.c **** 
+ 208:Core/Src/NRF24L01.c **** /**
+ 209:Core/Src/NRF24L01.c ****   * 函数功能: 该函数初始化NRF24L01到RX模式
+ 210:Core/Src/NRF24L01.c ****   * 输入参数: 通道号1~4
+ 211:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 212:Core/Src/NRF24L01.c ****   * 说    明：无
+ 213:Core/Src/NRF24L01.c ****   *           
+ 214:Core/Src/NRF24L01.c ****   */ 
+ 215:Core/Src/NRF24L01.c **** void NRF24L01_RX_Mode(uint8_t channel)
+ 216:Core/Src/NRF24L01.c **** {
+ 818              		.loc 1 216 1 view -0
+ 819              		.cfi_startproc
+ 820              		@ args = 0, pretend = 0, frame = 0
+ 821              		@ frame_needed = 0, uses_anonymous_args = 0
+ 822              		.loc 1 216 1 is_stmt 0 view .LVU170
+ 823 0000 10B5     		push	{r4, lr}
+ 824              	.LCFI13:
+ 825              		.cfi_def_cfa_offset 8
+ 826              		.cfi_offset 4, -8
+ 827              		.cfi_offset 14, -4
+ 828 0002 0446     		mov	r4, r0
+ 217:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
+ 829              		.loc 1 217 2 is_stmt 1 view .LVU171
+ 830 0004 0022     		movs	r2, #0
+ 831 0006 4FF48061 		mov	r1, #1024
+ 832 000a 2C48     		ldr	r0, .L68
+ 833              	.LVL86:
+ 834              		.loc 1 217 2 is_stmt 0 view .LVU172
+ 835 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 836              	.LVL87:
+ 218:Core/Src/NRF24L01.c ****   switch (channel)
+ 837              		.loc 1 218 3 is_stmt 1 view .LVU173
+ 838 0010 032C     		cmp	r4, #3
+ 839 0012 48D8     		bhi	.L60
+ 840 0014 DFE804F0 		tbb	[pc, r4]
+ 841              	.L62:
+ 842 0018 02       		.byte	(.L65-.L62)/2
+ 843 0019 29       		.byte	(.L64-.L62)/2
+ 844 001a 33       		.byte	(.L63-.L62)/2
+ 845 001b 3D       		.byte	(.L61-.L62)/2
+ 846              		.p2align 1
+ 847              	.L65:
+ 219:Core/Src/NRF24L01.c ****   {
+ 220:Core/Src/NRF24L01.c ****   case 0:                                                                            //通道0
+ 221:Core/Src/NRF24L01.c ****     NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道
+ 848              		.loc 1 221 5 view .LVU174
+ 849 001c 2021     		movs	r1, #32
+ 850 001e 3120     		movs	r0, #49
+ 851 0020 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 852              	.LVL88:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 21
+
+
+ 222:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点�
+ 853              		.loc 1 222 5 view .LVU175
+ 854 0024 0522     		movs	r2, #5
+ 855 0026 2649     		ldr	r1, .L68+4
+ 856 0028 2A20     		movs	r0, #42
+ 857 002a FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 858              	.LVL89:
+ 223:Core/Src/NRF24L01.c ****     break;
+ 859              		.loc 1 223 5 view .LVU176
+ 860              	.L66:
+ 224:Core/Src/NRF24L01.c ****   case 1:                                                                            //通道1
+ 225:Core/Src/NRF24L01.c ****     NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道
+ 226:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点�
+ 227:Core/Src/NRF24L01.c ****     break;
+ 228:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ 229:Core/Src/NRF24L01.c ****     NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道
+ 230:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //写RX节点�
+ 231:Core/Src/NRF24L01.c ****     break;
+ 232:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 233:Core/Src/NRF24L01.c ****     NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道
+ 234:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //写RX节点�
+ 235:Core/Src/NRF24L01.c ****     break;
+ 236:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 237:Core/Src/NRF24L01.c ****     NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道
+ 238:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点�
+ 239:Core/Src/NRF24L01.c ****     break;
+ 240:Core/Src/NRF24L01.c ****   }	  
+ 241:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_C
+ 861              		.loc 1 241 3 view .LVU177
+ 862 002e 0F21     		movs	r1, #15
+ 863 0030 2020     		movs	r0, #32
+ 864 0032 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 865              	.LVL90:
+ 242:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    
+ 866              		.loc 1 242 3 view .LVU178
+ 867 0036 0F21     		movs	r1, #15
+ 868 0038 2120     		movs	r0, #33
+ 869 003a FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 870              	.LVL91:
+ 243:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  	 
+ 871              		.loc 1 243 3 view .LVU179
+ 872 003e 0F21     		movs	r1, #15
+ 873 0040 2220     		movs	r0, #34
+ 874 0042 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 875              	.LVL92:
+ 244:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
+ 876              		.loc 1 244 3 view .LVU180
+ 877 0046 2821     		movs	r1, #40
+ 878 0048 2520     		movs	r0, #37
+ 879 004a FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 880              	.LVL93:
+ 245:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
+ 881              		.loc 1 245 3 view .LVU181
+ 882 004e 0F21     		movs	r1, #15
+ 883 0050 2620     		movs	r0, #38
+ 884 0052 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 885              	.LVL94:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 22
+
+
+ 246:Core/Src/NRF24L01.c ****   
+ 247:Core/Src/NRF24L01.c **** 	
+ 248:Core/Src/NRF24L01.c ****   NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
+ 886              		.loc 1 248 3 view .LVU182
+ 887 0056 0122     		movs	r2, #1
+ 888 0058 4FF48061 		mov	r1, #1024
+ 889 005c 1748     		ldr	r0, .L68
+ 890 005e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 891              	.LVL95:
+ 249:Core/Src/NRF24L01.c ****   HAL_Delay(1);
+ 892              		.loc 1 249 3 view .LVU183
+ 893 0062 0120     		movs	r0, #1
+ 894 0064 FFF7FEFF 		bl	HAL_Delay
+ 895              	.LVL96:
+ 250:Core/Src/NRF24L01.c **** }						 
+ 896              		.loc 1 250 1 is_stmt 0 view .LVU184
+ 897 0068 10BD     		pop	{r4, pc}
+ 898              	.L64:
+ 225:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点�
+ 899              		.loc 1 225 5 is_stmt 1 view .LVU185
+ 900 006a 2021     		movs	r1, #32
+ 901 006c 3220     		movs	r0, #50
+ 902 006e FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 903              	.LVL97:
+ 226:Core/Src/NRF24L01.c ****     break;
+ 904              		.loc 1 226 5 view .LVU186
+ 905 0072 0522     		movs	r2, #5
+ 906 0074 1349     		ldr	r1, .L68+8
+ 907 0076 2B20     		movs	r0, #43
+ 908 0078 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 909              	.LVL98:
+ 227:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ 910              		.loc 1 227 5 view .LVU187
+ 911 007c D7E7     		b	.L66
+ 912              	.L63:
+ 229:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //写RX节点�
+ 913              		.loc 1 229 5 view .LVU188
+ 914 007e 2021     		movs	r1, #32
+ 915 0080 3320     		movs	r0, #51
+ 916 0082 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 917              	.LVL99:
+ 230:Core/Src/NRF24L01.c ****     break;
+ 918              		.loc 1 230 5 view .LVU189
+ 919 0086 0522     		movs	r2, #5
+ 920 0088 0F49     		ldr	r1, .L68+12
+ 921 008a 2C20     		movs	r0, #44
+ 922 008c FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 923              	.LVL100:
+ 231:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 924              		.loc 1 231 5 view .LVU190
+ 925 0090 CDE7     		b	.L66
+ 926              	.L61:
+ 233:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //写RX节点�
+ 927              		.loc 1 233 5 view .LVU191
+ 928 0092 2021     		movs	r1, #32
+ 929 0094 3420     		movs	r0, #52
+ 930 0096 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 23
+
+
+ 931              	.LVL101:
+ 234:Core/Src/NRF24L01.c ****     break;
+ 932              		.loc 1 234 5 view .LVU192
+ 933 009a 0522     		movs	r2, #5
+ 934 009c 0B49     		ldr	r1, .L68+16
+ 935 009e 2D20     		movs	r0, #45
+ 936 00a0 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 937              	.LVL102:
+ 235:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 938              		.loc 1 235 5 view .LVU193
+ 939 00a4 C3E7     		b	.L66
+ 940              	.L60:
+ 237:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点�
+ 941              		.loc 1 237 5 view .LVU194
+ 942 00a6 2021     		movs	r1, #32
+ 943 00a8 3120     		movs	r0, #49
+ 944 00aa FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 945              	.LVL103:
+ 238:Core/Src/NRF24L01.c ****     break;
+ 946              		.loc 1 238 5 view .LVU195
+ 947 00ae 0522     		movs	r2, #5
+ 948 00b0 0349     		ldr	r1, .L68+4
+ 949 00b2 2A20     		movs	r0, #42
+ 950 00b4 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 951              	.LVL104:
+ 239:Core/Src/NRF24L01.c ****   }	  
+ 952              		.loc 1 239 5 view .LVU196
+ 953 00b8 B9E7     		b	.L66
+ 954              	.L69:
+ 955 00ba 00BF     		.align	2
+ 956              	.L68:
+ 957 00bc 00040240 		.word	1073873920
+ 958 00c0 00000000 		.word	.LANCHOR0
+ 959 00c4 00000000 		.word	.LANCHOR1
+ 960 00c8 00000000 		.word	.LANCHOR2
+ 961 00cc 00000000 		.word	.LANCHOR3
+ 962              		.cfi_endproc
+ 963              	.LFE141:
+ 965              		.section	.text.NRF24L01_RX_Mode_Master,"ax",%progbits
+ 966              		.align	1
+ 967              		.global	NRF24L01_RX_Mode_Master
+ 968              		.syntax unified
+ 969              		.thumb
+ 970              		.thumb_func
+ 971              		.fpu fpv4-sp-d16
+ 973              	NRF24L01_RX_Mode_Master:
+ 974              	.LFB142:
+ 251:Core/Src/NRF24L01.c **** 
+ 252:Core/Src/NRF24L01.c **** /**
+ 253:Core/Src/NRF24L01.c ****   * 函数功能: 该函数初始化NRF24L01到主机RX模式
+ 254:Core/Src/NRF24L01.c ****   * 输入参数: 无
+ 255:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 256:Core/Src/NRF24L01.c ****   * 说    明：无
+ 257:Core/Src/NRF24L01.c ****   *           
+ 258:Core/Src/NRF24L01.c ****   */ 
+ 259:Core/Src/NRF24L01.c **** void NRF24L01_RX_Mode_Master(void)
+ 260:Core/Src/NRF24L01.c **** {
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 24
+
+
+ 975              		.loc 1 260 1 view -0
+ 976              		.cfi_startproc
+ 977              		@ args = 0, pretend = 0, frame = 0
+ 978              		@ frame_needed = 0, uses_anonymous_args = 0
+ 979 0000 10B5     		push	{r4, lr}
+ 980              	.LCFI14:
+ 981              		.cfi_def_cfa_offset 8
+ 982              		.cfi_offset 4, -8
+ 983              		.cfi_offset 14, -4
+ 261:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
+ 984              		.loc 1 261 2 view .LVU198
+ 985 0002 244C     		ldr	r4, .L72
+ 986 0004 0022     		movs	r2, #0
+ 987 0006 4FF48061 		mov	r1, #1024
+ 988 000a 2046     		mov	r0, r4
+ 989 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 990              	.LVL105:
+ 262:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0�
+ 991              		.loc 1 262 3 view .LVU199
+ 992 0010 2021     		movs	r1, #32
+ 993 0012 3120     		movs	r0, #49
+ 994 0014 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 995              	.LVL106:
+ 263:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地
+ 996              		.loc 1 263 3 view .LVU200
+ 997 0018 0522     		movs	r2, #5
+ 998 001a 1F49     		ldr	r1, .L72+4
+ 999 001c 2A20     		movs	r0, #42
+ 1000 001e FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1001              	.LVL107:
+ 264:Core/Src/NRF24L01.c **** 
+ 265:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1�
+ 1002              		.loc 1 265 3 view .LVU201
+ 1003 0022 2021     		movs	r1, #32
+ 1004 0024 3220     		movs	r0, #50
+ 1005 0026 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1006              	.LVL108:
+ 266:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地
+ 1007              		.loc 1 266 3 view .LVU202
+ 1008 002a 0522     		movs	r2, #5
+ 1009 002c 1B49     		ldr	r1, .L72+8
+ 1010 002e 2B20     		movs	r0, #43
+ 1011 0030 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1012              	.LVL109:
+ 267:Core/Src/NRF24L01.c **** 
+ 268:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2�
+ 1013              		.loc 1 268 3 view .LVU203
+ 1014 0034 2021     		movs	r1, #32
+ 1015 0036 3320     		movs	r0, #51
+ 1016 0038 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1017              	.LVL110:
+ 269:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //写RX节点地
+ 1018              		.loc 1 269 3 view .LVU204
+ 1019 003c 0522     		movs	r2, #5
+ 1020 003e 1849     		ldr	r1, .L72+12
+ 1021 0040 2C20     		movs	r0, #44
+ 1022 0042 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 25
+
+
+ 1023              	.LVL111:
+ 270:Core/Src/NRF24L01.c **** 
+ 271:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道0�
+ 1024              		.loc 1 271 3 view .LVU205
+ 1025 0046 2021     		movs	r1, #32
+ 1026 0048 3420     		movs	r0, #52
+ 1027 004a FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1028              	.LVL112:
+ 272:Core/Src/NRF24L01.c ****   NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //写RX节点地
+ 1029              		.loc 1 272 3 view .LVU206
+ 1030 004e 0522     		movs	r2, #5
+ 1031 0050 1449     		ldr	r1, .L72+16
+ 1032 0052 2D20     		movs	r0, #45
+ 1033 0054 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1034              	.LVL113:
+ 273:Core/Src/NRF24L01.c **** 	  
+ 274:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_C
+ 1035              		.loc 1 274 3 view .LVU207
+ 1036 0058 0F21     		movs	r1, #15
+ 1037 005a 2020     		movs	r0, #32
+ 1038 005c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1039              	.LVL114:
+ 275:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    
+ 1040              		.loc 1 275 3 view .LVU208
+ 1041 0060 0F21     		movs	r1, #15
+ 1042 0062 2120     		movs	r0, #33
+ 1043 0064 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1044              	.LVL115:
+ 276:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  	 
+ 1045              		.loc 1 276 3 view .LVU209
+ 1046 0068 0F21     		movs	r1, #15
+ 1047 006a 2220     		movs	r0, #34
+ 1048 006c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1049              	.LVL116:
+ 277:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
+ 1050              		.loc 1 277 3 view .LVU210
+ 1051 0070 2821     		movs	r1, #40
+ 1052 0072 2520     		movs	r0, #37
+ 1053 0074 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1054              	.LVL117:
+ 278:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
+ 1055              		.loc 1 278 3 view .LVU211
+ 1056 0078 0F21     		movs	r1, #15
+ 1057 007a 2620     		movs	r0, #38
+ 1058 007c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1059              	.LVL118:
+ 279:Core/Src/NRF24L01.c ****   
+ 280:Core/Src/NRF24L01.c **** 	
+ 281:Core/Src/NRF24L01.c ****   NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
+ 1060              		.loc 1 281 3 view .LVU212
+ 1061 0080 0122     		movs	r2, #1
+ 1062 0082 4FF48061 		mov	r1, #1024
+ 1063 0086 2046     		mov	r0, r4
+ 1064 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1065              	.LVL119:
+ 282:Core/Src/NRF24L01.c ****   HAL_Delay(1);
+ 1066              		.loc 1 282 3 view .LVU213
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 26
+
+
+ 1067 008c 0120     		movs	r0, #1
+ 1068 008e FFF7FEFF 		bl	HAL_Delay
+ 1069              	.LVL120:
+ 283:Core/Src/NRF24L01.c **** }
+ 1070              		.loc 1 283 1 is_stmt 0 view .LVU214
+ 1071 0092 10BD     		pop	{r4, pc}
+ 1072              	.L73:
+ 1073              		.align	2
+ 1074              	.L72:
+ 1075 0094 00040240 		.word	1073873920
+ 1076 0098 00000000 		.word	.LANCHOR0
+ 1077 009c 00000000 		.word	.LANCHOR1
+ 1078 00a0 00000000 		.word	.LANCHOR2
+ 1079 00a4 00000000 		.word	.LANCHOR3
+ 1080              		.cfi_endproc
+ 1081              	.LFE142:
+ 1083              		.section	.text.NRF24L01_TX_Mode,"ax",%progbits
+ 1084              		.align	1
+ 1085              		.global	NRF24L01_TX_Mode
+ 1086              		.syntax unified
+ 1087              		.thumb
+ 1088              		.thumb_func
+ 1089              		.fpu fpv4-sp-d16
+ 1091              	NRF24L01_TX_Mode:
+ 1092              	.LVL121:
+ 1093              	.LFB143:
+ 284:Core/Src/NRF24L01.c **** 
+ 285:Core/Src/NRF24L01.c **** 
+ 286:Core/Src/NRF24L01.c **** /**
+ 287:Core/Src/NRF24L01.c ****   * 函数功能: 该函数初始化NRF24L01到TX模式
+ 288:Core/Src/NRF24L01.c ****   * 输入参数: 通道号0~3
+ 289:Core/Src/NRF24L01.c ****   * 返 回 值: 无
+ 290:Core/Src/NRF24L01.c ****   * 说    明：无
+ 291:Core/Src/NRF24L01.c ****   *           
+ 292:Core/Src/NRF24L01.c ****   */ 
+ 293:Core/Src/NRF24L01.c **** void NRF24L01_TX_Mode(uint8_t channel)
+ 294:Core/Src/NRF24L01.c **** {														 
+ 1094              		.loc 1 294 1 is_stmt 1 view -0
+ 1095              		.cfi_startproc
+ 1096              		@ args = 0, pretend = 0, frame = 0
+ 1097              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1098              		.loc 1 294 1 is_stmt 0 view .LVU216
+ 1099 0000 10B5     		push	{r4, lr}
+ 1100              	.LCFI15:
+ 1101              		.cfi_def_cfa_offset 8
+ 1102              		.cfi_offset 4, -8
+ 1103              		.cfi_offset 14, -4
+ 1104 0002 0446     		mov	r4, r0
+ 295:Core/Src/NRF24L01.c **** 	NRF24L01_CE_LOW();
+ 1105              		.loc 1 295 2 is_stmt 1 view .LVU217
+ 1106 0004 0022     		movs	r2, #0
+ 1107 0006 4FF48061 		mov	r1, #1024
+ 1108 000a 3048     		ldr	r0, .L83
+ 1109              	.LVL122:
+ 1110              		.loc 1 295 2 is_stmt 0 view .LVU218
+ 1111 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1112              	.LVL123:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 27
+
+
+ 296:Core/Src/NRF24L01.c ****   switch (channel)
+ 1113              		.loc 1 296 3 is_stmt 1 view .LVU219
+ 1114 0010 032C     		cmp	r4, #3
+ 1115 0012 50D8     		bhi	.L75
+ 1116 0014 DFE804F0 		tbb	[pc, r4]
+ 1117              	.L77:
+ 1118 0018 02       		.byte	(.L80-.L77)/2
+ 1119 0019 2E       		.byte	(.L79-.L77)/2
+ 1120 001a 39       		.byte	(.L78-.L77)/2
+ 1121 001b 44       		.byte	(.L76-.L77)/2
+ 1122              		.p2align 1
+ 1123              	.L80:
+ 297:Core/Src/NRF24L01.c ****   {
+ 298:Core/Src/NRF24L01.c ****   case 0:                                                                            //通道0
+ 299:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);    //写TX节点�
+ 1124              		.loc 1 299 5 view .LVU220
+ 1125 001c 0522     		movs	r2, #5
+ 1126 001e 2C49     		ldr	r1, .L83+4
+ 1127 0020 3020     		movs	r0, #48
+ 1128 0022 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1129              	.LVL124:
+ 300:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //设置RX节�
+ 1130              		.loc 1 300 5 view .LVU221
+ 1131 0026 0522     		movs	r2, #5
+ 1132 0028 2A49     		ldr	r1, .L83+8
+ 1133 002a 2A20     		movs	r0, #42
+ 1134 002c FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1135              	.LVL125:
+ 301:Core/Src/NRF24L01.c ****     break;
+ 1136              		.loc 1 301 5 view .LVU222
+ 1137              	.L81:
+ 302:Core/Src/NRF24L01.c ****   case 1:                                                                            //通道1
+ 303:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS1,TX_ADR_WIDTH);    //写TX节点�
+ 304:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
+ 305:Core/Src/NRF24L01.c ****     break;
+ 306:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ 307:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);               //�
+ 308:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
+ 309:Core/Src/NRF24L01.c ****     break;
+ 310:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 311:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);               //�
+ 312:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
+ 313:Core/Src/NRF24L01.c ****     break;
+ 314:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 315:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,1);               //写TX节点�
+ 316:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
+ 317:Core/Src/NRF24L01.c ****     break;
+ 318:Core/Src/NRF24L01.c ****   }	    
+ 319:Core/Src/NRF24L01.c **** 	  
+ 320:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x01);     //使能通道0的自动应答    
+ 1138              		.loc 1 320 3 view .LVU223
+ 1139 0030 0121     		movs	r1, #1
+ 1140 0032 2120     		movs	r0, #33
+ 1141 0034 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1142              	.LVL126:
+ 321:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x01); //使能通道0的接收地址  
+ 1143              		.loc 1 321 3 view .LVU224
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 28
+
+
+ 1144 0038 0121     		movs	r1, #1
+ 1145 003a 2220     		movs	r0, #34
+ 1146 003c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1147              	.LVL127:
+ 322:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+SETUP_RETR,0xff);//设置自动重发间隔时间:4000us + 86us;
+ 1148              		.loc 1 322 3 view .LVU225
+ 1149 0040 FF21     		movs	r1, #255
+ 1150 0042 2420     		movs	r0, #36
+ 1151 0044 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1152              	.LVL128:
+ 323:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);       //设置RF通道为40
+ 1153              		.loc 1 323 3 view .LVU226
+ 1154 0048 2821     		movs	r1, #40
+ 1155 004a 2520     		movs	r0, #37
+ 1156 004c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1157              	.LVL129:
+ 324:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪�
+ 1158              		.loc 1 324 3 view .LVU227
+ 1159 0050 0F21     		movs	r1, #15
+ 1160 0052 2620     		movs	r0, #38
+ 1161 0054 FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1162              	.LVL130:
+ 325:Core/Src/NRF24L01.c ****   NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG,0x0e);    //配置基本工作模式的参数;PWR_UP,EN_C
+ 1163              		.loc 1 325 3 view .LVU228
+ 1164 0058 0E21     		movs	r1, #14
+ 1165 005a 2020     		movs	r0, #32
+ 1166 005c FFF7FEFF 		bl	NRF24L01_Write_Reg
+ 1167              	.LVL131:
+ 326:Core/Src/NRF24L01.c **** 	NRF24L01_CE_HIGH();//CE为高,10us后启动发送
+ 1168              		.loc 1 326 2 view .LVU229
+ 1169 0060 0122     		movs	r2, #1
+ 1170 0062 4FF48061 		mov	r1, #1024
+ 1171 0066 1948     		ldr	r0, .L83
+ 1172 0068 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1173              	.LVL132:
+ 327:Core/Src/NRF24L01.c ****   HAL_Delay(1);
+ 1174              		.loc 1 327 3 view .LVU230
+ 1175 006c 0120     		movs	r0, #1
+ 1176 006e FFF7FEFF 		bl	HAL_Delay
+ 1177              	.LVL133:
+ 328:Core/Src/NRF24L01.c **** }
+ 1178              		.loc 1 328 1 is_stmt 0 view .LVU231
+ 1179 0072 10BD     		pop	{r4, pc}
+ 1180              	.L79:
+ 303:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节�
+ 1181              		.loc 1 303 5 is_stmt 1 view .LVU232
+ 1182 0074 0522     		movs	r2, #5
+ 1183 0076 1849     		ldr	r1, .L83+12
+ 1184 0078 3020     		movs	r0, #48
+ 1185 007a FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1186              	.LVL134:
+ 304:Core/Src/NRF24L01.c ****     break;
+ 1187              		.loc 1 304 5 view .LVU233
+ 1188 007e 0522     		movs	r2, #5
+ 1189 0080 1649     		ldr	r1, .L83+16
+ 1190 0082 2A20     		movs	r0, #42
+ 1191 0084 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 29
+
+
+ 1192              	.LVL135:
+ 305:Core/Src/NRF24L01.c ****   case 2:                                                                            //通道2
+ 1193              		.loc 1 305 5 view .LVU234
+ 1194 0088 D2E7     		b	.L81
+ 1195              	.L78:
+ 307:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节�
+ 1196              		.loc 1 307 5 view .LVU235
+ 1197 008a 0522     		movs	r2, #5
+ 1198 008c 1449     		ldr	r1, .L83+20
+ 1199 008e 3020     		movs	r0, #48
+ 1200 0090 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1201              	.LVL136:
+ 308:Core/Src/NRF24L01.c ****     break;
+ 1202              		.loc 1 308 5 view .LVU236
+ 1203 0094 0522     		movs	r2, #5
+ 1204 0096 1349     		ldr	r1, .L83+24
+ 1205 0098 2A20     		movs	r0, #42
+ 1206 009a FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1207              	.LVL137:
+ 309:Core/Src/NRF24L01.c ****   case 3:                                                                            //通道3
+ 1208              		.loc 1 309 5 view .LVU237
+ 1209 009e C7E7     		b	.L81
+ 1210              	.L76:
+ 311:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节�
+ 1211              		.loc 1 311 5 view .LVU238
+ 1212 00a0 0522     		movs	r2, #5
+ 1213 00a2 1149     		ldr	r1, .L83+28
+ 1214 00a4 3020     		movs	r0, #48
+ 1215 00a6 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1216              	.LVL138:
+ 312:Core/Src/NRF24L01.c ****     break;
+ 1217              		.loc 1 312 5 view .LVU239
+ 1218 00aa 0522     		movs	r2, #5
+ 1219 00ac 0F49     		ldr	r1, .L83+32
+ 1220 00ae 2A20     		movs	r0, #42
+ 1221 00b0 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1222              	.LVL139:
+ 313:Core/Src/NRF24L01.c ****   default:                                                                           //默认通道
+ 1223              		.loc 1 313 5 view .LVU240
+ 1224 00b4 BCE7     		b	.L81
+ 1225              	.L75:
+ 315:Core/Src/NRF24L01.c ****     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节�
+ 1226              		.loc 1 315 5 view .LVU241
+ 1227 00b6 0122     		movs	r2, #1
+ 1228 00b8 0549     		ldr	r1, .L83+4
+ 1229 00ba 3020     		movs	r0, #48
+ 1230 00bc FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1231              	.LVL140:
+ 316:Core/Src/NRF24L01.c ****     break;
+ 1232              		.loc 1 316 5 view .LVU242
+ 1233 00c0 0522     		movs	r2, #5
+ 1234 00c2 0449     		ldr	r1, .L83+8
+ 1235 00c4 2A20     		movs	r0, #42
+ 1236 00c6 FFF7FEFF 		bl	NRF24L01_Write_Buf
+ 1237              	.LVL141:
+ 317:Core/Src/NRF24L01.c ****   }	    
+ 1238              		.loc 1 317 5 view .LVU243
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 30
+
+
+ 1239 00ca B1E7     		b	.L81
+ 1240              	.L84:
+ 1241              		.align	2
+ 1242              	.L83:
+ 1243 00cc 00040240 		.word	1073873920
+ 1244 00d0 00000000 		.word	.LANCHOR4
+ 1245 00d4 00000000 		.word	.LANCHOR0
+ 1246 00d8 00000000 		.word	.LANCHOR5
+ 1247 00dc 00000000 		.word	.LANCHOR1
+ 1248 00e0 00000000 		.word	.LANCHOR6
+ 1249 00e4 00000000 		.word	.LANCHOR2
+ 1250 00e8 00000000 		.word	.LANCHOR7
+ 1251 00ec 00000000 		.word	.LANCHOR3
+ 1252              		.cfi_endproc
+ 1253              	.LFE143:
+ 1255              		.global	RX_ADDRESS3
+ 1256              		.global	RX_ADDRESS2
+ 1257              		.global	RX_ADDRESS1
+ 1258              		.global	RX_ADDRESS0
+ 1259              		.global	TX_ADDRESS3
+ 1260              		.global	TX_ADDRESS2
+ 1261              		.global	TX_ADDRESS1
+ 1262              		.global	TX_ADDRESS0
+ 1263              		.section	.rodata.RX_ADDRESS0,"a"
+ 1264              		.align	2
+ 1265              		.set	.LANCHOR0,. + 0
+ 1268              	RX_ADDRESS0:
+ 1269 0000 B0431010 		.ascii	"\260C\020\020\001"
+ 1269      01
+ 1270              		.section	.rodata.RX_ADDRESS1,"a"
+ 1271              		.align	2
+ 1272              		.set	.LANCHOR1,. + 0
+ 1275              	RX_ADDRESS1:
+ 1276 0000 C1AAA0A0 		.ascii	"\301\252\240\240\002"
+ 1276      02
+ 1277              		.section	.rodata.RX_ADDRESS2,"a"
+ 1278              		.align	2
+ 1279              		.set	.LANCHOR2,. + 0
+ 1282              	RX_ADDRESS2:
+ 1283 0000 D1AAA0A0 		.ascii	"\321\252\240\240\002"
+ 1283      02
+ 1284              		.section	.rodata.RX_ADDRESS3,"a"
+ 1285              		.align	2
+ 1286              		.set	.LANCHOR3,. + 0
+ 1289              	RX_ADDRESS3:
+ 1290 0000 E1AAA0A0 		.ascii	"\341\252\240\240\002"
+ 1290      02
+ 1291              		.section	.rodata.TX_ADDRESS0,"a"
+ 1292              		.align	2
+ 1293              		.set	.LANCHOR4,. + 0
+ 1296              	TX_ADDRESS0:
+ 1297 0000 B0431010 		.ascii	"\260C\020\020\001"
+ 1297      01
+ 1298              		.section	.rodata.TX_ADDRESS1,"a"
+ 1299              		.align	2
+ 1300              		.set	.LANCHOR5,. + 0
+ 1303              	TX_ADDRESS1:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 31
+
+
+ 1304 0000 C1AAA0A0 		.ascii	"\301\252\240\240\002"
+ 1304      02
+ 1305              		.section	.rodata.TX_ADDRESS2,"a"
+ 1306              		.align	2
+ 1307              		.set	.LANCHOR6,. + 0
+ 1310              	TX_ADDRESS2:
+ 1311 0000 D1AAA0A0 		.ascii	"\321\252\240\240\002"
+ 1311      02
+ 1312              		.section	.rodata.TX_ADDRESS3,"a"
+ 1313              		.align	2
+ 1314              		.set	.LANCHOR7,. + 0
+ 1317              	TX_ADDRESS3:
+ 1318 0000 E1AAA0A0 		.ascii	"\341\252\240\240\002"
+ 1318      02
+ 1319              		.text
+ 1320              	.Letext0:
+ 1321              		.file 2 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1322              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1323              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1324              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 1325              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 1326              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1327              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1328              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1329              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1330              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1331              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1332              		.file 13 "Core/Inc/usart.h"
+ 1333              		.file 14 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
+ 1334              		.file 15 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
+ 1335              		.file 16 "d:\\vs_code_stm32\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 1336              		.file 17 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
+ 1337              		.file 18 "Core/Inc/NRF24L01.h"
+ 1338              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
+ 1339              		.file 20 "<built-in>"
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 NRF24L01.c
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:18     .text.SPIx_ReadWriteByte:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:26     .text.SPIx_ReadWriteByte:00000000 SPIx_ReadWriteByte
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:75     .text.NRF24L01_Write_Reg:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:82     .text.NRF24L01_Write_Reg:00000000 NRF24L01_Write_Reg
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:142    .text.NRF24L01_Write_Reg:00000038 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:148    .text.NRF24L01_Read_Reg:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:155    .text.NRF24L01_Read_Reg:00000000 NRF24L01_Read_Reg
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:210    .text.NRF24L01_Read_Reg:00000038 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:216    .text.NRF24L01_Read_Buf:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:223    .text.NRF24L01_Read_Buf:00000000 NRF24L01_Read_Buf
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:306    .text.NRF24L01_Read_Buf:00000044 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:312    .text.NRF24L01_Write_Buf:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:319    .text.NRF24L01_Write_Buf:00000000 NRF24L01_Write_Buf
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:403    .text.NRF24L01_Write_Buf:00000044 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:409    .rodata.NRF24L01_Check.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:413    .text.NRF24L01_Check:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:420    .text.NRF24L01_Check:00000000 NRF24L01_Check
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:502    .text.NRF24L01_Check:0000004c $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:507    .rodata.NRF24L01_TxPacket.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:517    .text.NRF24L01_TxPacket:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:524    .text.NRF24L01_TxPacket:00000000 NRF24L01_TxPacket
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:632    .text.NRF24L01_TxPacket:00000078 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:641    .rodata.NRF24L01_RxPacket.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:657    .text.NRF24L01_RxPacket:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:664    .text.NRF24L01_RxPacket:00000000 NRF24L01_RxPacket
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:714    .text.NRF24L01_RxPacket:0000002a $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:799    .text.NRF24L01_RxPacket:00000098 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:808    .text.NRF24L01_RX_Mode:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:815    .text.NRF24L01_RX_Mode:00000000 NRF24L01_RX_Mode
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:842    .text.NRF24L01_RX_Mode:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:846    .text.NRF24L01_RX_Mode:0000001c $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:957    .text.NRF24L01_RX_Mode:000000bc $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:966    .text.NRF24L01_RX_Mode_Master:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:973    .text.NRF24L01_RX_Mode_Master:00000000 NRF24L01_RX_Mode_Master
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1075   .text.NRF24L01_RX_Mode_Master:00000094 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1084   .text.NRF24L01_TX_Mode:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1091   .text.NRF24L01_TX_Mode:00000000 NRF24L01_TX_Mode
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1118   .text.NRF24L01_TX_Mode:00000018 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1122   .text.NRF24L01_TX_Mode:0000001c $t
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1243   .text.NRF24L01_TX_Mode:000000cc $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1289   .rodata.RX_ADDRESS3:00000000 RX_ADDRESS3
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1282   .rodata.RX_ADDRESS2:00000000 RX_ADDRESS2
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1275   .rodata.RX_ADDRESS1:00000000 RX_ADDRESS1
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1268   .rodata.RX_ADDRESS0:00000000 RX_ADDRESS0
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1317   .rodata.TX_ADDRESS3:00000000 TX_ADDRESS3
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1310   .rodata.TX_ADDRESS2:00000000 TX_ADDRESS2
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1303   .rodata.TX_ADDRESS1:00000000 TX_ADDRESS1
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1296   .rodata.TX_ADDRESS0:00000000 TX_ADDRESS0
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1264   .rodata.RX_ADDRESS0:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1271   .rodata.RX_ADDRESS1:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1278   .rodata.RX_ADDRESS2:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1285   .rodata.RX_ADDRESS3:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1292   .rodata.TX_ADDRESS0:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1299   .rodata.TX_ADDRESS1:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1306   .rodata.TX_ADDRESS2:00000000 $d
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s 			page 33
+
+
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:1313   .rodata.TX_ADDRESS3:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:721    .text.NRF24L01_RxPacket:00000031 $d
+C:\Users\Kiana\AppData\Local\Temp\ccC3U8Xk.s:721    .text.NRF24L01_RxPacket:00000032 $t
+
+UNDEFINED SYMBOLS
+HAL_SPI_TransmitReceive
+HAL_GPIO_WritePin
+hspi2
+HAL_GPIO_ReadPin
+puts
+printf
+HAL_Delay

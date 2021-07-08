@@ -39,7 +39,6 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-uint8_t tx_buf[33] = "test";
 uint8_t rx_buf[33];
 /* USER CODE END PM */
 
@@ -109,40 +108,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    //master
-    //先处在TX_Mode,TX_Mode要可以选择通过哪个通道发送
-    //发送成功后处于RX_Mode，RX_Mode要可以打印出接收的通道来源
-    //接收成功后继续变为TX_Mode，重复上述过程
-    /*
-    for(uint8_t i=0;i<4;i++)
-    {
-      NRF24L01_TX_Mode(i);
-      if(NRF24L01_TxPacket(tx_buf)==TX_OK)
-      {
-        printf("Channel %d select successfully!/r/n",i);
-        HAL_Delay(1000);
-
-        //Select successfully,bugein to receive
-        NRF24L01_RX_Mode(0);
-        if(NRF24L01_RxPacket(rx_buf)==0)
-        {     
-          printf("Channel %d receive:%s\r\n",i,rx_buf);
-        }
-        else
-        {
-          printf("Channel %d rx fail!\r\n",i);
-        }
-
-      }
-      else
-      {
-        printf("Channel %d select fail!\r\n",i);
-      }
-      HAL_Delay(1000);  
-
-    }
-    */
 
     /*Master RX Mode*/
     

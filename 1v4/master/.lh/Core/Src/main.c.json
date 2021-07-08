@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1624516517756,
@@ -68,6 +68,10 @@
                 {
                     "date": 1625675365607,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -97,9 +97,9 @@\n     printf(\"Can not find NRF24L01!\\r\\n\"); \r\n \t\tHAL_Delay(1000);\r\n \t}\r\n   printf(\"Connect to NRF24L01 Successfully!\\r\\n\");\r\n-  //NRF24L01_RX_Mode_Master();\r\n+  NRF24L01_RX_Mode_Master();\r\n   \r\n   /* USER CODE END 2 */\r\n \r\n   /* Infinite loop */\r\n"
+                },
+                {
+                    "date": 1625733629353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,8 @@\n /* USER CODE END PD */\r\n \r\n /* Private macro -------------------------------------------------------------*/\r\n /* USER CODE BEGIN PM */\r\n-uint8_t tx_buf[33] = \"test\";\r\n uint8_t rx_buf[33];\r\n /* USER CODE END PM */\r\n \r\n /* Private variables ---------------------------------------------------------*/\r\n@@ -109,42 +108,8 @@\n     /* USER CODE END WHILE */\r\n \r\n     /* USER CODE BEGIN 3 */\r\n \r\n-    //master\r\n-    //先处在TX_Mode,TX_Mode要可以选择通过哪个通道发送\r\n-    //发送成功后处于RX_Mode，RX_Mode要可以打印出接收的通道来源\r\n-    //接收成功后继续变为TX_Mode，重复上述过程\r\n-    /*\r\n-    for(uint8_t i=0;i<4;i++)\r\n-    {\r\n-      NRF24L01_TX_Mode(i);\r\n-      if(NRF24L01_TxPacket(tx_buf)==TX_OK)\r\n-      {\r\n-        printf(\"Channel %d select successfully!/r/n\",i);\r\n-        HAL_Delay(1000);\r\n-\r\n-        //Select successfully,bugein to receive\r\n-        NRF24L01_RX_Mode(0);\r\n-        if(NRF24L01_RxPacket(rx_buf)==0)\r\n-        {     \r\n-          printf(\"Channel %d receive:%s\\r\\n\",i,rx_buf);\r\n-        }\r\n-        else\r\n-        {\r\n-          printf(\"Channel %d rx fail!\\r\\n\",i);\r\n-        }\r\n-\r\n-      }\r\n-      else\r\n-      {\r\n-        printf(\"Channel %d select fail!\\r\\n\",i);\r\n-      }\r\n-      HAL_Delay(1000);  \r\n-\r\n-    }\r\n-    */\r\n-\r\n     /*Master RX Mode*/\r\n     \r\n       if(NRF24L01_RxPacket(rx_buf)==0)\r\n       {     \r\n"
                 }
             ],
             "date": 1624516517756,
