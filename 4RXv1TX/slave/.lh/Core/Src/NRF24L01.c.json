@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1624505436154,
@@ -64,6 +64,10 @@
                 {
                     "date": 1625733487063,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -307,9 +307,9 @@\n     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);               //写TX节点地址 \r\n     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK\r\n     break;\r\n   case 3:                                                                            //通道3\r\n-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);               //写TX节点地址 \r\n+    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);    //写TX节点地址 \r\n     NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK\r\n     break;\r\n   default:                                                                           //默认通道0\r\n     NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,1);               //写TX节点地址 \r\n"
+                },
+                {
+                    "date": 1625734932829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,15 @@\n /* 私有变量 ------------------------------------------------------------------*/\r\n \r\n const uint8_t TX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0发送地址\r\n const uint8_t TX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1发送地址\r\n-const uint8_t TX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2发送地址\r\n-const uint8_t TX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3发送地址\r\n+const uint8_t TX_ADDRESS2[] = {0xd1}; //通道2发送地址\r\n+const uint8_t TX_ADDRESS3[] = {0xe1}; //通道3发送地址\r\n \r\n const uint8_t RX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0接收地址\r\n const uint8_t RX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1接收地址\r\n-const uint8_t RX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2接收地址\r\n-const uint8_t RX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3接收地址\r\n+const uint8_t RX_ADDRESS2[] = {0xd1}; //通道2接收地址\r\n+const uint8_t RX_ADDRESS3[] = {0xe1}; //通道3接收地址\r\n \r\n /* 扩展变量 ------------------------------------------------------------------*/\r\n /* 私有函数原形 --------------------------------------------------------------*/\r\n /* 函数体 --------------------------------------------------------------------*/\r\n"
                 }
             ],
             "date": 1624505436154,

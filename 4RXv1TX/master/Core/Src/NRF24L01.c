@@ -7,13 +7,13 @@
 
 const uint8_t TX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0发送地址
 const uint8_t TX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1发送地址
-const uint8_t TX_ADDRESS2[] = {0xd1};                     //通道2发送地址
-const uint8_t TX_ADDRESS3[] = {0xe1};                     //通道3发送地址
+const uint8_t TX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2发送地址
+const uint8_t TX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3发送地址
 
 const uint8_t RX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0接收地址
 const uint8_t RX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1接收地址
-const uint8_t RX_ADDRESS2[] = {0xd1};                     //通道2接收地址
-const uint8_t RX_ADDRESS3[] = {0xe1};                     //通道3接收地址
+const uint8_t RX_ADDRESS2[] = {0xd1,0xaa,0xa0,0xa0,0x02}; //通道2接收地址
+const uint8_t RX_ADDRESS3[] = {0xe1,0xaa,0xa0,0xa0,0x02}; //通道3接收地址
 
 /* 扩展变量 ------------------------------------------------------------------*/
 /* 私有函数原形 --------------------------------------------------------------*/
