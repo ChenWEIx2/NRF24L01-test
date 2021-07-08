@@ -149,12 +149,15 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 	if(sta&MAX_TX)                                       //达到最大重发次数
 	{
 		NRF24L01_Write_Reg(FLUSH_TX,0xff);                 //清除TX FIFO寄存器 
+    printf("TX_MAX Time.\r\n");
 		return MAX_TX; 
 	}
 	if(sta&TX_OK)                                        //发送完成
 	{
+    printf("TX_OK.\r\n");
 		return TX_OK;
 	}
+  printf("TX_Error\r\n");
 	return 0xff;                                         //其他原因发送失败
 }
 
