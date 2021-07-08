@@ -47,7 +47,7 @@
 
 /* USER CODE BEGIN PV */
 uint8_t rx_buf[33];
-uint8_t slave_id = 0;   //0~3
+uint8_t slave_id = 2;   //0~3
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,7 +98,7 @@ int main(void)
     printf("Can not find NRF24L01\r\n"); 
 		HAL_Delay(1000);
 	}
-  printf("NRF24L01 connect sucessfullt\r\n");
+  printf("NRF24L01 connect sucessfully\r\n");
   NRF24L01_RX_Mode(slave_id);
 
   /* USER CODE END 2 */
@@ -111,13 +111,13 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     
-    if(NRF24L01_TxPacket(rx_buf)==TX_OK)
+    if(NRF24L01_RxPacket(rx_buf)==1)
     {
-      printf("Channel %d RX Success.\r\n",slave_id);
+      printf("Channel %d RX Success:%s.\r\n",slave_id,rx_buf);
     }
     else
     {
-      printf("Channel %d send Fail.\r\n",slave_id);
+      printf("Channel %d RX Nothing.\r\n",slave_id);
     } 
     
   }

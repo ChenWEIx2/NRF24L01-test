@@ -5,15 +5,15 @@
 /* 私有宏定义 ----------------------------------------------------------------*/                              
 /* 私有变量 ------------------------------------------------------------------*/
 
-const uint8_t TX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0发送地址
-const uint8_t TX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1发送地址
-const uint8_t TX_ADDRESS2[] = {0xd1};                     //通道2发送地址
-const uint8_t TX_ADDRESS3[] = {0xe1};                     //通道3发送地址
+const uint8_t TX_ADDRESS0[TX_ADR_WIDTH]={0xb0,0x43,0x10,0x10,0x01}; //发送地址
+const uint8_t TX_ADDRESS1[TX_ADR_WIDTH]={0xb1,0x43,0x10,0x10,0x02}; //发送地址
+const uint8_t TX_ADDRESS2[TX_ADR_WIDTH]={0xb2,0x43,0x10,0x10,0x02}; //发送地址
+const uint8_t TX_ADDRESS3[TX_ADR_WIDTH]={0xb3,0x43,0x10,0x10,0x02}; //发送地址
 
-const uint8_t RX_ADDRESS0[] = {0xb0,0x43,0x10,0x10,0x01}; //通道0接收地址
-const uint8_t RX_ADDRESS1[] = {0xc1,0xaa,0xa0,0xa0,0x02}; //通道1接收地址
-const uint8_t RX_ADDRESS2[] = {0xd1};                     //通道2接收地址
-const uint8_t RX_ADDRESS3[] = {0xe1};                     //通道3接收地址
+const uint8_t RX_ADDRESS0[RX_ADR_WIDTH]={0xb0,0x43,0x10,0x10,0x01};
+const uint8_t RX_ADDRESS1[RX_ADR_WIDTH]={0xb1,0x43,0x10,0x10,0x02};
+const uint8_t RX_ADDRESS2[RX_ADR_WIDTH]={0xb2,0x43,0x10,0x10,0x02};
+const uint8_t RX_ADDRESS3[RX_ADR_WIDTH]={0xb3,0x43,0x10,0x10,0x02};
 
 /* 扩展变量 ------------------------------------------------------------------*/
 /* 私有函数原形 --------------------------------------------------------------*/
@@ -149,15 +149,12 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 	if(sta&MAX_TX)                                       //达到最大重发次数
 	{
 		NRF24L01_Write_Reg(FLUSH_TX,0xff);                 //清除TX FIFO寄存器 
-    printf("TX_MAX Time.\r\n");
 		return MAX_TX; 
 	}
 	if(sta&TX_OK)                                        //发送完成
 	{
-    printf("TX_OK.\r\n");
 		return TX_OK;
 	}
-  printf("TX_Error\r\n");
 	return 0xff;                                         //其他原因发送失败
 }
 
@@ -171,153 +168,91 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 uint8_t NRF24L01_RxPacket(uint8_t *rxbuf)
 {
 	uint8_t sta;		    							   
-	sta=NRF24L01_Read_Reg(STATUS);                //读取状态寄存器的值    	 
+	sta=NRF24L01_Read_Reg(STATUS);  //读取状态寄存器的值    	 
 	NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志
-	if(sta&RX_OK)                                 //接收到数据
+	if(sta&RX_OK)//接收到数据
 	{
-    switch (sta&0x0e)
-    {
-    case 0x00:
-      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道0数据
-      printf("Channel 0 read successfully!\r\n");
-      break;
-    case 0x02:
-      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道1数据
-      printf("channel 1 read successfully!\r\n");
-      break;
-    case 0x04:
-      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道2数据
-      printf("channel 2 read successfully!\r\n");
-      break;
-    case 0x06:
-      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取通道3数据
-      printf("channel 3 read successfully!\r\n");
-      break;
-    default:
-      NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);  //读取数据
-      printf("Read successfully but unknow channel!\r\n");
-      break;
-    }
-		
-		NRF24L01_Write_Reg(FLUSH_RX,0xff);                      //清除RX FIFO寄存器 
+		NRF24L01_Read_Buf(RD_RX_PLOAD,rxbuf,RX_PLOAD_WIDTH);//读取数据
+		NRF24L01_Write_Reg(FLUSH_RX,0xff);//清除RX FIFO寄存器 
 		return 0; 
-	}
-  printf("Rx Nothing\r\n");	
-	return 1; //没收到任何数据
+	}	
+	return 1;//没收到任何数据
 }					    
 
 /**
   * 函数功能: 该函数初始化NRF24L01到RX模式
-  * 输入参数: 通道号1~4
+  * 输入参数: 无
   * 返 回 值: 无
   * 说    明：无
   *           
   */ 
-void NRF24L01_RX_Mode(uint8_t channel)
+void NRF24L01_RX_Mode(uint8_t i)
 {
-	NRF24L01_CE_LOW();
-  switch (channel)
-  {
-  case 0:                                                                            //通道0
-    NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 	    
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地址
-    break;
-  case 1:                                                                            //通道1
-    NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1的有效数据宽度 	    
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地址
-    break;
-  case 2:                                                                            //通道2
-    NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2的有效数据宽度 	    
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,1);            //写RX节点地址
-    break;
-  case 3:                                                                            //通道3
-    NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 	    
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,1);            //写RX节点地址
-    break;
-  default:                                                                           //默认通道0
-    NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 	    
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地址
-    break;
-  }	  
-  NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_CRC,16BIT_CRC 
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x3f);     //使能通道0~3的自动应答    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x3f); //使能通道0~3的接收地址  	 
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪声增益开启   
+	NRF24L01_CE_LOW();	  
+  NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);//配置基本工作模式的参数;PWR_UP,EN_CRC,16BIT_CRC 
+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x01);    //使能通道0的自动应答    
+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x01);//使能通道0的接收地址  	 
+  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	     //设置RF通信频率		  
+  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);//设置TX发射参数,0db增益,2Mbps,低噪声增益开启   
   
+  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);//选择通道0的有效数据宽度 	    
+
+  switch (i)
+  {
+  case 0:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH);//写RX节点地址
+    break;
+  case 1:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH);//写RX节点地址
+    break;
+  case 2:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH);//写RX节点地址
+    break;
+  case 3:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH);//写RX节点地址
+    break;
+  default:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH);//写RX节点地址
+    break;
+  }  
 	
   NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
   HAL_Delay(1);
 }						 
 
 /**
-  * 函数功能: 该函数初始化NRF24L01到主机RX模式
+  * 函数功能: 该函数初始化NRF24L01到TX模式
   * 输入参数: 无
   * 返 回 值: 无
   * 说    明：无
   *           
   */ 
-void NRF24L01_RX_Mode_Master(void)
-{
-	NRF24L01_CE_LOW();
-  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //写RX节点地址
-  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P1,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //写RX节点地址
-  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P2,(uint8_t*)RX_ADDRESS2,1);            //写RX节点地址
-  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P3,(uint8_t*)RX_ADDRESS3,1);            //写RX节点地址
-
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);                       //选择通道0的有效数据宽度 	    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P1,RX_PLOAD_WIDTH);                       //选择通道1的有效数据宽度 	    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P2,RX_PLOAD_WIDTH);                       //选择通道2的有效数据宽度 	    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RX_PW_P3,RX_PLOAD_WIDTH);                       //选择通道3的有效数据宽度 	    
-	  
-  NRF24L01_Write_Reg(NRF_WRITE_REG+CONFIG, 0x0F);   //配置基本工作模式的参数;PWR_UP,EN_CRC,16BIT_CRC 
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x0f);     //使能通道0~3的自动应答    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x0f); //使能通道0~3的接收地址  	 
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);	      //设置RF通信频率		  
-  NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪声增益开启   
-  
-	
-  NRF24L01_CE_HIGH(); //CE为高,进入接收模式 
-  HAL_Delay(1);
-}
-
-
-/**
-  * 函数功能: 该函数初始化NRF24L01到TX模式
-  * 输入参数: 通道号0~3
-  * 返 回 值: 无
-  * 说    明：无
-  *           
-  */ 
-void NRF24L01_TX_Mode(uint8_t channel)
+void NRF24L01_TX_Mode(uint8_t i)
 {														 
 	NRF24L01_CE_LOW();
-  switch (channel)
+  switch (i)
   {
-  case 0:                                                                            //通道0
-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);    //写TX节点地址 
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK
+  case 0:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);//写TX节点地址 
     break;
-  case 1:                                                                            //通道1
-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS1,TX_ADR_WIDTH);    //写TX节点地址 
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS1,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK
+  case 1:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS1,TX_ADR_WIDTH);//写TX节点地址 
     break;
-  case 2:                                                                            //通道2
-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);    //写TX节点地址，5字节 
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS2,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK
+  case 2:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS2,TX_ADR_WIDTH);//写TX节点地址 
     break;
-  case 3:                                                                            //通道3
-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);    //写TX节点地址，5字节 
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS3,RX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK
-    break;
-  default:                                                                           //默认通道0
-    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,1);               //写TX节点地址 
-    NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,TX_ADR_WIDTH); //设置RX节点地址,主要为了使能ACK
+  case 3:
+      NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS3,TX_ADR_WIDTH);//写TX节点地址 
+      break;
+  default:
+    NRF24L01_Write_Buf(NRF_WRITE_REG+TX_ADDR,(uint8_t*)TX_ADDRESS0,TX_ADR_WIDTH);//写TX节点地址 
     break;
   }	    
-	  
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x01);     //使能通道0的自动应答    
-  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x01); //使能通道0的接收地址  
+
+  NRF24L01_Write_Buf(NRF_WRITE_REG+RX_ADDR_P0,(uint8_t*)RX_ADDRESS0,RX_ADR_WIDTH); //设置TX节点地址,主要为了使能ACK	  
+
+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_AA,0x3f);     //使能通道0的自动应答    
+  NRF24L01_Write_Reg(NRF_WRITE_REG+EN_RXADDR,0x3f); //使能通道0的接收地址  
   NRF24L01_Write_Reg(NRF_WRITE_REG+SETUP_RETR,0xff);//设置自动重发间隔时间:4000us + 86us;最大自动重发次数:15次
   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_CH,40);       //设置RF通道为40
   NRF24L01_Write_Reg(NRF_WRITE_REG+RF_SETUP,0x0f);  //设置TX发射参数,0db增益,2Mbps,低噪声增益开启   

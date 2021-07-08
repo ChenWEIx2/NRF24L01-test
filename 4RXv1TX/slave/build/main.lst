@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   28:Core/Src/main.c **** #include "NRF24L01.h"
   29:Core/Src/main.c **** 
   30:Core/Src/main.c **** /* USER CODE END Includes */
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 2
 
 
   31:Core/Src/main.c **** 
@@ -80,7 +80,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   47:Core/Src/main.c **** 
   48:Core/Src/main.c **** /* USER CODE BEGIN PV */
   49:Core/Src/main.c **** uint8_t rx_buf[33];
-  50:Core/Src/main.c **** uint8_t slave_id = 0;   //0~3
+  50:Core/Src/main.c **** uint8_t slave_id = 2;   //0~3
   51:Core/Src/main.c **** /* USER CODE END PV */
   52:Core/Src/main.c **** 
   53:Core/Src/main.c **** /* Private function prototypes -----------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   85:Core/Src/main.c **** 
   86:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
   87:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 3
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 3
 
 
   88:Core/Src/main.c ****   /* USER CODE END SysInit */
@@ -134,7 +134,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   98:Core/Src/main.c ****     printf("Can not find NRF24L01\r\n"); 
   99:Core/Src/main.c **** 		HAL_Delay(1000);
  100:Core/Src/main.c **** 	}
- 101:Core/Src/main.c ****   printf("NRF24L01 connect sucessfullt\r\n");
+ 101:Core/Src/main.c ****   printf("NRF24L01 connect sucessfully\r\n");
  102:Core/Src/main.c ****   NRF24L01_RX_Mode(slave_id);
  103:Core/Src/main.c **** 
  104:Core/Src/main.c ****   /* USER CODE END 2 */
@@ -147,13 +147,13 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  111:Core/Src/main.c **** 
  112:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
  113:Core/Src/main.c ****     
- 114:Core/Src/main.c ****     if(NRF24L01_TxPacket(rx_buf)==TX_OK)
+ 114:Core/Src/main.c ****     if(NRF24L01_RxPacket(rx_buf)==1)
  115:Core/Src/main.c ****     {
- 116:Core/Src/main.c ****       printf("Channel %d RX Success.\r\n",slave_id);
+ 116:Core/Src/main.c ****       printf("Channel %d RX Success:%s.\r\n",slave_id,rx_buf);
  117:Core/Src/main.c ****     }
  118:Core/Src/main.c ****     else
  119:Core/Src/main.c ****     {
- 120:Core/Src/main.c ****       printf("Channel %d send Fail.\r\n",slave_id);
+ 120:Core/Src/main.c ****       printf("Channel %d RX Nothing.\r\n",slave_id);
  121:Core/Src/main.c ****     } 
  122:Core/Src/main.c ****     
  123:Core/Src/main.c ****   }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  142:Core/Src/main.c ****   */
  143:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
  144:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 4
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 4
 
 
  145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
    8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
    9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 5
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 5
 
 
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
   65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
   66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 6
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 6
 
 
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 7
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 7
 
 
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   71              		@ frame_needed = 0, uses_anonymous_args = 0
   72 0000 00B5     		push	{lr}
   73              	.LCFI0:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 8
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 8
 
 
   74              		.cfi_def_cfa_offset 4
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  115              		.loc 1 139 3 view .LVU20
  116 0032 1C4A     		ldr	r2, .L9+4
  117 0034 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 9
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 9
 
 
  118 0036 23F44043 		bic	r3, r3, #49152
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  155 0066 1293     		str	r3, [sp, #72]
  150:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
  156              		.loc 1 150 3 is_stmt 1 view .LVU38
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 10
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 10
 
 
  150:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  193              		.loc 1 168 1 view .LVU56
  194 0090 15B0     		add	sp, sp, #84
  195              	.LCFI2:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 11
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 11
 
 
  196              		.cfi_remember_state
@@ -634,31 +634,31 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  221      32344C30 
  222 0017 00       		.align	2
  223              	.LC1:
- 224 0018 4E524632 		.ascii	"NRF24L01 connect sucessfullt\015\000"
+ 224 0018 4E524632 		.ascii	"NRF24L01 connect sucessfully\015\000"
  224      344C3031 
  224      20636F6E 
  224      6E656374 
  224      20737563 
  225 0036 0000     		.align	2
  226              	.LC2:
- 227 0038 4368616E 		.ascii	"Channel %d RX Success.\015\012\000"
+ 227 0038 4368616E 		.ascii	"Channel %d RX Success:%s.\015\012\000"
  227      6E656C20 
  227      25642052 
  227      58205375 
  227      63636573 
- 228 0051 000000   		.align	2
+ 228              		.align	2
  229              	.LC3:
- 230 0054 4368616E 		.ascii	"Channel %d send Fail.\015\012\000"
+ 230 0054 4368616E 		.ascii	"Channel %d RX Nothing.\015\012\000"
  230      6E656C20 
- 230      25642073 
- 230      656E6420 
- 230      4661696C 
+ 230      25642052 
+ 230      58204E6F 
+ 230      7468696E 
  231              		.section	.text.main,"ax",%progbits
  232              		.align	1
  233              		.global	main
  234              		.syntax unified
  235              		.thumb
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 12
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 12
 
 
  236              		.thumb_func
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
   96:Core/Src/main.c **** 	{
  280              		.loc 1 96 8 is_stmt 0 view .LVU70
  281 0026 FFF7FEFF 		bl	NRF24L01_Check
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 13
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 13
 
 
  282              	.LVL12:
@@ -754,81 +754,81 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 1
  114:Core/Src/main.c ****     {
  306              		.loc 1 114 8 is_stmt 0 view .LVU77
  307 0048 0948     		ldr	r0, .L18+16
- 308 004a FFF7FEFF 		bl	NRF24L01_TxPacket
+ 308 004a FFF7FEFF 		bl	NRF24L01_RxPacket
  309              	.LVL16:
  114:Core/Src/main.c ****     {
  310              		.loc 1 114 7 view .LVU78
- 311 004e 2028     		cmp	r0, #32
+ 311 004e 0128     		cmp	r0, #1
  312 0050 F5D1     		bne	.L15
  116:Core/Src/main.c ****     }
  313              		.loc 1 116 7 is_stmt 1 view .LVU79
- 314 0052 054B     		ldr	r3, .L18+8
- 315 0054 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
- 316 0056 0748     		ldr	r0, .L18+20
- 317 0058 FFF7FEFF 		bl	printf
- 318              	.LVL17:
- 319 005c F4E7     		b	.L14
- 320              	.L19:
- 321 005e 00BF     		.align	2
- 322              	.L18:
- 323 0060 00000000 		.word	.LC0
- 324 0064 18000000 		.word	.LC1
- 325 0068 00000000 		.word	.LANCHOR0
- 326 006c 54000000 		.word	.LC3
- 327 0070 00000000 		.word	rx_buf
- 328 0074 38000000 		.word	.LC2
- 329              		.cfi_endproc
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 14
+ 314 0052 074A     		ldr	r2, .L18+16
+ 315 0054 044B     		ldr	r3, .L18+8
+ 316 0056 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 317 0058 0648     		ldr	r0, .L18+20
+ 318 005a FFF7FEFF 		bl	printf
+ 319              	.LVL17:
+ 320 005e F3E7     		b	.L14
+ 321              	.L19:
+ 322              		.align	2
+ 323              	.L18:
+ 324 0060 00000000 		.word	.LC0
+ 325 0064 18000000 		.word	.LC1
+ 326 0068 00000000 		.word	.LANCHOR0
+ 327 006c 54000000 		.word	.LC3
+ 328 0070 00000000 		.word	rx_buf
+ 329 0074 38000000 		.word	.LC2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 14
 
 
- 330              	.LFE133:
- 332              		.global	slave_id
- 333              		.comm	rx_buf,33,4
- 334              		.section	.bss.slave_id,"aw",%nobits
- 335              		.set	.LANCHOR0,. + 0
- 338              	slave_id:
- 339 0000 00       		.space	1
- 340              		.text
- 341              	.Letext0:
- 342              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
- 343              		.file 4 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
- 344              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 345              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 346              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
- 347              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 348              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 349              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 350              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 351              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 352              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 353              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 354              		.file 15 "Core/Inc/spi.h"
- 355              		.file 16 "Core/Inc/usart.h"
- 356              		.file 17 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
- 357              		.file 18 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
- 358              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
- 359              		.file 20 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
- 360              		.file 21 "Core/Inc/gpio.h"
- 361              		.file 22 "<built-in>"
- 362              		.file 23 "Core/Inc/NRF24L01.h"
- 363              		.file 24 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s 			page 15
+ 330              		.cfi_endproc
+ 331              	.LFE133:
+ 333              		.global	slave_id
+ 334              		.comm	rx_buf,33,4
+ 335              		.section	.data.slave_id,"aw"
+ 336              		.set	.LANCHOR0,. + 0
+ 339              	slave_id:
+ 340 0000 02       		.byte	2
+ 341              		.text
+ 342              	.Letext0:
+ 343              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 344              		.file 4 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 345              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 346              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 347              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 348              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 349              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 350              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 351              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 352              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 353              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 354              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 355              		.file 15 "Core/Inc/spi.h"
+ 356              		.file 16 "Core/Inc/usart.h"
+ 357              		.file 17 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
+ 358              		.file 18 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
+ 359              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 360              		.file 20 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
+ 361              		.file 21 "Core/Inc/gpio.h"
+ 362              		.file 22 "<built-in>"
+ 363              		.file 23 "Core/Inc/NRF24L01.h"
+ 364              		.file 24 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:18     .text.Error_Handler:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:26     .text.Error_Handler:00000000 Error_Handler
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:59     .text.SystemClock_Config:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:66     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:213    .text.SystemClock_Config:000000a0 $d
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:219    .rodata.main.str1.4:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:232    .text.main:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:239    .text.main:00000000 main
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:323    .text.main:00000060 $d
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:18     .text.Error_Handler:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:26     .text.Error_Handler:00000000 Error_Handler
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:59     .text.SystemClock_Config:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:66     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:213    .text.SystemClock_Config:000000a0 $d
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:219    .rodata.main.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:232    .text.main:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:239    .text.main:00000000 main
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:324    .text.main:00000060 $d
                             *COM*:00000021 rx_buf
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:338    .bss.slave_id:00000000 slave_id
-C:\Users\Kiana\AppData\Local\Temp\ccZNEii3.s:339    .bss.slave_id:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\ccs1h6Bs.s:339    .data.slave_id:00000000 slave_id
 
 UNDEFINED SYMBOLS
 memset
@@ -843,4 +843,4 @@ HAL_Delay
 NRF24L01_Check
 NRF24L01_RX_Mode
 printf
-NRF24L01_TxPacket
+NRF24L01_RxPacket

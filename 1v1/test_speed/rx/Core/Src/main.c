@@ -112,7 +112,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     if(NRF24L01_RxPacket(rx_buf)==0)
     {      
-      printf("接收成功。\r\n");
+      printf("Receive success:%d,%d,%d,%d。\r\n",rx_buf[0],rx_buf[1],rx_buf[2],rx_buf[3]);
     }
     HAL_Delay(10);   
 

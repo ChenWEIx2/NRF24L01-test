@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
   28:Core/Src/main.c **** #include "NRF24L01.h"
   29:Core/Src/main.c **** #include "stdio.h"
   30:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 2
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 2
 
 
   31:Core/Src/main.c **** /* USER CODE END Includes */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
   85:Core/Src/main.c **** 
   86:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
   87:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 3
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 3
 
 
   88:Core/Src/main.c ****   /* USER CODE END SysInit */
@@ -148,7 +148,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  112:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
  113:Core/Src/main.c ****     if(NRF24L01_RxPacket(rx_buf)==0)
  114:Core/Src/main.c ****     {      
- 115:Core/Src/main.c ****       printf("接收成功。\r\n");
+ 115:Core/Src/main.c ****       printf("Receive:%d\r\n",rx_buf[0]);
  116:Core/Src/main.c ****     }
  117:Core/Src/main.c ****     HAL_Delay(10);   
  118:Core/Src/main.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
  143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 25;
  144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 144;
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 4
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 4
 
 
  145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 5
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 5
 
 
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 6
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 6
 
 
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 7
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 7
 
 
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
   75              		.cfi_offset 14, -4
   76 0002 95B0     		sub	sp, sp, #84
   77              	.LCFI1:
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 8
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 8
 
 
   78              		.cfi_def_cfa_offset 88
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  119 003a 43F40043 		orr	r3, r3, #32768
  120 003e 1360     		str	r3, [r2]
  135:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 9
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 9
 
 
  121              		.loc 1 135 3 view .LVU21
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  157              		.loc 1 146 30 is_stmt 0 view .LVU39
  158 0068 0423     		movs	r3, #4
  159 006a 1393     		str	r3, [sp, #76]
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 10
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 10
 
 
  147:Core/Src/main.c ****   {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  197              		.cfi_def_cfa_offset 4
  198              		@ sp needed
  199 0092 5DF804FB 		ldr	pc, [sp], #4
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 11
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 11
 
 
  200              	.L7:
@@ -637,172 +637,174 @@ ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 1
  224      20737563 
  225 0036 0000     		.align	2
  226              	.LC2:
- 227 0038 E68EA5E6 		.ascii	"\346\216\245\346\224\266\346\210\220\345\212\237\343"
- 227      94B6E688 
- 227      90E58A9F 
- 227      E3
- 228 0045 80820D00 		.ascii	"\200\202\015\000"
- 229              		.section	.text.main,"ax",%progbits
- 230              		.align	1
- 231              		.global	main
- 232              		.syntax unified
- 233              		.thumb
- 234              		.thumb_func
- 235              		.fpu fpv4-sp-d16
- 237              	main:
- 238              	.LFB133:
+ 227 0038 52656365 		.ascii	"Receive:%d\015\012\000"
+ 227      6976653A 
+ 227      25640D0A 
+ 227      00
+ 228              		.section	.text.main,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	main
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.fpu fpv4-sp-d16
+ 236              	main:
+ 237              	.LFB133:
   69:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
- 239              		.loc 1 69 1 view -0
- 240              		.cfi_startproc
- 241              		@ Volatile: function does not return.
- 242              		@ args = 0, pretend = 0, frame = 0
- 243              		@ frame_needed = 0, uses_anonymous_args = 0
- 244 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 12
+ 238              		.loc 1 69 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ Volatile: function does not return.
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243 0000 08B5     		push	{r3, lr}
+ 244              	.LCFI4:
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 12
 
 
- 245              	.LCFI4:
- 246              		.cfi_def_cfa_offset 8
- 247              		.cfi_offset 3, -8
- 248              		.cfi_offset 14, -4
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 3, -8
+ 247              		.cfi_offset 14, -4
   77:Core/Src/main.c **** 
- 249              		.loc 1 77 3 view .LVU60
- 250 0002 FFF7FEFF 		bl	HAL_Init
- 251              	.LVL5:
+ 248              		.loc 1 77 3 view .LVU60
+ 249 0002 FFF7FEFF 		bl	HAL_Init
+ 250              	.LVL5:
   84:Core/Src/main.c **** 
- 252              		.loc 1 84 3 view .LVU61
- 253 0006 FFF7FEFF 		bl	SystemClock_Config
- 254              	.LVL6:
+ 251              		.loc 1 84 3 view .LVU61
+ 252 0006 FFF7FEFF 		bl	SystemClock_Config
+ 253              	.LVL6:
   91:Core/Src/main.c ****   MX_USART1_UART_Init();
- 255              		.loc 1 91 3 view .LVU62
- 256 000a FFF7FEFF 		bl	MX_GPIO_Init
- 257              	.LVL7:
+ 254              		.loc 1 91 3 view .LVU62
+ 255 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 256              	.LVL7:
   92:Core/Src/main.c ****   MX_SPI2_Init();
- 258              		.loc 1 92 3 view .LVU63
- 259 000e FFF7FEFF 		bl	MX_USART1_UART_Init
- 260              	.LVL8:
+ 257              		.loc 1 92 3 view .LVU63
+ 258 000e FFF7FEFF 		bl	MX_USART1_UART_Init
+ 259              	.LVL8:
   93:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 261              		.loc 1 93 3 view .LVU64
- 262 0012 FFF7FEFF 		bl	MX_SPI2_Init
- 263              	.LVL9:
+ 260              		.loc 1 93 3 view .LVU64
+ 261 0012 FFF7FEFF 		bl	MX_SPI2_Init
+ 262              	.LVL9:
   96:Core/Src/main.c **** 	{
- 264              		.loc 1 96 2 view .LVU65
+ 263              		.loc 1 96 2 view .LVU65
   96:Core/Src/main.c **** 	{
- 265              		.loc 1 96 7 is_stmt 0 view .LVU66
- 266 0016 06E0     		b	.L12
- 267              	.L13:
+ 264              		.loc 1 96 7 is_stmt 0 view .LVU66
+ 265 0016 06E0     		b	.L12
+ 266              	.L13:
   98:Core/Src/main.c **** 		HAL_Delay(1000);
- 268              		.loc 1 98 5 is_stmt 1 view .LVU67
- 269 0018 0E48     		ldr	r0, .L17
- 270 001a FFF7FEFF 		bl	puts
- 271              	.LVL10:
+ 267              		.loc 1 98 5 is_stmt 1 view .LVU67
+ 268 0018 0F48     		ldr	r0, .L17
+ 269 001a FFF7FEFF 		bl	puts
+ 270              	.LVL10:
   99:Core/Src/main.c **** 	}
- 272              		.loc 1 99 3 view .LVU68
- 273 001e 4FF47A70 		mov	r0, #1000
- 274 0022 FFF7FEFF 		bl	HAL_Delay
- 275              	.LVL11:
- 276              	.L12:
+ 271              		.loc 1 99 3 view .LVU68
+ 272 001e 4FF47A70 		mov	r0, #1000
+ 273 0022 FFF7FEFF 		bl	HAL_Delay
+ 274              	.LVL11:
+ 275              	.L12:
   96:Core/Src/main.c **** 	{
- 277              		.loc 1 96 7 view .LVU69
+ 276              		.loc 1 96 7 view .LVU69
   96:Core/Src/main.c **** 	{
- 278              		.loc 1 96 8 is_stmt 0 view .LVU70
- 279 0026 FFF7FEFF 		bl	NRF24L01_Check
- 280              	.LVL12:
+ 277              		.loc 1 96 8 is_stmt 0 view .LVU70
+ 278 0026 FFF7FEFF 		bl	NRF24L01_Check
+ 279              	.LVL12:
   96:Core/Src/main.c **** 	{
- 281              		.loc 1 96 7 view .LVU71
- 282 002a 0028     		cmp	r0, #0
- 283 002c F4D1     		bne	.L13
+ 280              		.loc 1 96 7 view .LVU71
+ 281 002a 0028     		cmp	r0, #0
+ 282 002c F4D1     		bne	.L13
  101:Core/Src/main.c ****   NRF24L01_RX_Mode();
- 284              		.loc 1 101 3 is_stmt 1 view .LVU72
- 285 002e 0A48     		ldr	r0, .L17+4
- 286 0030 FFF7FEFF 		bl	puts
- 287              	.LVL13:
+ 283              		.loc 1 101 3 is_stmt 1 view .LVU72
+ 284 002e 0B48     		ldr	r0, .L17+4
+ 285 0030 FFF7FEFF 		bl	puts
+ 286              	.LVL13:
  102:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 13
+ 287              		.loc 1 102 3 view .LVU73
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 13
 
 
- 288              		.loc 1 102 3 view .LVU73
- 289 0034 FFF7FEFF 		bl	NRF24L01_RX_Mode
- 290              	.LVL14:
- 291 0038 02E0     		b	.L15
- 292              	.L14:
+ 288 0034 FFF7FEFF 		bl	NRF24L01_RX_Mode
+ 289              	.LVL14:
+ 290 0038 02E0     		b	.L15
+ 291              	.L14:
  117:Core/Src/main.c **** 
- 293              		.loc 1 117 5 view .LVU74
- 294 003a 0A20     		movs	r0, #10
- 295 003c FFF7FEFF 		bl	HAL_Delay
- 296              	.LVL15:
+ 292              		.loc 1 117 5 view .LVU74
+ 293 003a 0A20     		movs	r0, #10
+ 294 003c FFF7FEFF 		bl	HAL_Delay
+ 295              	.LVL15:
  108:Core/Src/main.c ****   {
- 297              		.loc 1 108 9 view .LVU75
- 298              	.L15:
+ 296              		.loc 1 108 9 view .LVU75
+ 297              	.L15:
  108:Core/Src/main.c ****   {
- 299              		.loc 1 108 3 view .LVU76
+ 298              		.loc 1 108 3 view .LVU76
  113:Core/Src/main.c ****     {      
- 300              		.loc 1 113 5 view .LVU77
+ 299              		.loc 1 113 5 view .LVU77
  113:Core/Src/main.c ****     {      
- 301              		.loc 1 113 8 is_stmt 0 view .LVU78
- 302 0040 0648     		ldr	r0, .L17+8
- 303 0042 FFF7FEFF 		bl	NRF24L01_RxPacket
- 304              	.LVL16:
+ 300              		.loc 1 113 8 is_stmt 0 view .LVU78
+ 301 0040 0748     		ldr	r0, .L17+8
+ 302 0042 FFF7FEFF 		bl	NRF24L01_RxPacket
+ 303              	.LVL16:
  113:Core/Src/main.c ****     {      
- 305              		.loc 1 113 7 view .LVU79
- 306 0046 0028     		cmp	r0, #0
- 307 0048 F7D1     		bne	.L14
+ 304              		.loc 1 113 7 view .LVU79
+ 305 0046 0028     		cmp	r0, #0
+ 306 0048 F7D1     		bne	.L14
  115:Core/Src/main.c ****     }
- 308              		.loc 1 115 7 is_stmt 1 view .LVU80
- 309 004a 0548     		ldr	r0, .L17+12
- 310 004c FFF7FEFF 		bl	puts
- 311              	.LVL17:
- 312 0050 F3E7     		b	.L14
- 313              	.L18:
- 314 0052 00BF     		.align	2
- 315              	.L17:
- 316 0054 00000000 		.word	.LC0
- 317 0058 18000000 		.word	.LC1
- 318 005c 00000000 		.word	rx_buf
- 319 0060 38000000 		.word	.LC2
- 320              		.cfi_endproc
- 321              	.LFE133:
- 323              		.comm	rx_buf,32,4
- 324              		.text
- 325              	.Letext0:
- 326              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
- 327              		.file 4 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
- 328              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 329              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 330              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
- 331              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 332              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 333              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 334              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 335              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 336              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 337              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 338              		.file 15 "Core/Inc/spi.h"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 14
+ 307              		.loc 1 115 7 is_stmt 1 view .LVU80
+ 308 004a 054B     		ldr	r3, .L17+8
+ 309 004c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 310 004e 0548     		ldr	r0, .L17+12
+ 311 0050 FFF7FEFF 		bl	printf
+ 312              	.LVL17:
+ 313 0054 F1E7     		b	.L14
+ 314              	.L18:
+ 315 0056 00BF     		.align	2
+ 316              	.L17:
+ 317 0058 00000000 		.word	.LC0
+ 318 005c 18000000 		.word	.LC1
+ 319 0060 00000000 		.word	rx_buf
+ 320 0064 38000000 		.word	.LC2
+ 321              		.cfi_endproc
+ 322              	.LFE133:
+ 324              		.comm	rx_buf,32,4
+ 325              		.text
+ 326              	.Letext0:
+ 327              		.file 3 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 328              		.file 4 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 329              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 330              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 331              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 332              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 333              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 334              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 335              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 336              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 337              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 338              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 14
 
 
- 339              		.file 16 "Core/Inc/usart.h"
- 340              		.file 17 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
- 341              		.file 18 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
- 342              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
- 343              		.file 20 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
- 344              		.file 21 "Core/Inc/gpio.h"
- 345              		.file 22 "<built-in>"
- 346              		.file 23 "Core/Inc/NRF24L01.h"
-ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s 			page 15
+ 339              		.file 15 "Core/Inc/spi.h"
+ 340              		.file 16 "Core/Inc/usart.h"
+ 341              		.file 17 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\lock.h"
+ 342              		.file 18 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\_types.h"
+ 343              		.file 19 "d:\\vs_code_stm32\\9 2019-q4-major\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 344              		.file 20 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\sys\\reent.h"
+ 345              		.file 21 "Core/Inc/gpio.h"
+ 346              		.file 22 "<built-in>"
+ 347              		.file 23 "Core/Inc/NRF24L01.h"
+ 348              		.file 24 "d:\\vs_code_stm32\\9 2019-q4-major\\arm-none-eabi\\include\\stdio.h"
+ARM GAS  C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:18     .text.Error_Handler:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:26     .text.Error_Handler:00000000 Error_Handler
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:59     .text.SystemClock_Config:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:66     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:213    .text.SystemClock_Config:000000a0 $d
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:219    .rodata.main.str1.4:00000000 $d
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:230    .text.main:00000000 $t
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:237    .text.main:00000000 main
-C:\Users\Kiana\AppData\Local\Temp\cc6hs2SX.s:316    .text.main:00000054 $d
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:18     .text.Error_Handler:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:26     .text.Error_Handler:00000000 Error_Handler
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:59     .text.SystemClock_Config:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:66     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:213    .text.SystemClock_Config:000000a0 $d
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:219    .rodata.main.str1.4:00000000 $d
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:229    .text.main:00000000 $t
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:236    .text.main:00000000 main
+C:\Users\Kiana\AppData\Local\Temp\cc67lZOX.s:317    .text.main:00000058 $d
                             *COM*:00000020 rx_buf
 
 UNDEFINED SYMBOLS
@@ -818,3 +820,4 @@ HAL_Delay
 NRF24L01_Check
 NRF24L01_RX_Mode
 NRF24L01_RxPacket
+printf

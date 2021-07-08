@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1624517874170,
@@ -20,6 +20,14 @@
                 {
                     "date": 1624522664085,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n /* 包含头文件 ----------------------------------------------------------------*/\r\n #include \"stm32f4xx_hal.h\"\r\n #include \"main.h\"\r\n #include \"usart.h\"\r\n+#include <stdio.h>\r\n \r\n /* 类型定义 ------------------------------------------------------------------*/\r\n /* 宏定义 --------------------------------------------------------------------*/\r\n #define NRF24L01_SPIx                                 SPI2\r\n"
+                },
+                {
+                    "date": 1625762276031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,10 @@\n \r\n /* 包含头文件 ----------------------------------------------------------------*/\r\n #include \"stm32f4xx_hal.h\"\r\n #include \"main.h\"\r\n-#include \"usart.h\"\r\n-#include <stdio.h>\r\n \r\n+\r\n /* 类型定义 ------------------------------------------------------------------*/\r\n /* 宏定义 --------------------------------------------------------------------*/\r\n #define NRF24L01_SPIx                                 SPI2\r\n #define NRF24L01_SPIx_RCC_CLK_ENABLE()                __HAL_RCC_SPI2_CLK_ENABLE()\r\n@@ -82,11 +81,10 @@\n \r\n /* 函数声明 ------------------------------------------------------------------*/\r\n \r\n void NRF24L01_SPI_Init(void);\r\n-void NRF24L01_TX_Mode(uint8_t channel);\t\t\t\t\t                     //配置为发送模式\r\n-void NRF24L01_RX_Mode(uint8_t channel);\t\t\t\t\t                     //配置为接收模式\r\n-void NRF24L01_RX_Mode_Master(void);                                          //主机的接收模式\r\n+void NRF24L01_RX_Mode(uint8_t i);\t\t\t\t\t                             //配置为接收模式\r\n+void NRF24L01_TX_Mode(uint8_t i);\t\t\t\t\t                             //配置为发送模式\r\n uint8_t NRF24L01_Write_Buf(uint8_t reg, uint8_t *pBuf, uint8_t uint8_ts);    //写数据区\r\n uint8_t NRF24L01_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t uint8_ts);\t //读数据区\t\t  \r\n uint8_t NRF24L01_Read_Reg(uint8_t reg);\t\t\t\t\t                     //读寄存器\r\n uint8_t NRF24L01_Write_Reg(uint8_t reg, uint8_t value);\t\t                 //写寄存器\r\n"
+                },
+                {
+                    "date": 1625762719250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n \r\n /* 包含头文件 ----------------------------------------------------------------*/\r\n #include \"stm32f4xx_hal.h\"\r\n #include \"main.h\"\r\n+#include \"usart.h\"\r\n+#include \"stdio.h\"\r\n \r\n \r\n /* 类型定义 ------------------------------------------------------------------*/\r\n /* 宏定义 --------------------------------------------------------------------*/\r\n"
                 }
             ],
             "date": 1624517874170,

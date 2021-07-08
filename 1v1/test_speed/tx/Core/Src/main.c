@@ -130,7 +130,7 @@ int main(void)
       time_interval = time_now - time_last;
       time_last = time_now;
       
-      tx_speed += (4.0/(time_interval / 1000000.0));      //1 Byte per second
+      tx_speed += (21.0/(time_interval / 1000000.0));      //1 Byte per second
       
       tx_count = tx_count + 1;
     }

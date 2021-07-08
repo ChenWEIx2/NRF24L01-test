@@ -46,8 +46,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buf[33] = "slave-3";
-uint8_t slave_id = 3;   //0~3
+uint8_t tx_buf[33] = "slave-0";
+uint8_t slave_id = 0;   //0~3
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

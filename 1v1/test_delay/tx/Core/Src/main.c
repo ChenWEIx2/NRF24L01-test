@@ -48,7 +48,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buf[1] = {11};
+uint8_t tx_buf[1] = {18};
 uint8_t tx_count = 0;
 
 volatile uint32_t timer_count;
@@ -133,7 +133,7 @@ int main(void)
       time_last = 0;
       tx_count = 0;
 
-      printf("Delay:%d\r\n",tx_delay);
+      printf("Delay=%d\r\n",tx_delay);
     }
 
 

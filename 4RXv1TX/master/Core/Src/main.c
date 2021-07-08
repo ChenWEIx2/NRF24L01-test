@@ -123,6 +123,7 @@ int main(void)
     else printf("Channel 2 TX Fail.\r\n");
     HAL_Delay(1000);
 
+  
     NRF24L01_TX_Mode(3);
     if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Channel 3 TX Success.\r\n");
     else printf("Channel 3 TX Fail.\r\n");

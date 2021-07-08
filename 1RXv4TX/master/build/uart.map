@@ -892,8 +892,10 @@ Discarded input sections
  .text          0x00000000        0x0 build/NRF24L01.o
  .data          0x00000000        0x0 build/NRF24L01.o
  .bss           0x00000000        0x0 build/NRF24L01.o
+ .rodata.NRF24L01_TxPacket.str1.4
+                0x00000000       0x22 build/NRF24L01.o
  .text.NRF24L01_TxPacket
-                0x00000000       0x70 build/NRF24L01.o
+                0x00000000       0x8c build/NRF24L01.o
  .text.NRF24L01_RX_Mode
                 0x00000000       0xd0 build/NRF24L01.o
  .text.NRF24L01_TX_Mode
@@ -2091,7 +2093,7 @@ LOAD d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v
                 0x00000d3c       0x1e d:/vs_code_stm32/9 2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(build/uart.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xe4a8
+.debug_info     0x00000000     0xe4ed
  .debug_info    0x00000000     0x1a07 build/main.o
  .debug_info    0x00001a07      0x60c build/gpio.o
  .debug_info    0x00002013      0xc24 build/spi.o
@@ -2105,8 +2107,8 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_info    0x000090f8      0xaef build/stm32f4xx_hal.o
  .debug_info    0x00009be7     0x1f46 build/stm32f4xx_hal_uart.o
  .debug_info    0x0000bb2d      0x66e build/system_stm32f4xx.o
- .debug_info    0x0000c19b     0x22eb build/NRF24L01.o
- .debug_info    0x0000e486       0x22 build/startup_stm32f401xc.o
+ .debug_info    0x0000c19b     0x2330 build/NRF24L01.o
+ .debug_info    0x0000e4cb       0x22 build/startup_stm32f401xc.o
 
 .debug_abbrev   0x00000000     0x20cc
  .debug_abbrev  0x00000000      0x2de build/main.o
@@ -2190,7 +2192,7 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_ranges  0x00000758       0x60 build/NRF24L01.o
  .debug_ranges  0x000007b8       0x20 build/startup_stm32f401xc.o
 
-.debug_line     0x00000000     0x7ea3
+.debug_line     0x00000000     0x7eba
  .debug_line    0x00000000      0x43e build/main.o
  .debug_line    0x0000043e      0x1f8 build/gpio.o
  .debug_line    0x00000636      0x310 build/spi.o
@@ -2204,8 +2206,8 @@ OUTPUT(build/uart.elf elf32-littlearm)
  .debug_line    0x00004fb6      0x541 build/stm32f4xx_hal.o
  .debug_line    0x000054f7     0x20d4 build/stm32f4xx_hal_uart.o
  .debug_line    0x000075cb      0x262 build/system_stm32f4xx.o
- .debug_line    0x0000782d      0x600 build/NRF24L01.o
- .debug_line    0x00007e2d       0x76 build/startup_stm32f401xc.o
+ .debug_line    0x0000782d      0x617 build/NRF24L01.o
+ .debug_line    0x00007e44       0x76 build/startup_stm32f401xc.o
 
 .debug_str      0x00000000     0x2bf2
  .debug_str     0x00000000      0xe9e build/main.o
