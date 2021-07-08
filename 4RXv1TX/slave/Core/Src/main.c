@@ -47,7 +47,7 @@
 
 /* USER CODE BEGIN PV */
 uint8_t rx_buf[33];
-uint8_t slave_id = 2;   //0~3
+uint8_t slave_id = 3;   //0~3
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,11 +113,11 @@ int main(void)
     
     if(NRF24L01_RxPacket(rx_buf)==1)
     {
-      printf("Channel %d RX Success:%s.\r\n",slave_id,rx_buf);
+      printf("Address %d RX Success:%s.\r\n",slave_id,rx_buf);
     }
     else
     {
-      printf("Channel %d RX Nothing.\r\n",slave_id);
+      printf("Address %d RX Nothing.\r\n",slave_id);
     } 
     
   }

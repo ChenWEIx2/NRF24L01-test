@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 26,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1624516517756,
@@ -112,6 +112,10 @@
                 {
                     "date": 1625764883432,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,14 +122,12 @@\n     if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 2 TX Success.\\r\\n\");\r\n     else printf(\"Channel 2 TX Fail.\\r\\n\");\r\n     HAL_Delay(1000);\r\n \r\n-    /*\r\n+  \r\n     NRF24L01_TX_Mode(3);\r\n     if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 3 TX Success.\\r\\n\");\r\n     else printf(\"Channel 3 TX Fail.\\r\\n\");\r\n-    */\r\n-    printf(\"Channel 3 TX Success.\\r\\n\");\r\n     HAL_Delay(1000);\r\n   \r\n   }\r\n   /* USER CODE END 3 */\r\n"
+                },
+                {
+                    "date": 1625766352829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,26 +108,26 @@\n \r\n     /* USER CODE BEGIN 3 */\r\n \r\n     NRF24L01_TX_Mode(0);\r\n-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 0 TX Success.\\r\\n\");\r\n-    else printf(\"Channel 0 TX Fail.\\r\\n\");\r\n+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Address 0 TX Success.\\r\\n\");\r\n+    else printf(\"Address 0 TX Fail.\\r\\n\");\r\n     HAL_Delay(1000);\r\n \r\n     NRF24L01_TX_Mode(1);\r\n-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 1 TX Success.\\r\\n\");\r\n-    else printf(\"Channel 1 TX Fail.\\r\\n\");\r\n+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Address 1 TX Success.\\r\\n\");\r\n+    else printf(\"Address 1 TX Fail.\\r\\n\");\r\n     HAL_Delay(1000);\r\n \r\n     NRF24L01_TX_Mode(2);\r\n-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 2 TX Success.\\r\\n\");\r\n-    else printf(\"Channel 2 TX Fail.\\r\\n\");\r\n+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Address 2 TX Success.\\r\\n\");\r\n+    else printf(\"Address 2 TX Fail.\\r\\n\");\r\n     HAL_Delay(1000);\r\n \r\n   \r\n     NRF24L01_TX_Mode(3);\r\n-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Channel 3 TX Success.\\r\\n\");\r\n-    else printf(\"Channel 3 TX Fail.\\r\\n\");\r\n+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf(\"Address 3 TX Success.\\r\\n\");\r\n+    else printf(\"Address 3 TX Fail.\\r\\n\");\r\n     HAL_Delay(1000);\r\n   \r\n   }\r\n   /* USER CODE END 3 */\r\n"
                 }
             ],
             "date": 1624516517756,

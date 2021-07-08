@@ -109,24 +109,24 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     NRF24L01_TX_Mode(0);
-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Channel 0 TX Success.\r\n");
-    else printf("Channel 0 TX Fail.\r\n");
+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Address 0 TX Success.\r\n");
+    else printf("Address 0 TX Fail.\r\n");
     HAL_Delay(1000);
 
     NRF24L01_TX_Mode(1);
-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Channel 1 TX Success.\r\n");
-    else printf("Channel 1 TX Fail.\r\n");
+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Address 1 TX Success.\r\n");
+    else printf("Address 1 TX Fail.\r\n");
     HAL_Delay(1000);
 
     NRF24L01_TX_Mode(2);
-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Channel 2 TX Success.\r\n");
-    else printf("Channel 2 TX Fail.\r\n");
+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Address 2 TX Success.\r\n");
+    else printf("Address 2 TX Fail.\r\n");
     HAL_Delay(1000);
 
   
     NRF24L01_TX_Mode(3);
-    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Channel 3 TX Success.\r\n");
-    else printf("Channel 3 TX Fail.\r\n");
+    if(NRF24L01_TxPacket(tx_buf) == TX_OK) printf("Address 3 TX Success.\r\n");
+    else printf("Address 3 TX Fail.\r\n");
     HAL_Delay(1000);
   
   }
